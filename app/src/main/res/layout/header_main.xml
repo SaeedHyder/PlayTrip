@@ -62,7 +62,7 @@
         android:layout_alignStart="@+id/btnRight2"
         android:layout_alignTop="@+id/btnRight2">
 
-        <com.app.playtrip.ui.views.AnyTextView
+        <TextView
             android:id="@+id/txtBadge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -77,7 +77,6 @@
             android:text="22"
             android:textColor="@color/black"
             android:textSize="@dimen/x7"
-            app:typeface="@string/font_bold"
             />
     </RelativeLayout>
 

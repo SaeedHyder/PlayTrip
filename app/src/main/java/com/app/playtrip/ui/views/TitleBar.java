@@ -16,7 +16,7 @@ public class TitleBar extends RelativeLayout {
 	private ImageView btnLeft;
 	private ImageView btnRight2;
 	private ImageView btnRight;
-	private AnyTextView txtBadge;
+	private TextView txtBadge;
 
 
 	private View.OnClickListener menuButtonListener;
@@ -55,7 +55,7 @@ public class TitleBar extends RelativeLayout {
 		btnRight = (ImageView) this.findViewById(R.id.btnRight);
 		btnRight2 = (ImageView) this.findViewById(R.id.btnRight2);
 		btnLeft = (ImageView) this.findViewById(R.id.btnLeft);
-		txtBadge = (AnyTextView) findViewById(R.id.txtBadge);
+		txtBadge = (TextView) findViewById(R.id.txtBadge);
 
 	}
 
