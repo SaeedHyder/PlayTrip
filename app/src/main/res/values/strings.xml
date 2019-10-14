@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- mark favourite message -->
+
+
+    <string name="api_key">AIzaSyD_mPqpv43RBl7plkEhr49a4DJdtiMOkFw</string>
+    <string name="app_name">Play Trip</string>
+    <string name="action_settings">Settings</string>
+    <string name="facebook_app_id">359582864595251</string>
+    <string name="fb_login_protocol_scheme">fb359582864595251</string>
+
+    <!-- Error Messages -->
+    <string name="msg_connection_failed">Error! Connection to server failed.</string>
+    <string name="msg_connection_error">Please check your internet connection</string>
+
+    <!-- AnyTextView -->
+    <string name="typeface_not_found">Typeface %$1 not found, or could not be loaded.Showing default typeface.</string>
+    <string name="app">AnyTextView</string>
+    <string name="assets_fonts_folder">fonts/</string>
+    <string name="search_hint">Search Ads, User or Category</string>
+    <string name="lorem_small_2">Lorem Ipsum is simply dummy text of the printing and types etting industry. </string>
+    <string name="lorem_small">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.</string>
+    <string name="message_quit">Are you sure you want to exit?</string>
+    <string name="message_wait">Please wait while data is loading.</string>
+    <string name="gps_question">Location is turned of Do you want to enable it ?</string>
+    <string name="gps_yes">Yes</string>
+    <string name="gps_no">No</string>
+    <string name="wifi_question">No Network found  Do you want to enable Wifi ?</string>
+    <!--FONTS-->
+    <string name="font_normal">Poppins-Regular.ttf</string>
+    <string name="font_bold">Poppins-Bold.ttf</string>
+    <string name="font_semibold">Poppins-SemiBold.ttf</string>
+
+    <string name="connection_lost">No Internet Found</string>
+    <string name="notification">Notifications</string>
+
+    <string name="login">Login</string>
+    <string name="profile">Profile</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+
+
+
+    <string name="samePassword">New password should be changed from previous password</string>
+    <string name="conform_password_error">confirm password does not match</string>
+    <string name="enter_confirm_password">Confirm Password Field cannot be Empty</string>
+    <string name="confirmpasswordLength">Confirm Password cannot be less than 6 characters</string>
+
+
+
+
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Simple Colors -->
+    <color name="transparent">#00000000</color>
+    <color name="black">#000</color>
+    <color name="grey">#C0C0C0</color>
+    <color name="dark_grey">#3f3f3f</color>
+    <color name="white">#FFFFFF</color>
+    <color name="text_blue">#5B7BBA</color>
+    <color name="sky_blue">#1481FF</color>
+    <color name="gray_dark">#929292</color>
+
+
+    <!-- App specific colors -->
+
+
+    <color name="default_hint_text">#757575</color>
+
+    <!--app colors-->
+   <color name="app_blue_text">#1B375F</color>
+   <color name="app_black_text">#3E4E67</color>
+   <color name="app_gray_text">#7A8393</color>
+   <color name="app_green">#44A91D</color>
+   <color name="app_orange">#FF8000</color>
+   <color name="app_light_green">#93C984</color>
+   <color name="app_sky_blue">#3EAFE8</color>
+   <color name="app_sky_blue_2">#47BCE8</color>
+   <color name="view_line_color">#EBEBEB</color>
+   <color name="hint_color">#68758C</color>
+   <color name="light_gray">#EDEDED</color>
+   <color name="chat_color">#EFF1F3</color>
+   <color name="profile_text">#7E7E7E</color>
+   <color name="service_black">#1F3038</color>
+   <color name="attachment_background">#F5F5F5</color>
+   <color name="attachment_color">#B7B7B6</color>
+   <color name="language_color">#364863</color>
+   <color name="forgot_color">#4A5970</color>
+    <color name="light_skyblue">#87CDC3</color>
+    <color name="yellow">#F5E70B</color>
+
+
+</resources>
