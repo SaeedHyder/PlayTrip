@@ -24,7 +24,7 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
 
         <item name="android:windowNoTitle">true</item>
-        <item name="colorAccent">@color/app_blue_text</item>
+        <item name="colorAccent">@color/white</item>
         <item name="colorPrimaryDark">@color/black</item>
         <item name="colorPrimary">@color/black</item>
         <item name="coordinatorLayoutStyle">@style/Widget.Support.CoordinatorLayout</item>

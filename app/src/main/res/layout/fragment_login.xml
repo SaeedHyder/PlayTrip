@@ -3,9 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="@dimen/x25"
-    android:layout_marginEnd="@dimen/x25"
-    android:background="@drawable/bg"
+
+    android:background="@drawable/s1_bg"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -22,7 +21,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/x45"
 
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/s1_logo" />
 
         <TextView
             android:layout_width="match_parent"
@@ -96,7 +95,8 @@
                 android:paddingTop="@dimen/x10"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:textSize="@dimen/x14" />
+                android:textSize="@dimen/x14"
+                />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -135,17 +135,17 @@
 
         <ImageView
             android:id="@+id/btn_fb"
-            android:layout_width="@dimen/x40"
-            android:layout_height="@dimen/x40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/x20"
-            android:src="@drawable/fb" />
+            android:src="@drawable/s1_fb" />
 
         <ImageView
             android:id="@+id/btn_google"
-            android:layout_width="@dimen/x40"
-            android:layout_height="@dimen/x40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/x20"
-            android:src="@drawable/googleplus" />
+            android:src="@drawable/s1_gmail" />
 
     </LinearLayout>
 
