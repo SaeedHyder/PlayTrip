@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:weightSum="1"
+    android:layout_height="@dimen/x148">
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_weight=".3"
+        android:scaleType="fitXY"
+        android:layout_height="match_parent"
+        android:src="@drawable/s33_img"></ImageView>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight=".7"
+        android:layout_marginRight="@dimen/x8"
+        android:layout_marginLeft="@dimen/x8"
+        android:layout_height="match_parent"
+        android:weightSum="4"
+        android:orientation="vertical">
+        <TextView
+            android:textColor="@color/skyblue"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="@dimen/_x15"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="Item main Heading"
+            android:gravity="center_vertical"
+            android:padding="@dimen/x4"
+            android:textStyle="bold">
+
+        </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_marginLeft="@dimen/x4"
+                android:textColor="@color/black"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".7"
+                android:textSize="@dimen/_x13"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="Item Sub Heading"
+                android:gravity="center_vertical|top"
+                android:textStyle="bold"/>
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/x24"
+                android:layout_gravity="center"
+                android:layout_weight=".3"
+                android:textSize="@dimen/_x13"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="Location"
+                android:gravity="center"
+                android:padding="@dimen/x4"
+                android:textStyle="bold">
+
+            </TextView>
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="@dimen/_x13"
+            android:maxLines="1"
+
+            android:ellipsize="end"
+            android:text="city name"
+            android:gravity="center_vertical|bottom"
+            android:padding="@dimen/x4"
+           />
+        <TextView
+            android:drawablePadding="@dimen/x4"
+            android:drawableLeft="@drawable/s5_c"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="@dimen/_x13"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="15.30 - 12.23"
+            android:gravity="center_vertical"
+            android:padding="@dimen/x4"
+            >
+
+        </TextView>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -5,10 +5,12 @@
     <color name="transparent">#00000000</color>
     <color name="black">#000</color>
     <color name="grey">#C0C0C0</color>
-    <color name="dark_grey">#3f3f3f</color>
+    <color name="dark_grey">#918F8F</color>
     <color name="white">#FFFFFF</color>
     <color name="text_blue">#5B7BBA</color>
     <color name="sky_blue">#1481FF</color>
+    <color name="blue">#0260CC</color>
+
     <color name="gray_dark">#929292</color>
 
 
@@ -37,7 +39,12 @@
    <color name="language_color">#364863</color>
    <color name="forgot_color">#4A5970</color>
     <color name="light_skyblue">#87CDC3</color>
+    <color name="skyblue">#39AF9E</color>
     <color name="yellow">#F5E70B</color>
+    <color name="light_yellow">#E6E29A</color>
+
+    <color name="dark_yellow">#C9A63E</color>
+
 
 
 </resources>

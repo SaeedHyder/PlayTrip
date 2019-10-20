@@ -2,6 +2,36 @@
     <integer name="default_max_lines">1</integer>
     <!-- Multipliers  -->
 
+    <dimen name="_x1">1sp</dimen>
+    <dimen name="_x2">2sp</dimen>
+    <dimen name="_x3">3sp</dimen>
+    <dimen name="_x4">4sp</dimen>
+    <dimen name="_x5">5sp</dimen>
+    <dimen name="_x6">6sp</dimen>
+    <dimen name="_x7">7sp</dimen>
+    <dimen name="_x8">8sp</dimen>
+    <dimen name="_x9">9sp</dimen>
+    <dimen name="_x10">10sp</dimen>
+    <dimen name="_x11">11sp</dimen>
+    <dimen name="_x12">12sp</dimen>
+    <dimen name="_x13">13sp</dimen>
+    <dimen name="_x14">14sp</dimen>
+    <dimen name="_x15">15sp</dimen>
+    <dimen name="_x16">16sp</dimen>
+    <dimen name="_x17">17sp</dimen>
+    <dimen name="_x18">18sp</dimen>
+    <dimen name="_x19">19sp</dimen>
+    <dimen name="_x20">20sp</dimen>
+    <dimen name="_x21">21sp</dimen>
+    <dimen name="_x22">22sp</dimen>
+    <dimen name="_x23">23sp</dimen>
+    <dimen name="_x24">24sp</dimen>
+    <dimen name="_x25">25sp</dimen>
+    <dimen name="_x26">26sp</dimen>
+    <dimen name="_x27">27sp</dimen>
+    <dimen name="_x28">28sp</dimen>
+    <dimen name="_x29">29sp</dimen>
+    <dimen name="_x30">30sp</dimen>
 
 
     <dimen name="x1_">-1dp</dimen>
@@ -44,6 +74,11 @@
     <dimen name="x38_">-38dp</dimen>
     <dimen name="x39_">-39dp</dimen>
     <dimen name="x40_">-40dp</dimen>
+    <dimen name="x60_">-60dp</dimen>
+    <dimen name="x70_">-70dp</dimen>
+    <dimen name="x80_">-80dp</dimen>
+    <dimen name="x90_">-90dp</dimen>
+    <dimen name="x100_">-100dp</dimen>
 
 
     <dimen name="x1">1dp</dimen>
