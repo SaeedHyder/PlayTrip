@@ -13,7 +13,6 @@ public class AnyTextView extends android.support.v7.widget.AppCompatTextView {
 		super( context, attrs );
 		
 		if ( !isInEditMode() ) {
-			Util.setTypeface( attrs, this );
 		}
 	}
 	
@@ -21,7 +20,6 @@ public class AnyTextView extends android.support.v7.widget.AppCompatTextView {
 		super( context, attrs, defStyle );
 		
 		if ( !isInEditMode() ) {
-			Util.setTypeface( attrs, this );
 		}
 	}
 }

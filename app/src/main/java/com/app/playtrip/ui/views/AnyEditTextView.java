@@ -16,7 +16,6 @@ public class AnyEditTextView extends FormEditText {
 		super( context, attrs );
 		
 		if ( !this.isInEditMode() ) {
-			Util.setTypeface( attrs, this );
 		}
 	}
 	
@@ -24,7 +23,6 @@ public class AnyEditTextView extends FormEditText {
 		super( context, attrs, defStyle );
 		
 		if ( !this.isInEditMode() ) {
-			Util.setTypeface( attrs, this );
 		}
 		
 	}

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+
+        tools:context=".activities.MainActivity">
+
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:collapsedTitleGravity="center_vertical|start|left"
+                app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleGravity="top|start|left"
+                app:expandedTitleMarginStart="76dp"
+                app:expandedTitleMarginTop="15dp"
+                app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:titleEnabled="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+
+                    <FrameLayout
+                        android:id="@+id/frame_layout_ivBannerImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x300"
+                        android:layout_marginLeft="@dimen/x16"
+                        android:layout_marginTop="@dimen/x16"
+                        android:layout_marginRight="@dimen/x16"
+                        android:background="@color/white">
+
+                        <ImageView
+                            android:id="@+id/imageView_predGameLive"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@null"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/s3_banner" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|right"
+                            android:layout_marginRight="@dimen/x16"
+                            android:layout_marginBottom="@dimen/x16"
+                            android:contentDescription="@null"
+                            android:text="Photo"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/x16"
+                            android:textStyle="bold"
+
+                            />
+
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x40"
+                        android:layout_marginLeft="@dimen/x16"
+                        android:layout_marginRight="@dimen/x16"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_weight=".3"
+                            android:gravity="center_vertical"
+                            android:text="Title"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/x4"
+                            android:layout_weight=".7"
+                            android:background="@color/white"
+                            android:maxLines="1"
+
+                            android:paddingLeft="@dimen/x8"
+                            android:paddingRight="@dimen/x8"
+                            android:text="Becky"
+                            android:textColor="@color/dark_grey"
+                            android:textStyle="bold">
+
+                        </EditText>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x1"
+                        android:layout_marginLeft="@dimen/x16"
+                        android:layout_marginRight="@dimen/x16"
+                        android:background="@color/dark_grey">
+
+                    </View>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x40"
+                        android:layout_marginLeft="@dimen/x16"
+                        android:layout_marginRight="@dimen/x16"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_weight=".3"
+                            android:gravity="center_vertical"
+                            android:text="XYZ"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/x4"
+                            android:layout_weight=".7"
+                            android:background="@color/white"
+                            android:maxLines="1"
+
+                            android:paddingLeft="@dimen/x8"
+                            android:paddingRight="@dimen/x8"
+                            android:text="Becky"
+                            android:textColor="@color/dark_grey"
+                            android:textStyle="bold">
+
+                        </EditText>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x1"
+                        android:layout_marginLeft="@dimen/x16"
+                        android:layout_marginRight="@dimen/x16"
+                        android:background="@color/dark_grey">
+
+                    </View>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x40"
+                        android:layout_marginLeft="@dimen/x16"
+                        android:layout_marginRight="@dimen/x16"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_weight=".3"
+                            android:gravity="center_vertical"
+                            android:text="Caption"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/x4"
+                            android:layout_weight=".7"
+                            android:background="@color/white"
+                            android:maxLines="1"
+
+                            android:paddingLeft="@dimen/x8"
+                            android:paddingRight="@dimen/x8"
+                            android:text="Becky"
+                            android:textColor="@color/dark_grey"
+                            android:textStyle="bold">
+
+                        </EditText>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x1"
+                        android:layout_marginLeft="@dimen/x16"
+                        android:layout_marginRight="@dimen/x16"
+                        android:background="@color/dark_grey">
+
+                    </View>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x40"
+                        android:layout_marginLeft="@dimen/x16"
+                        android:layout_marginRight="@dimen/x16"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_weight=".3"
+                            android:gravity="center_vertical"
+                            android:text="Driving"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                        <Switch
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/x4"
+                            android:layout_weight=".7"
+                            android:buttonTint="@color/app_green"
+                            android:paddingLeft="@dimen/x8"
+                            android:paddingRight="@dimen/x8"
+                            android:thumbTint="@color/app_green">
+
+                        </Switch>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x1"
+                        android:layout_marginLeft="@dimen/x16"
+                        android:layout_marginRight="@dimen/x16"
+                        android:background="@color/dark_grey">
+
+                    </View>
+
+                </LinearLayout>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+
+        </android.support.design.widget.AppBarLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
+
+</LinearLayout>

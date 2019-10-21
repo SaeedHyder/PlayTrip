@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg">
+
+    </ImageView>
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/skyblue"
+        android:alpha=".7"
+        android:layout_height="match_parent">
+
+    </View>
+    <ImageView
+        android:layout_width="@dimen/x100"
+        android:layout_height="@dimen/x100"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/x100_"
+        android:src="@drawable/s31_play">
+
+
+    </ImageView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Congratulatios"
+        android:layout_marginTop="@dimen/x24_"
+        android:textSize="@dimen/_x20"
+        android:textStyle="bold"
+        android:src="@drawable/s31_play">
+
+
+    </TextView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x40"
+        android:layout_gravity="bottom"
+        android:text="Ok"
+        android:textSize="@dimen/x16"
+        android:background="@drawable/rounded_white_fifty_bg"
+        android:layout_marginLeft="@dimen/x24"
+        android:layout_marginRight="@dimen/x24"
+        android:layout_marginBottom="@dimen/x64"
+
+        >
+
+    </Button>
+
+</FrameLayout>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/light_gray"
+
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_marginTop="@dimen/x80"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/x24"
+            android:paddingRight="@dimen/x24"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight=".3"
+                    android:layout_gravity="center"
+                    android:text="XYZ"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight=".7"
+                    android:background="@drawable/rounded_stroke_grey"
+                    android:layout_height="@dimen/x40"
+                    android:text="Becky"
+                    android:textStyle="bold"
+                    android:paddingLeft="@dimen/x8"
+                    android:paddingRight="@dimen/x8"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/x4">
+
+                </EditText>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight=".3"
+                    android:layout_gravity="center"
+                    android:text="XYZ"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight=".7"
+                    android:background="@drawable/rounded_stroke_grey"
+                    android:layout_height="@dimen/x40"
+                    android:text="Wong"
+
+                    android:textStyle="bold"                    android:paddingLeft="@dimen/x8"
+
+                    android:paddingRight="@dimen/x8"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/x4">
+
+                </EditText>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight=".5"
+                    android:layout_gravity="center"
+                    android:text="XYZ"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight=".5"
+                    android:layout_height="@dimen/x40"
+                    android:text="XYZ"
+                    android:textStyle="bold"
+
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/x4">
+
+                </RadioButton>
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight=".5"
+                    android:layout_height="@dimen/x40"
+                    android:text="XYZ"
+                    android:textStyle="bold"
+
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/x4">
+
+                </RadioButton>
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_weight=".5"
+                    android:layout_height="@dimen/x40"
+                    android:text="XYZ"
+                    android:textStyle="bold"
+
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/x4">
+
+                </RadioButton>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight=".3"
+                    android:layout_gravity="center"
+                    android:text="XYZ"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight=".7"
+                    android:background="@drawable/rounded_stroke_grey"
+                    android:layout_height="@dimen/x40"
+                    android:text="24"
+                    android:textStyle="bold"
+                    android:paddingLeft="@dimen/x8"
+
+                    android:paddingRight="@dimen/x8"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/x4">
+
+                </EditText>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight=".3"
+                    android:layout_gravity="center"
+                    android:text="XYZ"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight=".7"
+                    android:background="@drawable/rounded_stroke_grey"
+                    android:layout_height="@dimen/x40"
+                    android:text="10 - 26"
+                    android:textStyle="bold"                    android:paddingLeft="@dimen/x8"
+
+                    android:paddingRight="@dimen/x8"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/x4">
+
+                </EditText>
+
+            </LinearLayout>
+
+
+
+
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x40"
+                android:background="@drawable/rounded_dark_feroz_bg_"
+                android:paddingLeft="@dimen/x8"
+                android:textColor="@color/white"
+                android:text="XYZ"
+                android:paddingRight="@dimen/x8"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/x200"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

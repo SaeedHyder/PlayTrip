@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/light_gray"
+
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/x24"
+            android:paddingRight="@dimen/x24"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+
+            <ImageView
+                android:layout_width="@dimen/x128"
+                android:src="@drawable/s3_img"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/x64"
+                android:layout_height="@dimen/x128">
+
+
+
+            </ImageView>
+            <TextView
+                android:layout_width="@dimen/x64"
+                android:layout_gravity="center"
+                android:text="Becky"
+                android:editable="false"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/x12"
+                android:layout_height="wrap_content">
+
+
+
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Profile change"
+                android:textStyle="bold"
+                android:editable="false"
+
+                android:paddingLeft="@dimen/x8"
+                android:paddingRight="@dimen/x8"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/x100">
+
+            </TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:background="@drawable/stroke_grey_bg"
+                android:layout_height="@dimen/x48"
+                android:hint="New password"
+                android:paddingLeft="@dimen/x8"
+                android:editable="false"
+
+                android:paddingRight="@dimen/x8"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/x4">
+
+            </EditText>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:background="@drawable/stroke_grey_bg"
+                android:layout_height="@dimen/x48"
+                android:hint="Terms and conditions"
+                android:paddingLeft="@dimen/x8"
+                android:editable="false"
+
+                android:paddingRight="@dimen/x8"
+                android:maxLines="1"
+                >
+
+            </EditText>
+            <EditText
+                android:layout_width="match_parent"
+                android:background="@drawable/stroke_grey_bg"
+                android:layout_height="@dimen/x48"
+                android:hint="Privacy policy "
+                android:editable="false"
+
+                android:paddingLeft="@dimen/x8"
+                android:paddingRight="@dimen/x8"
+                android:maxLines="1"
+                >
+
+            </EditText>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x40"
+                android:background="@drawable/rounded_dark_feroz_bg_"
+                android:paddingLeft="@dimen/x8"
+                android:textColor="@color/white"
+                android:text="logout"
+                android:paddingRight="@dimen/x8"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/x100"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
