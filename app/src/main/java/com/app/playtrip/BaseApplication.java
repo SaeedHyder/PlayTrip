@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
+import com.google.firebase.FirebaseApp;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -19,6 +20,7 @@ public class BaseApplication extends MultiDexApplication {
 		super.onCreate();
 		MultiDex.install(this);
 		initImageLoader();
+		FirebaseApp.initializeApp(this);
 	}
 	
 	public void initImageLoader() {
