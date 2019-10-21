@@ -9,7 +9,7 @@
         android:layout_weight=".3"
         android:scaleType="fitXY"
         android:layout_height="match_parent"
-        android:src="@drawable/s26_untitled_1"></ImageView>
+        android:src="@drawable/s26_untitled1"></ImageView>
     <LinearLayout
         android:layout_width="0dp"
         android:layout_weight=".7"
