@@ -22,9 +22,7 @@ public class Adapter_FragmentPager extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-
        return mFragmentCollection.get(position);
-
 
 
     }

@@ -47,7 +47,7 @@ public class AutoCompleteLocation extends android.support.v7.widget.AppCompatAut
         Drawable background =
                 typedArray.getDrawable(R.styleable.AutoCompleteLocation_background_layout);
         if (background == null) {
-            background = resources.getDrawable(R.drawable.bg_rounded_white);
+            background = resources.getDrawable(R.drawable.rounded_light_orange);
         }
         String hintText = typedArray.getString(R.styleable.AutoCompleteLocation_hint_text);
       /*  if (hintText == null) {
