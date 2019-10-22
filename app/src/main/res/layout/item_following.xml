@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+
+    android:layout_height="@dimen/x64">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:paddingRight="@dimen/x8"
+        android:paddingLeft="@dimen/x8"
+        android:gravity="center"
+        android:layout_height="@dimen/x62">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="0dp"
+        android:layout_weight=".2"
+        android:scaleType="fitStart"
+        android:src="@drawable/s2_img2"
+        android:layout_height="@dimen/x48">
+
+    </de.hdodenhof.circleimageview.CircleImageView>
+    <TextView
+        android:padding="@dimen/x4"
+        android:layout_weight=".5"
+        android:textColor="@color/black"
+        android:text="Mery"
+        android:textStyle="bold"
+        android:textSize="@dimen/_x18"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"></TextView>
+    <TextView
+        android:background="@drawable/rounded_dark_ferozd_bg"
+        android:layout_weight=".3"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:text="Unfollow"
+        android:textStyle="bold"
+        android:textSize="@dimen/_x16"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/x32">
+
+    </TextView>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/view_line_color"
+        android:layout_height="2dp">
+
+    </View>
+
+
+
+</LinearLayout>

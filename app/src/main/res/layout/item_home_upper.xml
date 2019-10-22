@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/x230"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/x2"
+    android:background="@drawable/rounded_white_bg"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_itemBg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x128"
+        android:src="@drawable/s33_img"
+        android:scaleType="fitXY">
+
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/tv_itemHHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="item Name"
+        android:maxLines="1"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/x8"
+
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x64">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_itemHL"
+            android:layout_width="@dimen/x48"
+            android:layout_centerInParent="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/x8"
+            android:src="@drawable/s33_img"
+            android:layout_height="@dimen/x48">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+        <TextView
+            android:id="@+id/tv_itemHUN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Beckery"
+            android:maxLines="1"
+            android:maxLength="15"
+            android:textStyle="bold"
+            android:textSize="@dimen/_x12"
+            android:layout_toRightOf="@+id/civ_itemHL"
+            android:layout_marginTop="@dimen/x8"
+            android:layout_marginLeft="@dimen/x4"
+
+
+            />
+        <TextView
+            android:id="@+id/tv_itemHDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10.10.2019"
+            android:maxLines="1"
+            android:textSize="@dimen/_x12"
+            android:layout_toRightOf="@+id/civ_itemHL"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/x8"
+            android:layout_marginLeft="@dimen/x4"
+            android:maxLength="10"
+
+
+            />
+        <TextView
+            android:drawableLeft="@drawable/s2_pin"
+            android:id="@+id/tv_itemHLRightUpper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Beckery"
+            android:drawablePadding="@dimen/x2"
+            android:maxLines="1"
+            android:maxLength="10"
+            android:layout_marginRight="@dimen/x8"
+
+            android:layout_alignParentRight="true"
+            android:textSize="@dimen/_x12"
+            android:layout_marginTop="@dimen/x8"
+
+
+            />
+        <TextView
+            android:id="@+id/tv_itemHLRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10.10.2019"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/x2"
+            android:paddingRight="@dimen/x2"
+            android:layout_marginRight="@dimen/x8"
+            android:layout_alignParentRight="true"
+            android:textSize="@dimen/_x12"
+            android:maxLength="10"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/x8"
+            android:background="@drawable/rounded_light_orange"
+
+
+
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginTop="@dimen/x4"
+        android:layout_width="match_parent"
+        android:weightSum="4"
+        android:layout_marginLeft="@dimen/x8"
+        android:layout_marginRight="@dimen/x8"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content">
+        <TextView
+            android:drawableLeft="@drawable/s2_eye"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:drawablePadding="@dimen/x4"
+            android:maxLines="1"
+            android:textSize="@dimen/_x12"
+
+
+            />
+        <TextView
+            android:drawableLeft="@drawable/s2_arrow"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:drawablePadding="@dimen/x4"
+            android:maxLines="1"
+            android:textSize="@dimen/_x12"
+
+
+            />
+        <TextView
+            android:drawableLeft="@drawable/s2_7"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:drawablePadding="@dimen/x4"
+            android:maxLines="1"
+            android:textSize="@dimen/_x12"
+
+
+            />
+        <TextView
+            android:drawableLeft="@drawable/s2_h"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:drawablePadding="@dimen/x4"
+            android:maxLines="1"
+            android:textSize="@dimen/_x12"
+
+
+            />
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

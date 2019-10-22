@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:weightSum="1"
+    android:background="@color/yellow"
+    android:layout_height="@dimen/x140">
+    <ImageView
+        android:layout_marginLeft="@dimen/_x6"
+        android:layout_width="0dp"
+        android:layout_weight=".3"
+        android:scaleType="fitXY"
+        android:layout_height="match_parent"
+        android:src="@drawable/s33_img"></ImageView>
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="0dp"
+        android:layout_weight=".7"
+        android:paddingLeft="@dimen/_x6"
+        android:paddingRight="@dimen/_x6"
+        android:layout_height="match_parent"
+        android:weightSum="5"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:layout_weight="1">
+            <TextView
+                android:textColor="@color/skyblue"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".7"
+                android:textSize="@dimen/_x15"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="Item main Heading"
+                android:gravity="center_vertical"
+                android:textStyle="bold"/>
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/x24"
+                android:layout_gravity="center"
+                android:layout_weight=".3"
+                android:background="@drawable/rounded_light_orange"
+                android:textSize="@dimen/_x13"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="item"
+                android:gravity="center"
+                android:padding="@dimen/x4"
+                android:textStyle="bold">
+
+            </TextView>
+
+        </LinearLayout>
+
+        <TextView
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="@dimen/_x13"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="Item Sub Heading"
+            android:gravity="center_vertical"
+            android:textStyle="bold">
+
+        </TextView>
+        <TextView
+            android:drawablePadding="@dimen/x4"
+            android:drawableLeft="@drawable/s2_pin"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="@dimen/_x13"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="city name"
+            android:gravity="center_vertical"
+            android:padding="@dimen/x4"
+           />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:layout_weight="1">
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".7"
+                android:textSize="@dimen/_x13"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="15.30 - 12.23"
+                android:gravity="center_vertical"
+                >
+
+            </TextView>
+
+            <TextView
+                android:textColor="@color/white"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/x24"
+                android:layout_gravity="center"
+                android:layout_weight=".3"
+                android:background="@drawable/rounded_orange_button"
+                android:textSize="@dimen/_x13"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="item"
+                android:gravity="center"
+                android:textStyle="bold">
+
+            </TextView>
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_marginTop="@dimen/x4"
+            android:layout_width="match_parent"
+            android:weightSum="5"
+            android:gravity="center"
+
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_height="0dp">
+            <TextView
+                android:drawableLeft="@drawable/s2_eye"
+                android:layout_width="wrap_content"
+                android:layout_weight="1.3"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:layout_centerVertical="true"
+                android:maxLength="8"
+                android:drawablePadding="@dimen/x4"
+                android:maxLines="1"
+                android:textSize="@dimen/_x13"
+
+
+                />
+
+
+
+            <TextView
+                android:id="@+id/tv_galleryItemShare"
+                android:layout_centerInParent="true"
+                android:drawableLeft="@drawable/s2_arrow"
+                android:layout_width="wrap_content"
+                android:layout_weight="1.3"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:maxLength="8"
+
+                android:drawablePadding="@dimen/x4"
+                android:maxLines="1"
+                android:textSize="@dimen/_x13"
+
+
+                />
+
+
+            <TextView
+                android:layout_alignParentRight="true"
+                android:drawableLeft="@drawable/s2_h"
+                android:layout_width="wrap_content"
+                android:layout_weight="1.3"
+                android:layout_height="wrap_content"
+                android:text="30"
+                android:maxLength="8"
+
+                android:layout_centerInParent="true"
+                android:drawablePadding="@dimen/x4"
+                android:maxLines="1"
+                android:textSize="@dimen/_x13"
+
+
+                />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

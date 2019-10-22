@@ -18,6 +18,7 @@ import com.andreabaccega.formedittextvalidator.Validator;
 import com.app.playtrip.R;
 import com.app.playtrip.activities.DockActivity;
 import com.app.playtrip.activities.MainActivity;
+import com.app.playtrip.global.WebServiceConstants;
 import com.app.playtrip.helpers.BasePreferenceHelper;
 import com.app.playtrip.helpers.GPSTracker;
 import com.app.playtrip.helpers.ServiceHelper;
@@ -25,6 +26,7 @@ import com.app.playtrip.helpers.UIHelper;
 import com.app.playtrip.interfaces.LoadingListener;
 import com.app.playtrip.interfaces.webServiceResponseLisener;
 import com.app.playtrip.retrofit.WebService;
+import com.app.playtrip.retrofit.WebServiceFactory;
 import com.app.playtrip.ui.views.AnyEditTextView;
 import com.app.playtrip.ui.views.TitleBar;
 
@@ -55,7 +57,7 @@ public abstract class BaseFragment extends Fragment implements webServiceRespons
 		mGpsTracker = new GPSTracker(getDockActivity());
 
 		if (webService == null) {
-			//webService = WebServiceFactory.getWebServiceInstanceWithCustomInterceptor(getDockActivity(),"End Point");
+			webService = WebServiceFactory.getWebServiceInstanceWithCustomInterceptor(getDockActivity(), WebServiceConstants.Local_SERVICE_URL);
 		}
 		if (serviceHelper == null){
 			serviceHelper = new ServiceHelper(this,getDockActivity(),webService);

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x40"
+        android:layout_marginLeft="@dimen/x16"
+        android:layout_marginRight="@dimen/x16"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:gravity="center_vertical"
+            android:text="Blah"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/x4"
+            android:layout_weight=".7"
+            android:background="@color/transparent"
+            android:maxLines="1"
+
+            android:paddingLeft="@dimen/x8"
+            android:paddingRight="@dimen/x8"
+            android:text="Blah"
+            android:textColor="@color/black"
+            android:textStyle="bold">
+
+        </EditText>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x1"
+        android:layout_marginLeft="@dimen/x16"
+        android:layout_marginRight="@dimen/x16"
+        android:background="@color/dark_grey">
+
+    </View>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x40"
+        android:layout_marginLeft="@dimen/x16"
+        android:layout_marginRight="@dimen/x16"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:gravity="center_vertical"
+            android:text="Blah"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/x4"
+            android:layout_weight=".7"
+            android:maxLines="1"
+            android:background="@color/transparent"
+            android:paddingLeft="@dimen/x8"
+            android:paddingRight="@dimen/x8"
+            android:text="blah blah"
+            android:textColor="@color/dark_grey"
+            android:textStyle="bold">
+
+        </EditText>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x1"
+        android:layout_marginLeft="@dimen/x16"
+        android:layout_marginRight="@dimen/x16"
+        android:background="@color/dark_grey">
+
+    </View>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x40"
+        android:layout_marginLeft="@dimen/x16"
+        android:layout_marginRight="@dimen/x16"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight=".3"
+            android:gravity="center_vertical"
+            android:text="Blah"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <Switch
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x4"
+            android:layout_weight=".7"
+            android:buttonTint="@color/app_green"
+            android:paddingLeft="@dimen/x8"
+            android:paddingRight="@dimen/x8"
+            android:thumbTint="@color/app_green">
+
+        </Switch>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x40"
+        android:background="@drawable/rounded_dark_feroz_bg_"
+        android:paddingLeft="@dimen/x8"
+        android:textColor="@color/white"
+        android:text="Blah"
+        android:layout_marginRight="@dimen/x64"
+        android:layout_marginLeft="@dimen/x64"
+        android:maxLines="1"
+        android:layout_marginTop="@dimen/x8"/>
+
+</LinearLayout>

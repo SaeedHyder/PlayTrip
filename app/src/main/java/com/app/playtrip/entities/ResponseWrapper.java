@@ -2,6 +2,7 @@ package com.app.playtrip.entities;
 
 public class ResponseWrapper<T> {
 
+    private Boolean success;
     private String Message;
     private String Response;
     private T Result;

@@ -50,8 +50,9 @@
     <string name="conform_password_error">confirm password does not match</string>
     <string name="enter_confirm_password">Confirm Password Field cannot be Empty</string>
     <string name="confirmpasswordLength">Confirm Password cannot be less than 6 characters</string>
-
-
-
+    <string name="register">Register</string>
+    <string name="enter_valid_email">Please Enter Valid Email</string>
+    <string name="enter_password">Password Field cannot be Empty</string>
+    <string name="passwordLength">Password cannot be less than 6 characters</string>
 
 </resources>
