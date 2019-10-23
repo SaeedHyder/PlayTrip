@@ -1,7 +1,7 @@
 package com.app.playtrip.retrofit;
 
 
-import com.app.playtrip.entities.ResponseWrapper;
+import com.app.playtrip.entities.Wrapper.ResponseWrapper;
 import com.app.playtrip.entities.UserEnt;
 
 import retrofit2.Call;

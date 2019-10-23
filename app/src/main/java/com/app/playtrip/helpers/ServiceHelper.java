@@ -4,7 +4,7 @@ import android.util.Log;
 
 
 import com.app.playtrip.activities.DockActivity;
-import com.app.playtrip.entities.ResponseWrapper;
+import com.app.playtrip.entities.Wrapper.ResponseWrapper;
 import com.app.playtrip.global.WebServiceConstants;
 import com.app.playtrip.interfaces.webServiceResponseLisener;
 import com.app.playtrip.retrofit.WebService;
@@ -34,9 +34,10 @@ public class ServiceHelper<T> {
                 @Override
                 public void onResponse(Call<ResponseWrapper<T>> call, Response<ResponseWrapper<T>> response) {
                     context.onLoadingFinished();
-                    if (response.body().getResponse().equals(WebServiceConstants.SUCCESS_RESPONSE_CODE)) {
-                        serviceResponseLisener.ResponseSuccess(response.body().getResult(), tag);
+                    if (response.body().getSuccess()) {
+                        serviceResponseLisener.ResponseSuccess(response.body().getData(), tag);
                     } else {
+                        serviceResponseLisener.ResponseFailure(tag);
                         UIHelper.showShortToastInCenter(context, response.body().getMessage());
                     }
 
@@ -45,6 +46,7 @@ public class ServiceHelper<T> {
                 @Override
                 public void onFailure(Call<ResponseWrapper<T>> call, Throwable t) {
                     context.onLoadingFinished();
+                    serviceResponseLisener.ResponseFailure(tag);
                     t.printStackTrace();
                     Log.e(ServiceHelper.class.getSimpleName()+" by tag: " + tag, t.toString());
                 }
