@@ -335,4 +335,5 @@ public abstract class BaseFragment extends Fragment implements webServiceRespons
 		return getDockActivity().getResources().getDrawable(id);
 	}
 	
+	
 }

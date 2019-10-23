@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import com.app.playtrip.R;
 import com.app.playtrip.fragments.HomeFragment;
 import com.app.playtrip.fragments.LoginFragment;
+import com.app.playtrip.fragments.MainFragment;
 import com.app.playtrip.fragments.NotificationsFragment;
 import com.app.playtrip.fragments.SideMenuFragment;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
@@ -177,7 +178,7 @@ public class MainActivity extends DockActivity implements OnClickListener {
     public void initFragment() {
         getSupportFragmentManager().addOnBackStackChangedListener(getListener());
         if (prefHelper.isLogin()) {
-            replaceDockableFragment(HomeFragment.newInstance(), "HomeFragment");
+            replaceDockableFragment(MainFragment.newInstance(), "MainFragment");
         } else {
             replaceDockableFragment(LoginFragment.newInstance(), "LoginFragment");
         }
