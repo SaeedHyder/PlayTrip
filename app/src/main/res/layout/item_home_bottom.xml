@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="@dimen/x120"
+    android:orientation="vertical" android:layout_width="@dimen/x108"
     android:gravity="center|top"
-    android:layout_height="@dimen/x120">
+    android:layout_margin="@dimen/x2"
+    android:layout_height="@dimen/x108">
 
    <de.hdodenhof.circleimageview.CircleImageView
 
-       android:layout_width="@dimen/x100"
-       android:layout_height="@dimen/x90"
+       android:layout_width="@dimen/x84"
+       android:layout_height="@dimen/x84"
        android:src="@drawable/s3_img">
 
    </de.hdodenhof.circleimageview.CircleImageView>
@@ -18,6 +19,6 @@
         android:textStyle="bold"
         android:gravity="center"
         android:maxLines="1"
-        android:layout_height="@dimen/x28"></TextView>
+        android:layout_height="@dimen/x24"></TextView>
 
 </LinearLayout>

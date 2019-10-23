@@ -3,6 +3,8 @@ package com.app.playtrip.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,11 @@ import com.app.playtrip.R;
 import com.app.playtrip.entities.BannerEntity;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
 import com.app.playtrip.helpers.UIHelper;
+import com.app.playtrip.ui.adapters.RecyclerViewAdapter;
+import com.app.playtrip.ui.adapters.RecyclerViewAdapterHomeBottom;
+import com.app.playtrip.ui.adapters.RecyclerViewAdapterHomeMiddle;
+import com.app.playtrip.ui.adapters.RecyclerViewAdapterHomeTop;
+import com.app.playtrip.ui.viewbinders.abstracts.RecyclerViewBinder;
 import com.app.playtrip.ui.views.AutoCompleteLocation;
 import com.app.playtrip.ui.views.TitleBar;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
@@ -31,16 +38,29 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
+import static com.facebook.FacebookSdk.getApplicationContext;
+
 
 public class HomeFragment extends BaseFragment implements AutoCompleteLocation.AutoCompleteLocationListener, ViewPagerEx.OnPageChangeListener {
 
 
-    @BindView(R.id.ac_location)
-    AutoCompleteLocation ac_location;
-    Unbinder unbinder;
+    @BindView(R.id.sliderLayout)
     SliderLayout mSlider;
+    @BindView(R.id.rv_topList) RecyclerView recyclerViewTop;
+    @BindView(R.id.rv_middleList) RecyclerView recyclerViewMiddle;
+    @BindView(R.id.rv_lastList) RecyclerView recyclerViewBottom;
     Map<String,Integer> sliderImages;
-    List<BannerEntity> bannerEntityList =new ArrayList<>();
+    ArrayList<BannerEntity> bannerEntityList =new ArrayList<>();
+    RecyclerViewAdapterHomeTop mAdapter;
+    RecyclerViewAdapterHomeMiddle mAdapterMiddle;
+    RecyclerViewAdapterHomeBottom mAdapterBottom;
+
+
+    RecyclerViewAdapter recyclerViewAdapterMiddle;
+    private RecyclerViewBinder<BannerEntity> viewBinder;
+
+
 
     public static HomeFragment newInstance() {
         return new HomeFragment();
@@ -55,11 +75,12 @@ public class HomeFragment extends BaseFragment implements AutoCompleteLocation.A
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-//        ButterKnife.bind(this, view);
-        mSlider = (SliderLayout) view.findViewById(R.id.sliderLayout);
+        ButterKnife.bind(this, view);
+
 
         getImages();
-        loadBannerSliderImage(bannerEntityList,"a");
+        loadBannerSliderImage(bannerEntityList,"Play Trp");
+        setAdapter();
 
 
         return view;
@@ -68,7 +89,7 @@ public class HomeFragment extends BaseFragment implements AutoCompleteLocation.A
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ac_location.setAutoCompleteTextListener(this);
+       // ac_location.setAutoCompleteTextListener(this);
     }
 
 
@@ -173,6 +194,31 @@ public class HomeFragment extends BaseFragment implements AutoCompleteLocation.A
             mSlider.setPresetIndicator(SliderLayout.PresetIndicators.Right_Top);
             mSlider.setPresetTransformer(SliderLayout.Transformer.Accordion);
         }
+    }
+    public void setAdapter(){
+
+        mAdapter = new RecyclerViewAdapterHomeTop(getActivity(), bannerEntityList);
+        recyclerViewTop.setAdapter(mAdapter);
+        LinearLayoutManager layoutManager =
+                new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewTop.setLayoutManager(layoutManager);
+        recyclerViewTop.setHasFixedSize(true);
+
+        mAdapterMiddle = new RecyclerViewAdapterHomeMiddle(getActivity(), bannerEntityList);
+        recyclerViewMiddle.setAdapter(mAdapterMiddle);
+         layoutManager =
+                new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewMiddle.setLayoutManager(layoutManager);
+        recyclerViewMiddle.setHasFixedSize(true);
+
+        mAdapterBottom = new RecyclerViewAdapterHomeBottom(getActivity(), bannerEntityList);
+        recyclerViewBottom.setAdapter(mAdapterBottom);
+         layoutManager =
+                new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewBottom.setLayoutManager(layoutManager);
+        recyclerViewBottom.setHasFixedSize(true);
+
+
     }
 
 }

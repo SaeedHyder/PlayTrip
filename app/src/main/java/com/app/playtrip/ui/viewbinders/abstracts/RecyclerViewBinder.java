@@ -5,7 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 
-public abstract class RecyclerViewBinder<T> {
+import com.app.playtrip.R;
+
+public abstract class RecyclerViewBinder<BannerEntity> {
 	private int LayoutResId;
 	public RecyclerViewBinder(int LayoutResId) {
 		this.LayoutResId = LayoutResId;
@@ -13,7 +15,7 @@ public abstract class RecyclerViewBinder<T> {
 
 	public View createView (Context activity) {
 		LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		final View view = inflater.inflate( LayoutResId , null );
+		final View view = inflater.inflate(R.layout.item_home_middle, null );
 		view.setTag( createViewHolder( view ) );
 		return view;
 
@@ -28,7 +30,7 @@ public abstract class RecyclerViewBinder<T> {
 	 * @param context
 	 */
 
-	public abstract void bindView(T entity, int position, Object viewHolder, Context context);
+	public abstract void bindView(BannerEntity entity, int position, Object viewHolder, Context context);
 
 	public static class BaseViewHolder extends RecyclerView.ViewHolder {
 

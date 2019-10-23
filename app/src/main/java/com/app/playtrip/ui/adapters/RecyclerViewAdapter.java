@@ -12,18 +12,19 @@ import java.util.List;
  * Created on 8/10/2017.
  */
 
-public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewBinder.BaseViewHolder> {
-    private List<T> collections;
-    private RecyclerViewBinder<T> viewBinder;
+public class RecyclerViewAdapter<BannerEntity> extends RecyclerView.Adapter<RecyclerViewBinder.BaseViewHolder> {
+    private List<BannerEntity> collections;
+    private RecyclerViewBinder<BannerEntity> viewBinder;
     private Context mContext;
     
 
-    public RecyclerViewAdapter(List<T> collections, RecyclerViewBinder<T> viewBinder, Context context) {
+    public RecyclerViewAdapter(List<BannerEntity> collections, RecyclerViewBinder<BannerEntity> viewBinder, Context context) {
         this.collections = collections;
         this.viewBinder = viewBinder;
         this.mContext = context;
         
     }
+
 
     @Override
     public RecyclerViewBinder.BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -33,19 +34,19 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewBin
 
     @Override
     public void onBindViewHolder(RecyclerViewBinder.BaseViewHolder holder, int position) {
-        T entity = (T)this.collections.get(position);
-        this.viewBinder.bindView(entity,position,holder,this.mContext);
+      //  BannerEntity entity = (BannerEntity)this.collections.get(position);
+      //  this.viewBinder.bindView(entity,position,holder,this.mContext);
     }
 
     @Override
     public int getItemCount() {
-        return this.collections.size();
+        return 5;
     }
-    public T getItemFromList(int index ) {
+    public BannerEntity getItemFromList(int index ) {
         return collections.get( index );
     }
 
-    public List<T> getList() {
+    public List<BannerEntity> getList() {
         return collections;
     }
     /**
@@ -62,7 +63,7 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewBin
      *
      * @see #addAll(List)
      */
-    public void add( T entity ) {
+    public void add(BannerEntity entity ) {
         collections.add( entity );
         notifyDataSetChanged();
     }
@@ -74,7 +75,7 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewBin
      *
      * @see #addAll(List)
      */
-    public void addAll( List<T> entityList ) {
+    public void addAll( List<BannerEntity> entityList ) {
         collections.addAll( entityList );
         notifyDataSetChanged();
     }

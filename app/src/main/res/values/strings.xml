@@ -61,4 +61,11 @@
     <string name="enter_fullname">Enter Full Name</string>
     <string name="confirm_password_error">Confirm Password did not match</string>
 
+   <!-- home screen Strings-->
+    <string name="top_list_name">Top list name</string>
+    <string name="middle_list_name">Middle list name</string>
+    <string name="last_list_name">last list name</string>
+
+
+
 </resources>
