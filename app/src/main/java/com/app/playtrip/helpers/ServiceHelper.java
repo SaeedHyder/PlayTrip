@@ -9,6 +9,11 @@ import com.app.playtrip.global.WebServiceConstants;
 import com.app.playtrip.interfaces.webServiceResponseLisener;
 import com.app.playtrip.retrofit.WebService;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,6 +32,7 @@ public class ServiceHelper<T> {
         this.context = conttext;
         this.webService = webService;
     }
+
     public void enqueueCall(Call<ResponseWrapper<T>> call, final String tag) {
         if (InternetHelper.CheckInternetConectivityandShowToast(context)) {
             context.onLoadingStarted();
@@ -34,11 +40,22 @@ public class ServiceHelper<T> {
                 @Override
                 public void onResponse(Call<ResponseWrapper<T>> call, Response<ResponseWrapper<T>> response) {
                     context.onLoadingFinished();
-                    if (response.body().getSuccess()) {
-                        serviceResponseLisener.ResponseSuccess(response.body().getData(), tag);
+                    if (response != null && response.body() != null && response.code() == 200) {
+                        if (response.body().getSuccess()) {
+                            serviceResponseLisener.ResponseSuccess(response.body().getData(), tag);
+                        } else {
+                            serviceResponseLisener.ResponseFailure(tag);
+                            UIHelper.showShortToastInCenter(context, response.body().getMessage());
+                        }
                     } else {
                         serviceResponseLisener.ResponseFailure(tag);
-                        UIHelper.showShortToastInCenter(context, response.body().getMessage());
+                        try {
+                            JSONObject jObjError = new JSONObject(response.errorBody().string());
+                            UIHelper.showShortToastInCenter(context, jObjError.get("message").toString());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
                     }
 
                 }
@@ -48,7 +65,7 @@ public class ServiceHelper<T> {
                     context.onLoadingFinished();
                     serviceResponseLisener.ResponseFailure(tag);
                     t.printStackTrace();
-                    Log.e(ServiceHelper.class.getSimpleName()+" by tag: " + tag, t.toString());
+                    Log.e(ServiceHelper.class.getSimpleName() + " by tag: " + tag, t.toString());
                 }
             });
         }

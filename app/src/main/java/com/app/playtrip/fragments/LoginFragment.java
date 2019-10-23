@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.app.playtrip.R;
+import com.app.playtrip.entities.User.DataUser;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
 import com.app.playtrip.global.AppConstants;
 import com.app.playtrip.global.WebServiceConstants;
@@ -102,7 +103,7 @@ public class LoginFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.btn_login:
                 if (isValidated()) {
-                    serviceHelper.enqueueCall(webService.loginUser(edtEmail.getText().toString(),edtPassword.getText().toString(), AppConstants.Device_Type, "dfgdfgdfg"), LOGIN);
+                    serviceHelper.enqueueCall(webService.loginUser(edtEmail.getText().toString(),edtPassword.getText().toString(), AppConstants.Device_Type, FirebaseInstanceId.getInstance().getToken()), LOGIN);
                 }
                 break;
             case R.id.btn_fb:
@@ -110,6 +111,7 @@ public class LoginFragment extends BaseFragment {
             case R.id.btn_google:
                 break;
             case R.id.btnRegister:
+                getDockActivity().replaceDockableFragment(SignupFragment.newInstance(),"SignupFragment");
                 break;
             case R.id.btnForgotPass:
                 break;
@@ -121,8 +123,12 @@ public class LoginFragment extends BaseFragment {
         super.ResponseSuccess(result, Tag);
         switch (Tag){
             case LOGIN:
+                DataUser dataUser=(DataUser)result;
                 prefHelper.setLoginStatus(true);
-                getDockActivity().replaceDockableFragment(HomeFragment.newInstance(), "HomeFragmnet");
+                prefHelper.putUser(dataUser.getUser());
+                prefHelper.set_TOKEN(dataUser.getUser().getAccessToken());
+                getDockActivity().popBackStackTillEntry(0);
+                getDockActivity().replaceDockableFragment(MainFragment.newInstance(), "MainFragment");
                 break;
         }
     }

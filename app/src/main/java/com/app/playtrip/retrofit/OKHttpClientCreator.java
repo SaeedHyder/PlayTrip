@@ -5,6 +5,9 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.support.v4.app.NotificationCompat;
 
+import com.app.playtrip.global.AppConstants;
+import com.app.playtrip.helpers.BasePreferenceHelper;
+
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -18,6 +21,7 @@ public class OKHttpClientCreator {
 
     private static NotificationManager mNotifyManager;
     private static NotificationCompat.Builder mBuilder;
+    private static BasePreferenceHelper preferenceHelper;
 
     public static OkHttpClient createCustomInterceptorClient(Context context) {
 
@@ -26,27 +30,53 @@ public class OKHttpClientCreator {
 
         OkHttpClient client = new OkHttpClient.Builder()
 
-                //.addNetworkInterceptor(new CustomInterceptor(progressListener))
+                .addNetworkInterceptor(new CustomInterceptor(progressListener))
                 .connectTimeout(20, TimeUnit.SECONDS)
                 .readTimeout(20, TimeUnit.SECONDS)
                 .addInterceptor(loggingInterceptor)
-                /*.addInterceptor(new Interceptor() {
-                                    @Override
-                                    public Response intercept(Chain chain) throws IOException {
-                                        Request request = chain.request().newBuilder()
-                                                .addHeader("Accept-Encoding", "identity")
-                                                .addHeader("Content-Type", "application/json")
-                                                .addHeader("Accept", "application/json")
-                                                .build();
-                                        return chain.proceed(request);
-                                    }
-
-                                }
-                )*/
                 .build();
 
         return client;
 
+
+    }
+
+    public static OkHttpClient createCustomInterceptorClientwithHeader(Context context) {
+        preferenceHelper = new BasePreferenceHelper(context);
+
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+
+        if (preferenceHelper.get_TOKEN() != null) {
+              AppConstants.HeaderToken = AppConstants.Bearer + preferenceHelper.get_TOKEN();
+           // AppConstants.HeaderToken = preferenceHelper.get_TOKEN();
+        } else {
+            AppConstants.HeaderToken = "";
+        }
+        OkHttpClient client = new OkHttpClient.Builder()
+                .addNetworkInterceptor(new CustomInterceptor(progressListener))
+                .connectTimeout(100, TimeUnit.SECONDS)
+                .readTimeout(100, TimeUnit.SECONDS)
+                .addInterceptor(loggingInterceptor)
+                .addInterceptor(new Interceptor() {
+                    @Override
+                    public Response intercept(Chain chain) throws IOException {
+                        Request original = chain.request();
+
+                        Request request = original.newBuilder()
+                                .addHeader("Accept-Encoding", "identity")
+                                .addHeader("Content-Type", "application/json")
+                                .addHeader("Authorization", AppConstants.HeaderToken)
+                                .method(original.method(), original.body())
+                                .build();
+
+                        return chain.proceed(request);
+                    }
+                })
+                .build();
+
+        return client;
 
     }
 

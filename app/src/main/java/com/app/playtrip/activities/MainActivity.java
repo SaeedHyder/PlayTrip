@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import com.app.playtrip.R;
 import com.app.playtrip.fragments.HomeFragment;
 import com.app.playtrip.fragments.LoginFragment;
+import com.app.playtrip.fragments.MainFragment;
 import com.app.playtrip.fragments.NotificationsFragment;
 import com.app.playtrip.fragments.SideMenuFragment;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
@@ -24,6 +25,7 @@ import com.app.playtrip.helpers.ScreenHelper;
 import com.app.playtrip.helpers.UIHelper;
 import com.app.playtrip.residemenu.ResideMenu;
 import com.app.playtrip.ui.views.TitleBar;
+import com.google.firebase.FirebaseApp;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -67,6 +69,7 @@ public class MainActivity extends DockActivity implements OnClickListener {
 
         settingSideMenu(sideMenuType, sideMenuDirection);
 
+
         titleBar.setMenuButtonListener(new OnClickListener() {
 
             @Override
@@ -108,7 +111,7 @@ public class MainActivity extends DockActivity implements OnClickListener {
             }
         });
 
-        if (savedInstanceState == null)
+    //    if (savedInstanceState == null)
             initFragment();
 
     }
@@ -175,7 +178,7 @@ public class MainActivity extends DockActivity implements OnClickListener {
     public void initFragment() {
         getSupportFragmentManager().addOnBackStackChangedListener(getListener());
         if (prefHelper.isLogin()) {
-            replaceDockableFragment(HomeFragment.newInstance(), "HomeFragment");
+            replaceDockableFragment(MainFragment.newInstance(), "MainFragment");
         } else {
             replaceDockableFragment(LoginFragment.newInstance(), "LoginFragment");
         }

@@ -1,39 +1,45 @@
 {
   "project_info": {
-    "project_number": "428616761570",
-    "firebase_url": "https://thirdeye-c0ecd.firebaseio.com",
-    "project_id": "thirdeye-c0ecd",
-    "storage_bucket": "thirdeye-c0ecd.appspot.com"
+    "project_number": "588023228061",
+    "firebase_url": "https://playtrip-f4d3e.firebaseio.com",
+    "project_id": "playtrip-f4d3e",
+    "storage_bucket": "playtrip-f4d3e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:428616761570:android:43b5608f6a574472",
+        "mobilesdk_app_id": "1:588023228061:android:9eb254d18d5f9d02389674",
         "android_client_info": {
-          "package_name": "com.app.thirdeye"
+          "package_name": "com.app.playtrip"
         }
       },
       "oauth_client": [
         {
-          "client_id": "428616761570-445srleh0ag530hd2s1n5g29hr2fote8.apps.googleusercontent.com",
+          "client_id": "588023228061-c77i3opcsbmp71e3kuosk80442sfduiq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.playtrip",
+            "certificate_hash": "928098a786eae6a49c57557032643047fab7b5f5"
+          }
+        },
+        {
+          "client_id": "588023228061-fqfj3339o1359pdk8tmt68eoc2heljff.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD2svVcQ7E4PbvYti8ebwdY3EzgBr8JvQU"
+          "current_key": "AIzaSyBuvrASWJivFuFjh3LzhKR1M1Vli01e7Zk"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "588023228061-fqfj3339o1359pdk8tmt68eoc2heljff.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

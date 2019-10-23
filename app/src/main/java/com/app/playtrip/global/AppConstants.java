@@ -17,5 +17,7 @@ public class AppConstants {
     public static String DateFormat_DMY2 = "dd-MM-yy";
     public static String DateFormat_HM = "HH:mm";
     public static String DateFormat_YMDHMS = "yyyy-MM-dd HH:mm:ss";
+    public static  String HeaderToken= "HeaderToken";
+    public static String Bearer = "Bearer ";
 
 }

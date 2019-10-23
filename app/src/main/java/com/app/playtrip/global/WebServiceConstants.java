@@ -6,4 +6,5 @@ public class WebServiceConstants {
     public static final String SUCCESS_RESPONSE_CODE = "2000";
 
     public static final String LOGIN = "login";
+    public static final String SIGNUP = "singup";
 }
