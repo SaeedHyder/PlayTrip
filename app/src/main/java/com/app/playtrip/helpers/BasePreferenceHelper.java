@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.app.playtrip.entities.User.User;
+import com.app.playtrip.retrofit.GsonFactory;
+
 
 public class BasePreferenceHelper extends PreferenceHelper {
 
@@ -16,6 +19,8 @@ public class BasePreferenceHelper extends PreferenceHelper {
     protected static final String Firebase_TOKEN = "Firebasetoken";
 
     protected static final String NotificationCount = "NotificationCount";
+    protected static final String KEY_USER = "KEY_USER";
+    protected static final String TOKEN = "TOKEN";
 
 
     public BasePreferenceHelper(Context c) {
@@ -50,5 +55,20 @@ public class BasePreferenceHelper extends PreferenceHelper {
         putIntegerPreference(context, FILENAME, NotificationCount, count);
     }
 
+    public String get_TOKEN() {
+        return getStringPreference(context, FILENAME, TOKEN);
+    }
+
+    public void set_TOKEN(String token) {
+        putStringPreference(context, FILENAME, TOKEN, token);
+    }
+
+    public User getUser() {
+        return GsonFactory.getConfiguredGson().fromJson(getStringPreference(context, FILENAME, KEY_USER), User.class);
+    }
+
+    public void putUser(User user) {
+        putStringPreference(context, FILENAME, KEY_USER, GsonFactory.getConfiguredGson().toJson(user));
+    }
 
 }

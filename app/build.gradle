@@ -59,6 +59,7 @@ dependencies {
     implementation 'com.nineoldandroids:library:2.4.0'
     implementation 'com.daimajia.slider:library:1.1.5@aar'
 
+
     // Glide v4 uses this new annotation processor -- see https://bumptech.github.io/glide/doc/generatedapi.html
   //  annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 
@@ -66,3 +67,4 @@ dependencies {
     implementation('com.andreabaccega:android-form-edittext:1.2.1@aar') { exclude module: 'design' }
 
 }
+apply plugin: 'com.google.gms.google-services'

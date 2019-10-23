@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.support.v4.app.Fragment;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import com.andreabaccega.formedittextvalidator.Validator;
@@ -39,6 +41,7 @@ public abstract class BaseFragment extends Fragment implements webServiceRespons
 	protected BasePreferenceHelper prefHelper;
 
 	protected  WebService webService;
+	protected WebService headerWebService;
 	protected ServiceHelper serviceHelper;
 
 	protected GPSTracker mGpsTracker;
@@ -58,6 +61,9 @@ public abstract class BaseFragment extends Fragment implements webServiceRespons
 
 		if (webService == null) {
 			webService = WebServiceFactory.getWebServiceInstanceWithCustomInterceptor(getDockActivity(), WebServiceConstants.Local_SERVICE_URL);
+		}
+		if (headerWebService == null) {
+			headerWebService = WebServiceFactory.getWebServiceInstanceWithCustomInterceptorandheader(getDockActivity(), WebServiceConstants.Local_SERVICE_URL);
 		}
 		if (serviceHelper == null){
 			serviceHelper = new ServiceHelper(this,getDockActivity(),webService);
@@ -309,6 +315,24 @@ public abstract class BaseFragment extends Fragment implements webServiceRespons
 			return true;
 		}
 		
+	}
+	protected void setEditTextFocus(AnyEditTextView textFocus) {
+		InputMethodManager imm = (InputMethodManager) getDockActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+		if (imm != null)
+			imm.showSoftInput(textFocus, InputMethodManager.SHOW_IMPLICIT);
+	}
+
+	protected void setEditTextFocus(EditText textFocus) {
+		InputMethodManager imm = (InputMethodManager) getDockActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+		if (imm != null)
+			imm.showSoftInput(textFocus, InputMethodManager.SHOW_IMPLICIT);
+	}
+
+	public String getResString(int id) {
+		return getDockActivity().getResources().getString(id);
+	}
+	public Drawable getResDrawable(int id) {
+		return getDockActivity().getResources().getDrawable(id);
 	}
 	
 }

@@ -39,7 +39,6 @@
     <string name="login">Login</string>
     <string name="profile">Profile</string>
     <string name="email_address">Email Address</string>
-    <string name="password">Password</string>
     <string name="old_password">Old Password</string>
     <string name="new_password">New Password</string>
     <string name="confirm_new_password">Confirm New Password</string>
@@ -54,5 +53,12 @@
     <string name="enter_valid_email">Please Enter Valid Email</string>
     <string name="enter_password">Password Field cannot be Empty</string>
     <string name="passwordLength">Password cannot be less than 6 characters</string>
+    <string name="user_name">User name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="i_agree">I agree ....</string>
+    <string name="enter_fullname">Enter Full Name</string>
+    <string name="confirm_password_error">Confirm Password did not match</string>
 
 </resources>

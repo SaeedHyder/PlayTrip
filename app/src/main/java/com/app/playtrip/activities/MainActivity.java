@@ -24,6 +24,7 @@ import com.app.playtrip.helpers.ScreenHelper;
 import com.app.playtrip.helpers.UIHelper;
 import com.app.playtrip.residemenu.ResideMenu;
 import com.app.playtrip.ui.views.TitleBar;
+import com.google.firebase.FirebaseApp;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -67,6 +68,7 @@ public class MainActivity extends DockActivity implements OnClickListener {
 
         settingSideMenu(sideMenuType, sideMenuDirection);
 
+
         titleBar.setMenuButtonListener(new OnClickListener() {
 
             @Override
@@ -108,7 +110,7 @@ public class MainActivity extends DockActivity implements OnClickListener {
             }
         });
 
-        if (savedInstanceState == null)
+    //    if (savedInstanceState == null)
             initFragment();
 
     }

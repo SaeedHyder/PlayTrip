@@ -55,7 +55,7 @@ public class HomeFragment extends BaseFragment implements AutoCompleteLocation.A
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        ButterKnife.bind(this, view);
+//        ButterKnife.bind(this, view);
         mSlider = (SliderLayout) view.findViewById(R.id.sliderLayout);
 
         getImages();

@@ -25,10 +25,13 @@
 
             </ImageView>
             <EditText
+                android:id="@+id/edtUsername"
                 android:layout_width="match_parent"
                 android:background="@drawable/rounded_white_bg"
                 android:layout_height="@dimen/x40"
-                android:hint="User name"
+                android:hint="@string/user_name"
+                android:inputType="text"
+                android:imeOptions="actionNext"
                 android:paddingLeft="@dimen/x8"
                 android:paddingRight="@dimen/x8"
                 android:maxLines="1"
@@ -36,11 +39,13 @@
 
             </EditText>
             <EditText
+                android:id="@+id/edtEmail"
                 android:layout_width="match_parent"
                 android:background="@drawable/rounded_white_bg"
                 android:layout_height="@dimen/x40"
-                android:hint="Email"
+                android:hint="@string/email"
                 android:inputType="textEmailAddress"
+                android:imeOptions="actionNext"
                 android:paddingLeft="@dimen/x8"
                 android:paddingRight="@dimen/x8"
                 android:maxLines="1"
@@ -48,30 +53,37 @@
 
             </EditText>
             <EditText
+                android:id="@+id/edtPassword"
                 android:layout_width="match_parent"
                 android:background="@drawable/rounded_white_bg"
                 android:layout_height="@dimen/x40"
-                android:hint="Password"
+                android:hint="@string/password"
+                android:inputType="textPassword"
                 android:paddingLeft="@dimen/x8"
                 android:paddingRight="@dimen/x8"
                 android:maxLines="1"
+                android:imeOptions="actionNext"
                 android:layout_marginTop="@dimen/x16">
 
             </EditText>
             <EditText
+                android:id="@+id/edtConPassword"
                 android:layout_width="match_parent"
                 android:background="@drawable/rounded_white_bg"
                 android:layout_height="@dimen/x40"
-                android:hint="Confirm password"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword"
                 android:paddingLeft="@dimen/x8"
                 android:paddingRight="@dimen/x8"
                 android:maxLines="1"
+                android:imeOptions="actionDone"
                 android:layout_marginTop="@dimen/x16">
 
             </EditText>
             <CheckBox
+                android:id="@+id/cbTerms"
                 android:layout_width="wrap_content"
-                android:text="I agree ...."
+                android:text="@string/i_agree"
                 android:buttonTint="@color/white"
                 android:textColor="@color/white"
                 android:layout_marginTop="@dimen/x16"
@@ -80,12 +92,13 @@
             </CheckBox>
 
             <Button
+                android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/x40"
                 android:background="@drawable/rounded_dark_feroz_bg_"
                 android:paddingLeft="@dimen/x8"
                 android:textColor="@color/white"
-                android:text="Register"
+                android:text="@string/register"
                 android:paddingRight="@dimen/x8"
                 android:maxLines="1"
                 android:layout_marginTop="@dimen/x24"/>

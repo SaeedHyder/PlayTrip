@@ -22,7 +22,7 @@ public abstract class RecyclerViewBinder<T> {
 	public abstract BaseViewHolder createViewHolder (View view);
 
 	/**
-	 * @param entity object with view Data
+	 * @param entity object with view DataUser
 	 * @param position view postion in recycler view
 	 * @param viewHolder holder to hold views
 	 * @param context

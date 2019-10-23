@@ -24,7 +24,7 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
 
         <item name="android:windowNoTitle">true</item>
-        <item name="colorAccent">@color/white</item>
+        <item name="colorAccent">@color/black</item>
         <item name="colorPrimaryDark">@color/black</item>
         <item name="colorPrimary">@color/black</item>
         <item name="coordinatorLayoutStyle">@style/Widget.Support.CoordinatorLayout</item>
@@ -32,6 +32,16 @@
        <!-- <item name="android:windowTranslucentStatus">true</item>-->
 
 
+    </style>
+
+    <style name="TextLabel" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:textSize">@dimen/x14</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
     </style>
 
 

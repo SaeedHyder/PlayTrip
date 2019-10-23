@@ -1,13 +1,24 @@
 package com.app.playtrip.entities.Wrapper;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 
 public class ResponseWrapper<T> {
 
+    @SerializedName("success")
+    @Expose
     private Boolean success;
+    @SerializedName("message")
+    @Expose
     private String message;
-    private ArrayList<T> data;
-    private ArrayList<ErrorModel> errors;
+    @SerializedName("data")
+    @Expose
+    private T data;
+    @SerializedName("errors")
+    @Expose
+    private ArrayList<ErrorModel> errors = null;
 
     public Boolean getSuccess() {
         return success;
@@ -25,13 +36,6 @@ public class ResponseWrapper<T> {
         this.message = message;
     }
 
-    public ArrayList<T> getData() {
-        return data;
-    }
-
-    public void setData(ArrayList<T> data) {
-        this.data = data;
-    }
 
     public ArrayList<ErrorModel> getErrors() {
         return errors;
@@ -39,5 +43,13 @@ public class ResponseWrapper<T> {
 
     public void setErrors(ArrayList<ErrorModel> errors) {
         this.errors = errors;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
     }
 }
