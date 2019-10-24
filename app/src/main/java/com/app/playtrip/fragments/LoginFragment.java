@@ -49,7 +49,7 @@ public class LoginFragment extends BaseFragment {
     TextView btnRegister;
     @BindView(R.id.btnForgotPass)
     TextView btnForgotPass;
-    Unbinder unbinder;
+
 
     public static LoginFragment newInstance() {
         return new LoginFragment();
@@ -74,7 +74,7 @@ public class LoginFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         View view = inflater.inflate(R.layout.fragment_login, container, false);
-        unbinder = ButterKnife.bind(this, view);
+        ButterKnife.bind(this, view);
         return view;
 
     }
@@ -107,13 +107,16 @@ public class LoginFragment extends BaseFragment {
                 }
                 break;
             case R.id.btn_fb:
+                notImplemented();
                 break;
             case R.id.btn_google:
+                notImplemented();
                 break;
             case R.id.btnRegister:
                 getDockActivity().replaceDockableFragment(SignupFragment.newInstance(),"SignupFragment");
                 break;
             case R.id.btnForgotPass:
+                getDockActivity().replaceDockableFragment(ForgotPassword.newInstance(),"SignupFragment");
                 break;
         }
     }

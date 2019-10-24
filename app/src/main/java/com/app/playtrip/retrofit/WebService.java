@@ -21,6 +21,7 @@ public interface WebService {
             @Field("device_type") String device_type,
             @Field("device_token") String device_token
     );
+
     @FormUrlEncoded
     @POST("register")
     Call<ResponseWrapper<DataUser>> signup(
@@ -33,4 +34,9 @@ public interface WebService {
             @Field("device_type") String device_type
     );
 
+    @FormUrlEncoded
+    @POST("login")
+    Call<ResponseWrapper<DataUser>> loginUser(
+            @Field("email") String email
+    );
 }

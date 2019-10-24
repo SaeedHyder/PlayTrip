@@ -24,22 +24,22 @@ public class Details{
     private String currentBalance;
     @SerializedName("phone")
     @Expose
-    private Object phone;
+    private String phone;
     @SerializedName("gender")
     @Expose
     private String gender;
     @SerializedName("dob")
     @Expose
-    private Object dob;
+    private String dob;
     @SerializedName("address")
     @Expose
-    private Object address;
+    private String address;
     @SerializedName("city")
     @Expose
-    private Object city;
+    private String city;
     @SerializedName("country")
     @Expose
-    private Object country;
+    private String country;
     @SerializedName("latitude")
     @Expose
     private String latitude;
@@ -101,11 +101,11 @@ public class Details{
         this.currentBalance = currentBalance;
     }
 
-    public Object getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Object phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -117,35 +117,35 @@ public class Details{
         this.gender = gender;
     }
 
-    public Object getDob() {
+    public String getDob() {
         return dob;
     }
 
-    public void setDob(Object dob) {
+    public void setDob(String dob) {
         this.dob = dob;
     }
 
-    public Object getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(Object address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
-    public Object getCity() {
+    public String getCity() {
         return city;
     }
 
-    public void setCity(Object city) {
+    public void setCity(String city) {
         this.city = city;
     }
 
-    public Object getCountry() {
+    public String getCountry() {
         return country;
     }
 
-    public void setCountry(Object country) {
+    public void setCountry(String country) {
         this.country = country;
     }
 
