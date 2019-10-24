@@ -99,7 +99,7 @@ public class MainFragment extends BaseFragment {
     private void setData(TabLayout.Tab tab) {
 
         if (tab.getPosition() == 0) {
-           // replaceFragment(MapViewFragment.newInstance());
+            replaceFragment(HomeFragment.newInstance());
         } else if(tab.getPosition() == 1){
          //   replaceFragment(ListViewFragment.newInstance());
         } else if(tab.getPosition() == 2){
@@ -112,6 +112,7 @@ public class MainFragment extends BaseFragment {
     }
     public void replaceFragment(Fragment frag) {
 
+        manager = getFragmentManager();
 
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.fragmentContainer, frag);

@@ -63,4 +63,11 @@
     <string name="forget_password">Forget password</string>
     <string name="email">Email</string>
 
+   <!-- home screen Strings-->
+    <string name="top_list_name">Top list name</string>
+    <string name="middle_list_name">Middle list name</string>
+    <string name="last_list_name">last list name</string>
+
+
+
 </resources>
