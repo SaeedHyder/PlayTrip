@@ -98,6 +98,8 @@
             android:layout_alignParentRight="true"
             android:textSize="@dimen/_x12"
             android:maxLength="10"
+            android:paddingStart="@dimen/x5"
+            android:paddingEnd="@dimen/x5"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/x8"
             android:background="@drawable/rounded_light_orange"
