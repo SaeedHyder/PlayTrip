@@ -11,12 +11,12 @@
 
 
         <android.support.v7.widget.SearchView
-
             android:id="@+id/ac_location"
             android:layout_gravity="center"
             android:background="@drawable/rounded_light_orange"
             android:layout_marginRight="@dimen/x24"
             android:layout_marginLeft="@dimen/x24"
+
             android:layout_width="match_parent"
             android:layout_height="@dimen/x36"
            />

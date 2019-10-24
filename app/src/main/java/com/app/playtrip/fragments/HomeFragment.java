@@ -129,7 +129,7 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner,A
     }
     public void getImages(){
         BannerEntity bannerEntity = new BannerEntity();
-        bannerEntity.setTabPosterPath(R.drawable.bg);
+        bannerEntity.setTabPosterPath(R.drawable.s23_img);
         bannerEntityList.add(bannerEntity);
 
         loadBannerSliderImage(bannerEntityList,"Play Trp");

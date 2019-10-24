@@ -67,7 +67,8 @@
     <string name="top_list_name">Top list name</string>
     <string name="middle_list_name">Middle list name</string>
     <string name="last_list_name">last list name</string>
-
+    <string name="view_more">View More</string>
+    <string name="hottest_places">Hottest Places</string>
 
 
 </resources>

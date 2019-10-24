@@ -1,66 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="@color/light_gray"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-   <include layout="@layout/layout_inc_search"></include>
+    android:layout_height="match_parent"
+    android:background="@color/light_gray"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_inc_search"></include>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:paddingBottom="@dimen/x4"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/x4">
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
             <com.daimajia.slider.library.SliderLayout
                 android:id="@+id/sliderLayout"
                 android:layout_width="match_parent"
                 android:layout_height="180dp" />
 
             <TextView
-                android:layout_marginLeft="@dimen/x12"
-                android:textColor="@color/black"
-                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/top_list_name"/>
+                android:layout_marginLeft="@dimen/x12"
+                android:layout_marginTop="@dimen/x10"
+                android:layout_marginBottom="@dimen/x10"
+                android:text="@string/hottest_places"
+                android:textColor="@color/black"
+                android:textSize="@dimen/x16"
+                android:textStyle="bold" />
+
             <com.app.playtrip.ui.views.CustomRecyclerView
 
-                android:layout_marginLeft="@dimen/x12"
                 android:id="@+id/rv_topList"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:layout_marginLeft="@dimen/x12"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/middle_list_name"/>
-            <android.support.v7.widget.RecyclerView
+                android:layout_marginLeft="@dimen/x12" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/x12"
+                android:layout_marginTop="@dimen/x10"
+                android:layout_marginBottom="@dimen/x10"
+                android:layout_marginRight="@dimen/x12"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:text="Newest Videos"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/x16"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/btnViewMore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x12"
+                    android:gravity="right"
+                    android:text="@string/view_more"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/x16"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_middleList"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:layout_marginLeft="@dimen/x12"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/last_list_name"/>
-            <android.support.v7.widget.RecyclerView
+                android:layout_marginLeft="@dimen/x12" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/x12"
+                android:layout_marginTop="@dimen/x10"
+                android:layout_marginBottom="@dimen/x10"
+                android:layout_marginRight="@dimen/x12"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Trending User"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/x16"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/btnViewMoreUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x12"
+                    android:gravity="right"
+                    android:text="@string/view_more"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/x16"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_lastList"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x12" />
 
         </LinearLayout>
     </ScrollView>
-
-
 
 
 </LinearLayout>
