@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
+import com.app.playtrip.entities.BannerEntity;
 import com.app.playtrip.ui.viewbinders.abstracts.RecyclerViewBinder;
 
 import java.util.List;
@@ -12,13 +13,13 @@ import java.util.List;
  * Created on 8/10/2017.
  */
 
-public class RecyclerViewAdapter<BannerEntity> extends RecyclerView.Adapter<RecyclerViewBinder.BaseViewHolder> {
-    private List<BannerEntity> collections;
-    private RecyclerViewBinder<BannerEntity> viewBinder;
+public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewBinder.BaseViewHolder> {
+    private List<T> collections;
+    private RecyclerViewBinder<T> viewBinder;
     private Context mContext;
     
 
-    public RecyclerViewAdapter(List<BannerEntity> collections, RecyclerViewBinder<BannerEntity> viewBinder, Context context) {
+    public RecyclerViewAdapter(List<T> collections, RecyclerViewBinder<T> viewBinder, Context context) {
         this.collections = collections;
         this.viewBinder = viewBinder;
         this.mContext = context;
@@ -42,11 +43,11 @@ public class RecyclerViewAdapter<BannerEntity> extends RecyclerView.Adapter<Recy
     public int getItemCount() {
         return 5;
     }
-    public BannerEntity getItemFromList(int index ) {
+    public T getItemFromList(int index ) {
         return collections.get( index );
     }
 
-    public List<BannerEntity> getList() {
+    public List<T> getList() {
         return collections;
     }
     /**
@@ -63,7 +64,7 @@ public class RecyclerViewAdapter<BannerEntity> extends RecyclerView.Adapter<Recy
      *
      * @see #addAll(List)
      */
-    public void add(BannerEntity entity ) {
+    public void add(T entity ) {
         collections.add( entity );
         notifyDataSetChanged();
     }
@@ -75,7 +76,7 @@ public class RecyclerViewAdapter<BannerEntity> extends RecyclerView.Adapter<Recy
      *
      * @see #addAll(List)
      */
-    public void addAll( List<BannerEntity> entityList ) {
+    public void addAll( List<T> entityList ) {
         collections.addAll( entityList );
         notifyDataSetChanged();
     }

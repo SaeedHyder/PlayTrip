@@ -6,8 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.app.playtrip.R;
+import com.app.playtrip.entities.BannerEntity;
 
-public abstract class RecyclerViewBinder<BannerEntity> {
+public abstract class RecyclerViewBinder<T> {
 	private int LayoutResId;
 	public RecyclerViewBinder(int LayoutResId) {
 		this.LayoutResId = LayoutResId;
@@ -15,7 +16,7 @@ public abstract class RecyclerViewBinder<BannerEntity> {
 
 	public View createView (Context activity) {
 		LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		final View view = inflater.inflate(R.layout.item_home_middle, null );
+		final View view = inflater.inflate(LayoutResId, null );
 		view.setTag( createViewHolder( view ) );
 		return view;
 

@@ -7,8 +7,6 @@ import android.os.Parcelable;
 
 public class BannerEntity {
 
-
-
     private int TabPosterPath;
     private int VideoEntityId;
     private String imagDisc;

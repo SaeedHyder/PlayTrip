@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/x128"
+    android:layout_height="@dimen/x128" >
+<FrameLayout android:layout_width="@dimen/x128"
     android:layout_height="@dimen/x128"
     android:layout_margin="@dimen/x2"
     android:orientation="vertical">
@@ -22,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="@dimen/x16"
+        android:layout_centerInParent="true"
         android:maxLines="2"
         android:textColor="@color/white"
         android:textStyle="bold"
@@ -33,3 +37,4 @@
 
 
 </FrameLayout>
+</RelativeLayout>

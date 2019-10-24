@@ -3,6 +3,7 @@ package com.app.playtrip.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,42 +13,39 @@ import com.app.playtrip.R;
 import com.app.playtrip.entities.BannerEntity;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
 import com.app.playtrip.helpers.UIHelper;
+import com.app.playtrip.interfaces.RecyclerClickListner;
 import com.app.playtrip.ui.adapters.RecyclerViewAdapter;
 import com.app.playtrip.ui.adapters.RecyclerViewAdapterHomeBottom;
 import com.app.playtrip.ui.adapters.RecyclerViewAdapterHomeMiddle;
 import com.app.playtrip.ui.adapters.RecyclerViewAdapterHomeTop;
+import com.app.playtrip.ui.binders.HomeTopBinder;
 import com.app.playtrip.ui.viewbinders.abstracts.RecyclerViewBinder;
 import com.app.playtrip.ui.views.AutoCompleteLocation;
+import com.app.playtrip.ui.views.CustomRecyclerView;
 import com.app.playtrip.ui.views.TitleBar;
-import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.Indicators.PagerIndicator;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
-import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Transformers.BaseTransformer;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.google.android.gms.location.places.Place;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
-import static com.facebook.FacebookSdk.getApplicationContext;
 
 
-public class HomeFragment extends BaseFragment implements AutoCompleteLocation.AutoCompleteLocationListener, ViewPagerEx.OnPageChangeListener {
+public class HomeFragment extends BaseFragment implements RecyclerClickListner,AutoCompleteLocation.AutoCompleteLocationListener, ViewPagerEx.OnPageChangeListener {
 
 
     @BindView(R.id.sliderLayout)
     SliderLayout mSlider;
-    @BindView(R.id.rv_topList) RecyclerView recyclerViewTop;
+    @BindView(R.id.rv_topList)
+    CustomRecyclerView recyclerViewTop;
     @BindView(R.id.rv_middleList) RecyclerView recyclerViewMiddle;
     @BindView(R.id.rv_lastList) RecyclerView recyclerViewBottom;
     Map<String,Integer> sliderImages;
@@ -79,7 +77,7 @@ public class HomeFragment extends BaseFragment implements AutoCompleteLocation.A
 
 
         getImages();
-        loadBannerSliderImage(bannerEntityList,"Play Trp");
+
         setAdapter();
 
 
@@ -133,6 +131,8 @@ public class HomeFragment extends BaseFragment implements AutoCompleteLocation.A
         BannerEntity bannerEntity = new BannerEntity();
         bannerEntity.setTabPosterPath(R.drawable.bg);
         bannerEntityList.add(bannerEntity);
+
+        loadBannerSliderImage(bannerEntityList,"Play Trp");
 
     }
     public void loadBannerSliderImage(List<BannerEntity> bannerEntityList, String bannerImage) {
@@ -197,12 +197,14 @@ public class HomeFragment extends BaseFragment implements AutoCompleteLocation.A
     }
     public void setAdapter(){
 
-        mAdapter = new RecyclerViewAdapterHomeTop(getActivity(), bannerEntityList);
+      /*  mAdapter = new RecyclerViewAdapterHomeTop(getActivity(), bannerEntityList);
         recyclerViewTop.setAdapter(mAdapter);
-        LinearLayoutManager layoutManager =
-                new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
         recyclerViewTop.setLayoutManager(layoutManager);
         recyclerViewTop.setHasFixedSize(true);
+*/
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewTop.BindRecyclerView(new HomeTopBinder(getDockActivity(),prefHelper,this),bannerEntityList,layoutManager, new DefaultItemAnimator());
+
 
         mAdapterMiddle = new RecyclerViewAdapterHomeMiddle(getActivity(), bannerEntityList);
         recyclerViewMiddle.setAdapter(mAdapterMiddle);
@@ -221,5 +223,9 @@ public class HomeFragment extends BaseFragment implements AutoCompleteLocation.A
 
     }
 
+    @Override
+    public void onClick(Object entity, int position) {
+
+    }
 }
 
