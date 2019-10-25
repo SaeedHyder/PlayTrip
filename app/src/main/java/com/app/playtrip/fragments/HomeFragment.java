@@ -89,7 +89,7 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner,A
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
        // ac_location.setAutoCompleteTextListener(this);
-        getDockActivity().replaceDockableFragment(ProfileFragment.newInstance(),"ProfileFragment");
+
     }
 
 

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.app.playtrip.R;
+import com.app.playtrip.fragments.Profile.ProfileFragment;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
 import com.app.playtrip.ui.views.TitleBar;
 
@@ -101,7 +102,7 @@ public class MainFragment extends BaseFragment {
         if (tab.getPosition() == 0) {
             replaceFragment(HomeFragment.newInstance());
         } else if(tab.getPosition() == 1){
-         //   replaceFragment(ListViewFragment.newInstance());
+            replaceFragment(ProfileFragment.newInstance());
         } else if(tab.getPosition() == 2){
             //   replaceFragment(ListViewFragment.newInstance());
         } else if(tab.getPosition() == 3){

@@ -42,11 +42,11 @@ public class FollowingBinder extends RecyclerViewBinder<String> {
     public void bindView(String entity, int position, Object holder, Context context) {
 
         ViewHolder viewHolder=(ViewHolder)holder;
-      /*  if(isFollowed){
+        if(isFollowed){
             viewHolder.btnFollow.setVisibility(View.GONE);
         }else{
             viewHolder.btnFollow.setVisibility(View.VISIBLE);
-        }*/
+        }
 
     }
 
