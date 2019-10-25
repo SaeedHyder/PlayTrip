@@ -1,53 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    android:layout_height="@dimen/x64">
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="@dimen/x62"
+        android:layout_marginTop="@dimen/x5"
+        android:background="@color/white"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="1"
-        android:paddingRight="@dimen/x8"
         android:paddingLeft="@dimen/x8"
-        android:gravity="center"
-        android:layout_height="@dimen/x62">
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="0dp"
-        android:layout_weight=".2"
-        android:scaleType="fitStart"
-        android:src="@drawable/s2_img2"
-        android:layout_height="@dimen/x48">
+        android:paddingRight="@dimen/x8"
+        android:weightSum="1">
 
-    </de.hdodenhof.circleimageview.CircleImageView>
-    <TextView
-        android:padding="@dimen/x4"
-        android:layout_weight=".5"
-        android:textColor="@color/black"
-        android:text="Mery"
-        android:textStyle="bold"
-        android:textSize="@dimen/_x18"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"></TextView>
-    <TextView
-        android:background="@drawable/rounded_dark_ferozd_bg"
-        android:layout_weight=".3"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:text="Unfollow"
-        android:textStyle="bold"
-        android:textSize="@dimen/_x16"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/x32">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivImage"
+            android:layout_width="@dimen/x48"
+            android:layout_height="@dimen/x48"
+            android:src="@drawable/s2_img2" />
 
-    </TextView>
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/x4"
+            android:text="Mery"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_x18"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btnFollow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_dark_ferozd_bg"
+            android:gravity="center"
+            android:padding="@dimen/x10"
+            android:text="Unfollow"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_x16"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
-        android:background="@color/view_line_color"
-        android:layout_height="2dp">
+        android:layout_height="2dp"
+        android:background="@color/view_line_color" />
 
-    </View>
-
-
-
-</LinearLayout>
+</RelativeLayout>

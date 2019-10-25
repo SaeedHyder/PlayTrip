@@ -251,9 +251,9 @@ public class ProfileFragment extends BaseFragment {
         if (tab.getPosition() == 0) {
             replaceFragment(VideosFragment.newInstance());
         } else if (tab.getPosition() == 1) {
-            //   replaceFragment(ListViewFragment.newInstance());
+            replaceFragment(FollowedFragment.newInstance());
         } else if (tab.getPosition() == 2) {
-            //   replaceFragment(ListViewFragment.newInstance());
+            replaceFragment(FollowingFragment.newInstance());
         }
     }
 
@@ -262,7 +262,7 @@ public class ProfileFragment extends BaseFragment {
         FragmentManager manager = getFragmentManager();
 
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.fragmentContainer, frag);
+        transaction.replace(R.id.fragmentContainer, frag);
         transaction.addToBackStack(manager.getBackStackEntryCount() == 0 ? KEY_FRAG_FIRST : null).commit();
 
 

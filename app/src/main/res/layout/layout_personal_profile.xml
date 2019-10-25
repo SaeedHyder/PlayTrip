@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <android.support.design.widget.CoordinatorLayout
+        android:visibility="visible"
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        tools:context=".activities.MainActivity">
+
+
+
+
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:collapsedTitleGravity="center_vertical|start|left"
+                app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleGravity="top|start|left"
+                app:expandedTitleMarginStart="76dp"
+                app:expandedTitleMarginTop="15dp"
+                app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:titleEnabled="true">
+
+
+                <FrameLayout
+                    android:id="@+id/frame_layout_ivBannerImage"
+                    android:layout_width="match_parent"
+                    android:background="@color/light_gray_1"
+                    android:layout_height="@dimen/x300"
+                    >
+
+                    <ImageView
+                        android:id="@+id/ivProfileBannerImg"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x180"
+                        android:contentDescription="@null"
+                        android:src="@drawable/s3_banner"
+                        android:scaleType="centerCrop"
+                        />
+                    <FrameLayout
+                        android:layout_width="@dimen/x176"
+                        android:layout_height="@dimen/x166"
+                        android:layout_gravity="center"
+                        >
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/ivProfileImage"
+                            android:layout_width="@dimen/x140"
+                            android:layout_height="@dimen/x140"
+                            android:src="@drawable/s2_img2"
+                            android:layout_gravity="center">
+
+                        </de.hdodenhof.circleimageview.CircleImageView>
+                        <ImageView
+                            android:id="@+id/btnCamera"
+                            android:layout_width="@dimen/x36"
+                            android:layout_height="@dimen/x36"
+                            android:contentDescription="@null"
+                            android:src="@drawable/s3_c2"
+                            android:scaleType="fitXY"
+                            android:layout_gravity="right|bottom"
+
+                            />
+                    </FrameLayout>
+                    <ImageView
+                        android:id="@+id/btnCameraBanner"
+                        android:layout_width="@dimen/x36"
+                        android:layout_height="@dimen/x36"
+                        android:contentDescription="@null"
+                        android:src="@drawable/s3_c1"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center|right"
+                        android:layout_marginRight="@dimen/x16"
+
+                        />
+                    <TextView
+                        android:id="@+id/txtUsername"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Backy"
+                        android:layout_marginBottom="@dimen/x40"
+                        android:textSize="@dimen/_x20"
+                        android:layout_gravity="center|bottom"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/btnSetting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings"
+                        android:layout_marginBottom="@dimen/x40"
+                        android:textSize="@dimen/x14"
+                        android:layout_gravity="right|top"
+                        android:padding="@dimen/x15"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"/>
+
+                </FrameLayout>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x40"
+                android:elevation="@dimen/x6"
+                android:background="@color/light_gray_1"
+                app:tabIndicatorColor="@color/yellow"
+                android:minHeight="?attr/actionBarSize"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@color/skyblue"
+               />
+        </android.support.design.widget.AppBarLayout>
+
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:visibility="gone"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            />
+
+
+        <FrameLayout
+            android:id="@+id/fragmentContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/light_gray_1"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            >
+        </FrameLayout>
+
+
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
+
+
+
+</LinearLayout>

@@ -16,7 +16,7 @@ public abstract class RecyclerViewBinder<T> {
 
 	public View createView (Context activity) {
 		LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		final View view = inflater.inflate(LayoutResId, null );
+		final View view = inflater.inflate(this.LayoutResId, null );
 		view.setTag( createViewHolder( view ) );
 		return view;
 
