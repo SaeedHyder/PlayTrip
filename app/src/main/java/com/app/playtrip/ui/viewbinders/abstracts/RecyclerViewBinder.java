@@ -31,7 +31,7 @@ public abstract class RecyclerViewBinder<T> {
 	 * @param context
 	 */
 
-	public abstract void bindView(BannerEntity entity, int position, Object viewHolder, Context context);
+	public abstract void bindView(T entity, int position, Object viewHolder, Context context);
 
 	public static class BaseViewHolder extends RecyclerView.ViewHolder {
 

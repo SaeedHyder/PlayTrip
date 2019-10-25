@@ -69,6 +69,9 @@
     <string name="last_list_name">last list name</string>
     <string name="view_more">View More</string>
     <string name="hottest_places">Hottest Places</string>
-
+    <string name="videos">Videos</string>
+    <string name="followed">Followed</string>
+    <string name="following">Following</string>
+    <string name="settings">Settings</string>
 
 </resources>

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.app.playtrip.R;
 import com.app.playtrip.entities.BannerEntity;
+import com.app.playtrip.fragments.Profile.ProfileFragment;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
 import com.app.playtrip.helpers.UIHelper;
 import com.app.playtrip.interfaces.RecyclerClickListner;
@@ -88,6 +89,7 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner,A
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
        // ac_location.setAutoCompleteTextListener(this);
+        getDockActivity().replaceDockableFragment(ProfileFragment.newInstance(),"ProfileFragment");
     }
 
 
@@ -202,7 +204,7 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner,A
         recyclerViewTop.setLayoutManager(layoutManager);
         recyclerViewTop.setHasFixedSize(true);
 */
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager layoutManager=new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         recyclerViewTop.BindRecyclerView(new HomeTopBinder(getDockActivity(),prefHelper,this),bannerEntityList,layoutManager, new DefaultItemAnimator());
 
 
