@@ -2,12 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <com.app.playtrip.ui.views.CustomRecyclerView
+        android:layout_above="@+id/btn_add"
 
-    </android.support.v7.widget.RecyclerView>
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.app.playtrip.ui.views.CustomRecyclerView>
     <ImageView
+        android:id="@+id/btn_add"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:src="@drawable/s16_plus"

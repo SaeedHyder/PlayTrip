@@ -74,4 +74,15 @@
     <string name="following">Following</string>
     <string name="settings">Settings</string>
 
+    <!-- make video screen Strings-->
+    <string name="mv_photo">Photo</string>
+    <string name="mv_title">Title</string>
+    <string name="mv_sub_title">xyz</string>
+    <string name="mv_captions">Caption</string>
+    <string name="mv_driving">Driving</string>
+    <string name="mv_delete">Delete</string>
+    <string name="mv_publish">Publish</string>
+
+
+
 </resources>

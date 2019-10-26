@@ -104,11 +104,12 @@ public class MainFragment extends BaseFragment {
         } else if(tab.getPosition() == 1){
             replaceFragment(ProfileFragment.newInstance());
         } else if(tab.getPosition() == 2){
-            //   replaceFragment(ListViewFragment.newInstance());
+            replaceFragment(MakeVideosFragment.newInstance());
+
         } else if(tab.getPosition() == 3){
-            //   replaceFragment(ListViewFragment.newInstance());
+            replaceFragment(BuyTicketsFragment.newInstance());
         } else if(tab.getPosition() == 4){
-            //   replaceFragment(ListViewFragment.newInstance());
+               replaceFragment(BookMarkFragment.newInstance());
         }
     }
     public void replaceFragment(Fragment frag) {
@@ -116,8 +117,8 @@ public class MainFragment extends BaseFragment {
         manager = getFragmentManager();
 
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.fragmentContainer, frag);
-        transaction.addToBackStack(manager.getBackStackEntryCount() == 0 ? KEY_FRAG_FIRST : null).commit();
+        transaction.replace(R.id.fragmentContainer, frag);
+        transaction.addToBackStack(manager.getBackStackEntryCount() == 1 ? KEY_FRAG_FIRST : null).commit();
 
 
     }
