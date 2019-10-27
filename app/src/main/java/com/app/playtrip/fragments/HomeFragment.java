@@ -11,12 +11,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.app.playtrip.R;
 import com.app.playtrip.entities.BannerEntity;
+import com.app.playtrip.fragments.Profile.ProfileFragment;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
-import com.app.playtrip.global.AppConstants;
 import com.app.playtrip.helpers.UIHelper;
 import com.app.playtrip.interfaces.RecyclerClickListner;
 import com.app.playtrip.ui.binders.HomeBottomBinder;
@@ -32,7 +33,6 @@ import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
 import com.daimajia.slider.library.Transformers.BaseTransformer;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.google.android.gms.location.places.Place;
-import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +43,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.app.playtrip.activities.DockActivity.KEY_FRAG_FIRST;
-import static com.app.playtrip.global.WebServiceConstants.LOGIN;
 
 
 public class HomeFragment extends BaseFragment implements RecyclerClickListner, AutoCompleteLocation.AutoCompleteLocationListener, ViewPagerEx.OnPageChangeListener {
@@ -62,7 +61,10 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
     ArrayList<BannerEntity> bannerEntityList = new ArrayList<>();
     @BindView(R.id.tv_viewMore)
     TextView tvViewMore;
-    private FragmentManager manager;
+    @BindView(R.id.btnProfile)
+    ImageView btnProfile;
+    @BindView(R.id.btnViewMoreUser)
+    TextView btnViewMoreUser;
 
 
 
@@ -219,24 +221,22 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
 
     }
 
-    @OnClick({R.id.tv_viewMore})
+    @OnClick({R.id.tv_viewMore,R.id.btnProfile})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_viewMore:
-                replaceFragment(DetailVideoFragment.newInstance());
+                replaceMainFragment(DetailVideoFragment.newInstance());
+                break;
+            case R.id.btnProfile:
+                replaceMainFragment(ProfileFragment.newInstance());
                 break;
 
         }
     }
-    public void replaceFragment(Fragment frag) {
-
-        manager = getFragmentManager();
-
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.fragmentContainer, frag);
-        transaction.addToBackStack(manager.getBackStackEntryCount() == 1 ? KEY_FRAG_FIRST : null).commit();
 
 
-    }
+
+
+
 }
 

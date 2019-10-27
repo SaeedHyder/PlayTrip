@@ -39,7 +39,6 @@ public abstract class DockActivity extends AppCompatActivity implements
     protected BasePreferenceHelper prefHelper;
 
     //For side menu
-    protected DrawerLayout drawerLayout;
     public SideMenuFragment sideMenuFragment;
 
     private ResideMenu.OnMenuListener menuListener = new ResideMenu.OnMenuListener() {
@@ -128,26 +127,6 @@ public abstract class DockActivity extends AppCompatActivity implements
 
 
     }
-    public DrawerLayout getDrawerLayout(){
-        return drawerLayout;
-    }
-
-    public void closeDrawer() {
-        drawerLayout.closeDrawers();
-
-    }
-
-    public void lockDrawer() {
-        try {
-            drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void releaseDrawer() {
-        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
-    }
 
     public void addAndShowDialogFragment(
             android.support.v4.app.DialogFragment dialog) {
@@ -173,7 +152,7 @@ public abstract class DockActivity extends AppCompatActivity implements
 
     @Override
     public void onBackPressed() {
-        if (getSupportFragmentManager().getBackStackEntryCount() > 1)
+        if (getSupportFragmentManager().getBackStackEntryCount() > 1 )
             super.onBackPressed();
         else
             DialogFactory.createQuitDialog(this,

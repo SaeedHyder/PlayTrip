@@ -11,9 +11,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 
 import com.app.playtrip.R;
-import com.app.playtrip.fragments.HomeFragment;
 import com.app.playtrip.fragments.LoginFragment;
 import com.app.playtrip.fragments.MainFragment;
 import com.app.playtrip.fragments.NotificationsFragment;
@@ -25,7 +25,6 @@ import com.app.playtrip.helpers.ScreenHelper;
 import com.app.playtrip.helpers.UIHelper;
 import com.app.playtrip.residemenu.ResideMenu;
 import com.app.playtrip.ui.views.TitleBar;
-import com.google.firebase.FirebaseApp;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,6 +40,10 @@ public class MainActivity extends DockActivity implements OnClickListener {
     FrameLayout mainFrameLayout;
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
+    @BindView(R.id.content_frame)
+    RelativeLayout contentFrame;
+    @BindView(R.id.drawer_layout)
+    DrawerLayout drawerLayout;
     private MainActivity mContext;
     private boolean loading;
 
@@ -68,6 +71,7 @@ public class MainActivity extends DockActivity implements OnClickListener {
         StrictMode.setVmPolicy(builder.build());
 
         settingSideMenu(sideMenuType, sideMenuDirection);
+        lockDrawer();
 
 
         titleBar.setMenuButtonListener(new OnClickListener() {
@@ -111,8 +115,8 @@ public class MainActivity extends DockActivity implements OnClickListener {
             }
         });
 
-    //    if (savedInstanceState == null)
-            initFragment();
+        //    if (savedInstanceState == null)
+        initFragment();
 
     }
 
@@ -271,5 +275,27 @@ public class MainActivity extends DockActivity implements OnClickListener {
     private void notImplemented() {
         UIHelper.showLongToastInCenter(this, "Coming Soon");
     }
+
+    public void closeDrawer() {
+        drawerLayout.closeDrawers();
+
+    }
+
+    public void lockDrawer() {
+        try {
+            drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void releaseDrawer() {
+        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+    }
+
+    public DrawerLayout getDrawerLayout(){
+        return drawerLayout;
+    }
+
 
 }

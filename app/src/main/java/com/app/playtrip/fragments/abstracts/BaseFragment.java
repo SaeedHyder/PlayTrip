@@ -10,6 +10,8 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
@@ -32,6 +34,8 @@ import com.app.playtrip.retrofit.WebServiceFactory;
 import com.app.playtrip.ui.views.AnyEditTextView;
 import com.app.playtrip.ui.views.TitleBar;
 
+import static com.app.playtrip.activities.DockActivity.KEY_FRAG_FIRST;
+
 
 public abstract class BaseFragment extends Fragment implements webServiceResponseLisener {
 	
@@ -45,7 +49,6 @@ public abstract class BaseFragment extends Fragment implements webServiceRespons
 	protected ServiceHelper serviceHelper;
 
 	protected GPSTracker mGpsTracker;
-
 	protected  DockActivity myDockActivity;
 	//private DockActivity activity;
 
@@ -53,9 +56,7 @@ public abstract class BaseFragment extends Fragment implements webServiceRespons
 	public void onCreate( Bundle savedInstanceState ) {
 		super.onCreate( savedInstanceState );
 		prefHelper = new BasePreferenceHelper(getContext());
-		if(getDockActivity().getDrawerLayout() != null) {
-			getDockActivity().lockDrawer();
-		}
+
 
 		mGpsTracker = new GPSTracker(getDockActivity());
 
@@ -76,10 +77,6 @@ public abstract class BaseFragment extends Fragment implements webServiceRespons
 	public void onResume() {
 		super.onResume();
 	//	setTitleBar( ((MainActivity) getDockActivity()).titleBar );
-
-		if(getDockActivity().getDrawerLayout() != null){
-			getDockActivity().releaseDrawer();
-		}
 	}
 	public void fragmentResume() {
 		setTitleBar(((MainActivity) getDockActivity()).titleBar);
@@ -334,6 +331,11 @@ public abstract class BaseFragment extends Fragment implements webServiceRespons
 	public Drawable getResDrawable(int id) {
 		return getDockActivity().getResources().getDrawable(id);
 	}
-	
-	
+
+	public void replaceMainFragment(Fragment frag) {
+		android.support.v4.app.FragmentTransaction transaction = getDockActivity().getSupportFragmentManager().beginTransaction();
+		transaction.replace(R.id.fragmentContainer, frag);
+		transaction.addToBackStack(getDockActivity().getSupportFragmentManager().getBackStackEntryCount() == 0 ? KEY_FRAG_FIRST: null).commit();
+
+	}
 }

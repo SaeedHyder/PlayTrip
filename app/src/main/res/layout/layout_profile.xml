@@ -9,8 +9,7 @@
         android:layout_height="match_parent">
         <LinearLayout
             android:orientation="vertical"
-            android:paddingLeft="@dimen/x24"
-            android:paddingRight="@dimen/x24"
+
             android:layout_height="match_parent"
             android:layout_width="match_parent">
 
@@ -20,8 +19,6 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/x64"
                 android:layout_height="@dimen/x128">
-
-
 
             </ImageView>
             <TextView
@@ -54,54 +51,61 @@
 
             </TextView>
 
-            <EditText
+            <TextView
+                android:id="@+id/btnChangePassword"
                 android:layout_width="match_parent"
                 android:background="@drawable/stroke_grey_bg"
                 android:layout_height="@dimen/x48"
-                android:hint="New password"
+                android:text="@string/change_password"
                 android:paddingLeft="@dimen/x8"
-                android:editable="false"
-
+                android:gravity="center_vertical"
                 android:paddingRight="@dimen/x8"
                 android:maxLines="1"
+                android:textColor="@color/black"
                 android:layout_marginTop="@dimen/x4">
 
-            </EditText>
+            </TextView>
 
-            <EditText
+            <TextView
+                android:id="@+id/btnTermsCond"
                 android:layout_width="match_parent"
                 android:background="@drawable/stroke_grey_bg"
                 android:layout_height="@dimen/x48"
-                android:hint="Terms and conditions"
+                android:text="@string/terms_and_conditions"
                 android:paddingLeft="@dimen/x8"
-                android:editable="false"
-
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
                 android:paddingRight="@dimen/x8"
                 android:maxLines="1"
+
                 >
 
-            </EditText>
-            <EditText
+            </TextView>
+            <TextView
+                android:id="@+id/btnPrivacyPolicy"
                 android:layout_width="match_parent"
                 android:background="@drawable/stroke_grey_bg"
                 android:layout_height="@dimen/x48"
-                android:hint="Privacy policy "
-                android:editable="false"
-
+                android:text="@string/privacy_policy"
+                android:gravity="center_vertical"
                 android:paddingLeft="@dimen/x8"
                 android:paddingRight="@dimen/x8"
                 android:maxLines="1"
+                android:textColor="@color/black"
                 >
 
-            </EditText>
+            </TextView>
 
             <Button
+                android:id="@+id/btnLogout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/x40"
+                android:layout_marginStart="@dimen/x24"
+                android:layout_marginEnd="@dimen/x24"
                 android:background="@drawable/rounded_dark_feroz_bg_"
                 android:paddingLeft="@dimen/x8"
                 android:textColor="@color/white"
-                android:text="logout"
+                android:text="@string/logout"
                 android:paddingRight="@dimen/x8"
                 android:maxLines="1"
                 android:layout_marginTop="@dimen/x100"/>

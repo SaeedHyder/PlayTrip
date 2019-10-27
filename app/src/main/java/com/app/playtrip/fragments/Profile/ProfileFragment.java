@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.app.playtrip.R;
 import com.app.playtrip.fragments.HomeFragment;
+import com.app.playtrip.fragments.SettingsFragment;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
 import com.app.playtrip.helpers.PermissionHelper;
 import com.app.playtrip.ui.views.TitleBar;
@@ -120,6 +121,7 @@ public class ProfileFragment extends BaseFragment {
                 cameraPermission(PROFILE_IMAGE_BANNER_KEY);
                 break;
             case R.id.btnSetting:
+                replaceMainFragment(SettingsFragment.newInstance());
                 break;
         }
     }
@@ -249,20 +251,20 @@ public class ProfileFragment extends BaseFragment {
     private void setData(TabLayout.Tab tab) {
 
         if (tab.getPosition() == 0) {
-            replaceFragment(VideosFragment.newInstance());
+            replaceFragmentProfile(VideosFragment.newInstance());
         } else if (tab.getPosition() == 1) {
-            replaceFragment(FollowedFragment.newInstance());
+            replaceFragmentProfile(FollowedFragment.newInstance());
         } else if (tab.getPosition() == 2) {
-            replaceFragment(FollowingFragment.newInstance());
+            replaceFragmentProfile(FollowingFragment.newInstance());
         }
     }
 
-    public void replaceFragment(Fragment frag) {
+    public void replaceFragmentProfile(Fragment frag) {
 
-        FragmentManager manager = getFragmentManager();
+        FragmentManager manager = getChildFragmentManager();
 
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.fragmentContainer, frag);
+        transaction.replace(R.id.fragmentContainerProfile, frag);
         transaction.addToBackStack(manager.getBackStackEntryCount() == 0 ? KEY_FRAG_FIRST : null).commit();
 
 

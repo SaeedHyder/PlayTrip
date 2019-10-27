@@ -17,10 +17,6 @@ import butterknife.Unbinder;
 public class BuyTicketsFragment extends BaseFragment {
 
 
-    @BindView(R.id.webView)
-    WebView webView;
-    Unbinder unbinder;
-
     public static BuyTicketsFragment newInstance() {
         return new BuyTicketsFragment();
     }
@@ -43,19 +39,9 @@ public class BuyTicketsFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // TODO Auto-generated method stub
-        View view = inflater.inflate(R.layout.fragment_buy_tickets, container, false);
-        unbinder = ButterKnife.bind(this, view);
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("http://www.google.com");
+        View view = inflater.inflate(R.layout.layout_booking, container, false);
         return view;
-
     }
 
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
 
 }

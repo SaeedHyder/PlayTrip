@@ -6,6 +6,8 @@
     android:background="@color/light_gray"
     android:orientation="vertical">
 
+    <include layout="@layout/layout_header"></include>
+
     <include layout="@layout/layout_inc_search"></include>
 
     <ScrollView

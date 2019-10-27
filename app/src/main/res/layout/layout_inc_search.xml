@@ -1,25 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/x56">
-    <LinearLayout
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@color/yellow"
-        android:layout_height="match_parent">
+        android:paddingStart="@dimen/x24"
+        android:paddingTop="@dimen/x10"
+        android:paddingEnd="@dimen/x24"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
+        android:paddingBottom="@dimen/x10">
 
 
-        <android.support.v7.widget.SearchView
-            android:id="@+id/ac_location"
+        <EditText
+            android:id="@+id/edtSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/rounded_light_orange"
-            android:layout_marginRight="@dimen/x24"
-            android:layout_marginLeft="@dimen/x24"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:paddingStart="@dimen/x40"
+            android:maxLines="1"
+            android:paddingTop="@dimen/x5"
+            android:hint="@string/search"
+            android:paddingBottom="@dimen/x5"
+            android:textColor="@color/white"
+            android:textSize="@dimen/x16" />
 
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/x36"
-           />
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/ivSearch"
+            android:layout_width="@dimen/x15"
+            android:layout_height="@dimen/x15"
+            android:layout_centerVertical="true"
+            android:src="@drawable/s2_search"
+            android:layout_marginStart="@dimen/x15"/>
+
+
+    </RelativeLayout>
 
 </LinearLayout>

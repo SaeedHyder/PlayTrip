@@ -94,9 +94,15 @@
     <string name="tb_most_recent" >Most Recent</string>
     <string name="tb_most_show" >Most Shows</string>
     <string name="tb_most_likes" >Most Likes</string>
-
-
-
-
+    <string name="new_assword">New assword</string>
+    <string name="reset">Reset</string>
+    <string name="search">Search</string>
+    <string name="are_you_sure_you_want_to_logout">Are you sure you want to logout?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="logout">Logout</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="terms_and_conditions">Terms and conditions</string>
+    <string name="change_password">Change password</string>
 
 </resources>

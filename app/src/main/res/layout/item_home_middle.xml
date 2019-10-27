@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/x200"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/x180"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="@dimen/x200"
+    <android.support.v7.widget.CardView
+        android:layout_width="@dimen/x180"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/x2"
-        android:background="@drawable/rounded_white_bg"
+        android:layout_marginStart="@dimen/x5"
+        android:layout_marginTop="@dimen/x7"
+        android:layout_marginEnd="@dimen/x5"
+        android:layout_marginBottom="@dimen/x3"
+        android:background="@color/white"
+        app:cardCornerRadius="@dimen/x8"
+        app:cardElevation="@dimen/x5">
+
+    <LinearLayout
+        android:layout_width="@dimen/x180"
+        android:layout_height="wrap_content"
+
         android:orientation="vertical">
 
         <ImageView
@@ -16,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/x148"
             android:scaleType="fitXY"
-            android:src="@drawable/s33_img">
+            android:src="@drawable/bg">
 
 
         </ImageView>
@@ -27,14 +39,16 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/x8"
             android:maxLines="1"
+            android:layout_marginTop="@dimen/x3"
             android:text="item Name"
-            android:textStyle="bold"
+            android:textSize="@dimen/x13"
+            android:textColor="@color/black"
 
             />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/x64">
+            android:layout_height="@dimen/x60">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/civ_itemHL"
@@ -52,13 +66,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/x4"
-                android:layout_marginTop="@dimen/x8"
+               android:layout_alignTop="@+id/civ_itemHL"
                 android:layout_toRightOf="@+id/civ_itemHL"
                 android:maxLength="15"
                 android:maxLines="1"
                 android:text="Beckery"
                 android:textSize="@dimen/_x12"
-                android:textStyle="bold"
+                android:textColor="@color/black"
 
 
                 />
@@ -84,17 +98,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/x8"
+                android:layout_alignTop="@+id/civ_itemHL"
                 android:layout_marginRight="@dimen/x8"
                 android:drawableLeft="@drawable/s2_pin"
                 android:drawablePadding="@dimen/x2"
                 android:maxLength="10"
-
                 android:maxLines="1"
                 android:text="Beckery"
-                android:textSize="@dimen/_x12"
-
-
+                android:textSize="@dimen/x11"
+                android:textColor="@color/black"
                 />
 
             <TextView
@@ -112,8 +124,10 @@
                 android:paddingLeft="@dimen/x2"
                 android:paddingEnd="@dimen/x5"
                 android:paddingRight="@dimen/x2"
-                android:text="10.10.2019"
-                android:textSize="@dimen/_x12"
+                android:text="Becky"
+                android:textColor="@color/white"
+
+                android:textSize="@dimen/x11"
 
 
                 />
@@ -150,7 +164,8 @@
                 <TextView
 
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
                     android:layout_gravity="center"
                     android:layout_weight=".5"
                     android:drawablePadding="@dimen/x4"
@@ -184,7 +199,8 @@
                 <TextView
 
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
                     android:layout_gravity="center"
                     android:layout_weight=".5"
                     android:drawablePadding="@dimen/x4"
@@ -218,7 +234,8 @@
                 <TextView
 
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
                     android:layout_gravity="center"
                     android:layout_weight=".5"
                     android:drawablePadding="@dimen/x4"
@@ -252,7 +269,8 @@
                 <TextView
 
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
                     android:layout_gravity="center"
                     android:layout_weight=".5"
                     android:drawablePadding="@dimen/x4"
@@ -308,5 +326,7 @@
         </LinearLayout>
     </LinearLayout>
 
+    </android.support.v7.widget.CardView>
 
-</LinearLayout>
+
+</RelativeLayout>

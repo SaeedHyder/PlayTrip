@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:background="@color/light_gray"
     android:layout_height="match_parent">
+
+    <include layout="@layout/layout_header"></include>
     <include layout="@layout/layout_inc_search"></include>
 
 
@@ -36,7 +38,10 @@
     <com.app.playtrip.ui.views.CustomRecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/x15"
+       android:paddingTop="@dimen/x10">
 
     </com.app.playtrip.ui.views.CustomRecyclerView>
 

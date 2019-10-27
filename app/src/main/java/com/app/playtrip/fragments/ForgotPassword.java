@@ -67,6 +67,9 @@ public class ForgotPassword extends BaseFragment {
 
     @OnClick(R.id.btnForgotPass)
     public void onViewClicked() {
+        if(isValidated()){
+            getDockActivity().replaceDockableFragment(ResetPasswordFragment.newInstance(),"ResetPasswordFragment");
+        }
 
     }
 
