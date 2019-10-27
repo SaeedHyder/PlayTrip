@@ -74,4 +74,29 @@
     <string name="following">Following</string>
     <string name="settings">Settings</string>
 
+    <!-- make video screen Strings-->
+    <string name="mv_photo">Photo</string>
+    <string name="mv_title">Title</string>
+    <string name="mv_sub_title">xyz</string>
+    <string name="mv_captions">Caption</string>
+    <string name="mv_driving">Driving</string>
+    <string name="mv_delete">Delete</string>
+    <string name="mv_publish">Publish</string>
+
+    <!-- Book mark screen Strings-->
+    <string name="book_mark_item_heading" >happy london trip</string>
+    <string name="book_mark_item_date" >12/11/2019</string>
+
+    <!-- Detail Video S Long screen Strings-->
+    <string name="tb_short" >Short Videos</string>
+    <string name="tb_long" >Long Videos</string>
+    <string name="tb_most_views" >Most Views</string>
+    <string name="tb_most_recent" >Most Recent</string>
+    <string name="tb_most_show" >Most Shows</string>
+    <string name="tb_most_likes" >Most Likes</string>
+
+
+
+
+
 </resources>

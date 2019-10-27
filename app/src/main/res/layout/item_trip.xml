@@ -3,9 +3,13 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:weightSum="1"
     android:layout_height="@dimen/x148">
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:weightSum="1"
+        android:layout_margin="@dimen/x2"
+        android:layout_height="@dimen/x148">
     <ImageView
-        android:layout_width="0dp"
-        android:layout_weight=".3"
+        android:layout_width="@dimen/x128"
         android:scaleType="fitXY"
         android:layout_height="match_parent"
         android:src="@drawable/s33_img"></ImageView>
@@ -32,6 +36,7 @@
 
         </TextView>
         <TextView
+            android:id="@+id/tv_itemVSubHeading"
             android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -74,6 +79,7 @@
 
         </TextView>
 
+    </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

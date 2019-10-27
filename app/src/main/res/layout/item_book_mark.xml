@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:weightSum="1"
     android:background="@color/white"
+
     android:layout_height="@dimen/x120">
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:weightSum="1"
+        android:layout_marginTop="@dimen/x8"
+        android:background="@color/white"
+        android:layout_height="@dimen/x120">
     <ImageView
-        android:layout_width="0dp"
-        android:layout_weight=".3"
+        android:id="@+id/iv_add_city"
+        android:layout_width="@dimen/x120"
         android:scaleType="fitXY"
         android:layout_height="match_parent"
-        android:src="@drawable/s26_untitled1"></ImageView>
+        android:src="@drawable/s33_img">
+
+    </ImageView>
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight=".7"
+        android:layout_width="match_parent"
         android:layout_marginRight="@dimen/x8"
         android:layout_marginLeft="@dimen/x8"
         android:layout_height="match_parent"
@@ -25,7 +32,7 @@
             android:textSize="@dimen/_x16"
             android:maxLines="1"
             android:ellipsize="end"
-            android:text="happy london trip"
+            android:text="@string/book_mark_item_heading"
             android:gravity="center_vertical"
             android:padding="@dimen/x4"
             android:textStyle="bold"
@@ -39,7 +46,7 @@
             android:textSize="@dimen/_x13"
             android:maxLines="1"
             android:ellipsize="end"
-            android:text="12/07/2019 to 26/08/2019"
+            android:text="@string/book_mark_item_date"
             android:gravity="center_vertical"
             android:padding="@dimen/x4"
             android:textColor="@color/black"
@@ -50,5 +57,6 @@
 
 
     </LinearLayout>
+    </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

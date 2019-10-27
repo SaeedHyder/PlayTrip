@@ -171,21 +171,20 @@
     </LinearLayout>
 
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/bg"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:src="@drawable/bg">
 
-        </ImageView>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:orientation="vertical">
 
@@ -291,19 +290,20 @@
 
                                 </TextView>
 
-                                <TextView
+                                <EditText
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
-
+                                    android:background="@color/white"
                                     android:layout_gravity="center"
                                     android:layout_weight=".5"
+                                    android:maxLines="1"
 
                                     android:gravity="center"
-                                    android:text="7  /  18"
+                                    android:text="2 / 5"
                                     android:textColor="@color/black"
                                     android:textStyle="bold">
 
-                                </TextView>
+                                </EditText>
 
 
                             </LinearLayout>
@@ -333,18 +333,20 @@
 
                                 </TextView>
 
-                                <TextView
+                                <EditText
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
-
+                                    android:background="@color/white"
                                     android:layout_gravity="center"
                                     android:layout_weight=".5"
+                                    android:maxLines="1"
+
                                     android:gravity="center"
-                                    android:text="7  /  19"
+                                    android:text="2 / 9"
                                     android:textColor="@color/black"
                                     android:textStyle="bold">
 
-                                </TextView>
+                                </EditText>
 
 
                             </LinearLayout>
@@ -382,19 +384,19 @@
 
                                 </TextView>
 
-                                <TextView
+                                <EditText
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
-
+                                    android:background="@color/white"
                                     android:layout_gravity="center"
                                     android:layout_weight=".5"
-
+                                    android:maxLines="1"
                                     android:gravity="center"
                                     android:text="2"
                                     android:textColor="@color/black"
                                     android:textStyle="bold">
 
-                                </TextView>
+                                </EditText>
 
 
                             </LinearLayout>
@@ -424,19 +426,20 @@
 
                                 </TextView>
 
-                                <TextView
+                                <EditText
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
-
+                                    android:background="@color/white"
                                     android:layout_gravity="center"
                                     android:layout_weight=".5"
+                                    android:maxLines="1"
 
                                     android:gravity="center"
-                                    android:text="0"
+                                    android:text="5"
                                     android:textColor="@color/black"
                                     android:textStyle="bold">
 
-                                </TextView>
+                                </EditText>
 
 
                             </LinearLayout>
@@ -466,19 +469,20 @@
 
                                 </TextView>
 
-                                <TextView
+                                <EditText
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
-
+                                    android:background="@color/white"
                                     android:layout_gravity="center"
                                     android:layout_weight=".5"
+                                    android:maxLines="1"
 
                                     android:gravity="center"
-                                    android:text="1"
+                                    android:text="6"
                                     android:textColor="@color/black"
                                     android:textStyle="bold">
 
-                                </TextView>
+                                </EditText>
 
 
                             </LinearLayout>
@@ -531,7 +535,8 @@
 
             </LinearLayout>
         </LinearLayout>
-    </FrameLayout>
+        </ScrollView>
+    </LinearLayout>
 
 
 </LinearLayout>

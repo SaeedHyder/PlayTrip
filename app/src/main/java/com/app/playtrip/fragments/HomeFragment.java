@@ -3,24 +3,25 @@ package com.app.playtrip.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
 import com.app.playtrip.R;
 import com.app.playtrip.entities.BannerEntity;
-import com.app.playtrip.fragments.Profile.ProfileFragment;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
+import com.app.playtrip.global.AppConstants;
 import com.app.playtrip.helpers.UIHelper;
 import com.app.playtrip.interfaces.RecyclerClickListner;
-import com.app.playtrip.ui.adapters.RecyclerViewAdapter;
-import com.app.playtrip.ui.adapters.RecyclerViewAdapterHomeBottom;
-import com.app.playtrip.ui.adapters.RecyclerViewAdapterHomeMiddle;
-import com.app.playtrip.ui.adapters.RecyclerViewAdapterHomeTop;
+import com.app.playtrip.ui.binders.HomeBottomBinder;
+import com.app.playtrip.ui.binders.HomeMiddleBinder;
 import com.app.playtrip.ui.binders.HomeTopBinder;
-import com.app.playtrip.ui.viewbinders.abstracts.RecyclerViewBinder;
 import com.app.playtrip.ui.views.AutoCompleteLocation;
 import com.app.playtrip.ui.views.CustomRecyclerView;
 import com.app.playtrip.ui.views.TitleBar;
@@ -31,6 +32,7 @@ import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
 import com.daimajia.slider.library.Transformers.BaseTransformer;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.google.android.gms.location.places.Place;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,26 +40,29 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+import static com.app.playtrip.activities.DockActivity.KEY_FRAG_FIRST;
+import static com.app.playtrip.global.WebServiceConstants.LOGIN;
 
 
-public class HomeFragment extends BaseFragment implements RecyclerClickListner,AutoCompleteLocation.AutoCompleteLocationListener, ViewPagerEx.OnPageChangeListener {
+public class HomeFragment extends BaseFragment implements RecyclerClickListner, AutoCompleteLocation.AutoCompleteLocationListener, ViewPagerEx.OnPageChangeListener {
 
 
     @BindView(R.id.sliderLayout)
     SliderLayout mSlider;
     @BindView(R.id.rv_topList)
     CustomRecyclerView recyclerViewTop;
-    @BindView(R.id.rv_middleList) RecyclerView recyclerViewMiddle;
-    @BindView(R.id.rv_lastList) RecyclerView recyclerViewBottom;
-    Map<String,Integer> sliderImages;
-    ArrayList<BannerEntity> bannerEntityList =new ArrayList<>();
-    RecyclerViewAdapterHomeTop mAdapter;
-    RecyclerViewAdapterHomeMiddle mAdapterMiddle;
-    RecyclerViewAdapterHomeBottom mAdapterBottom;
+    @BindView(R.id.rv_middleList)
+    CustomRecyclerView recyclerViewMiddle;
+    @BindView(R.id.rv_bottomList)
+    CustomRecyclerView recyclerViewBottom;
 
-
-    RecyclerViewAdapter recyclerViewAdapterMiddle;
-    private RecyclerViewBinder<BannerEntity> viewBinder;
+    Map<String, Integer> sliderImages;
+    ArrayList<BannerEntity> bannerEntityList = new ArrayList<>();
+    @BindView(R.id.tv_viewMore)
+    TextView tvViewMore;
+    private FragmentManager manager;
 
 
 
@@ -75,20 +80,15 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner,A
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, view);
-
-
         getImages();
-
         setAdapter();
-
-
         return view;
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-       // ac_location.setAutoCompleteTextListener(this);
+        // ac_location.setAutoCompleteTextListener(this);
 
     }
 
@@ -104,14 +104,13 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner,A
     }
 
 
-
     @Override
     public void onTextClear() {
     }
 
     @Override
     public void onItemSelected(Place selectedPlace) {
-        UIHelper.showShortToastInCenter(getDockActivity(),selectedPlace.getLatLng().latitude + "  :  " + selectedPlace.getLatLng().longitude);
+        UIHelper.showShortToastInCenter(getDockActivity(), selectedPlace.getLatLng().latitude + "  :  " + selectedPlace.getLatLng().longitude);
     }
 
 
@@ -129,14 +128,16 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner,A
     public void onPageScrollStateChanged(int state) {
 
     }
-    public void getImages(){
+
+    public void getImages() {
         BannerEntity bannerEntity = new BannerEntity();
         bannerEntity.setTabPosterPath(R.drawable.s23_img);
         bannerEntityList.add(bannerEntity);
 
-        loadBannerSliderImage(bannerEntityList,"Play Trp");
+        loadBannerSliderImage(bannerEntityList, "Play Trp");
 
     }
+
     public void loadBannerSliderImage(List<BannerEntity> bannerEntityList, String bannerImage) {
         mSlider.removeAllSliders();
         boolean isMultiple;
@@ -197,36 +198,44 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner,A
             mSlider.setPresetTransformer(SliderLayout.Transformer.Accordion);
         }
     }
-    public void setAdapter(){
 
-      /*  mAdapter = new RecyclerViewAdapterHomeTop(getActivity(), bannerEntityList);
-        recyclerViewTop.setAdapter(mAdapter);
-        recyclerViewTop.setLayoutManager(layoutManager);
-        recyclerViewTop.setHasFixedSize(true);
-*/
-        LinearLayoutManager layoutManager=new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
-        recyclerViewTop.BindRecyclerView(new HomeTopBinder(getDockActivity(),prefHelper,this),bannerEntityList,layoutManager, new DefaultItemAnimator());
+    public void setAdapter() {
+        LinearLayoutManager lmTopList, lmMiddleList, lmBottomList;
 
+        lmTopList = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewTop.BindRecyclerView(new HomeTopBinder(getDockActivity(), prefHelper, this), bannerEntityList, lmTopList, new DefaultItemAnimator());
+        lmMiddleList = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
 
-        mAdapterMiddle = new RecyclerViewAdapterHomeMiddle(getActivity(), bannerEntityList);
-        recyclerViewMiddle.setAdapter(mAdapterMiddle);
-         layoutManager =
-                new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewMiddle.setLayoutManager(layoutManager);
-        recyclerViewMiddle.setHasFixedSize(true);
+        recyclerViewMiddle.BindRecyclerView(new HomeMiddleBinder(getDockActivity(), prefHelper, this), bannerEntityList, lmMiddleList, new DefaultItemAnimator());
+        lmBottomList = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
 
-        mAdapterBottom = new RecyclerViewAdapterHomeBottom(getActivity(), bannerEntityList);
-        recyclerViewBottom.setAdapter(mAdapterBottom);
-         layoutManager =
-                new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewBottom.setLayoutManager(layoutManager);
-        recyclerViewBottom.setHasFixedSize(true);
+        recyclerViewBottom.BindRecyclerView(new HomeBottomBinder(getDockActivity(), prefHelper, this), bannerEntityList, lmBottomList, new DefaultItemAnimator());
 
 
     }
 
     @Override
     public void onClick(Object entity, int position) {
+
+    }
+
+    @OnClick({R.id.tv_viewMore})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.tv_viewMore:
+                replaceFragment(DetailVideoFragment.newInstance());
+                break;
+
+        }
+    }
+    public void replaceFragment(Fragment frag) {
+
+        manager = getFragmentManager();
+
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.fragmentContainer, frag);
+        transaction.addToBackStack(manager.getBackStackEntryCount() == 1 ? KEY_FRAG_FIRST : null).commit();
+
 
     }
 }
