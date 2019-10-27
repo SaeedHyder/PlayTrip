@@ -3,27 +3,25 @@ package com.app.playtrip.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.app.playtrip.R;
 import com.app.playtrip.entities.BannerEntity;
-import com.app.playtrip.fragments.Profile.ProfileFragment;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
+import com.app.playtrip.global.AppConstants;
 import com.app.playtrip.helpers.UIHelper;
 import com.app.playtrip.interfaces.RecyclerClickListner;
-import com.app.playtrip.ui.adapters.RecyclerViewAdapter;
-import com.app.playtrip.ui.adapters.RecyclerViewAdapterHomeBottom;
-import com.app.playtrip.ui.adapters.RecyclerViewAdapterHomeMiddle;
-import com.app.playtrip.ui.adapters.RecyclerViewAdapterHomeTop;
 import com.app.playtrip.ui.binders.HomeBottomBinder;
 import com.app.playtrip.ui.binders.HomeMiddleBinder;
 import com.app.playtrip.ui.binders.HomeTopBinder;
-import com.app.playtrip.ui.viewbinders.abstracts.RecyclerViewBinder;
 import com.app.playtrip.ui.views.AutoCompleteLocation;
 import com.app.playtrip.ui.views.CustomRecyclerView;
 import com.app.playtrip.ui.views.TitleBar;
@@ -34,6 +32,7 @@ import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
 import com.daimajia.slider.library.Transformers.BaseTransformer;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.google.android.gms.location.places.Place;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +40,10 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+import static com.app.playtrip.activities.DockActivity.KEY_FRAG_FIRST;
+import static com.app.playtrip.global.WebServiceConstants.LOGIN;
 
 
 public class HomeFragment extends BaseFragment implements RecyclerClickListner, AutoCompleteLocation.AutoCompleteLocationListener, ViewPagerEx.OnPageChangeListener {
@@ -57,6 +60,9 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
 
     Map<String, Integer> sliderImages;
     ArrayList<BannerEntity> bannerEntityList = new ArrayList<>();
+    @BindView(R.id.tv_viewMore)
+    TextView tvViewMore;
+    private FragmentManager manager;
 
 
 
@@ -210,6 +216,26 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
 
     @Override
     public void onClick(Object entity, int position) {
+
+    }
+
+    @OnClick({R.id.tv_viewMore})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.tv_viewMore:
+                replaceFragment(DetailVideoFragment.newInstance());
+                break;
+
+        }
+    }
+    public void replaceFragment(Fragment frag) {
+
+        manager = getFragmentManager();
+
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.fragmentContainer, frag);
+        transaction.addToBackStack(manager.getBackStackEntryCount() == 1 ? KEY_FRAG_FIRST : null).commit();
+
 
     }
 }

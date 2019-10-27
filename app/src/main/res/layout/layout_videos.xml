@@ -1,33 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/light_gray"
     android:layout_height="match_parent">
-    <include layout="@layout/layout_inc_search">
+    <include layout="@layout/layout_inc_search"></include>
 
-    </include>
 
     <android.support.design.widget.TabLayout
-        android:layout_marginTop="@dimen/x16"
-        android:id="@+id/tab_layout"
-        android:background="@color/grey"
+        android:layout_marginTop="@dimen/x8"
+        android:id="@+id/tabLayout_shortLong"
         android:layout_width="match_parent"
         android:layout_height="@dimen/x40"
+        app:tabIndicatorColor="@color/yellow"
+        app:tabRippleColor="@color/sky_blue"
+        android:outlineSpotShadowColor="@color/black"
+        android:outlineAmbientShadowColor="@color/app_orange"
+        app:tabTextColor="@color/black"
+        app:tabSelectedTextColor="@color/skyblue"
         android:layout_marginLeft="@dimen/x40"
         android:layout_marginRight="@dimen/x40"
         android:minHeight="?attr/actionBarSize"
         />
     <android.support.design.widget.TabLayout
-        android:layout_marginTop="@dimen/x16"
-        android:background="@color/grey"
+        android:id="@+id/tabLayout_filter"
+        android:layout_marginTop="@dimen/x8"
         android:layout_width="match_parent"
         android:layout_height="@dimen/x40"
-
+        app:tabIndicatorColor="@color/yellow"
+        app:tabTextColor="@color/black"
+        app:tabSelectedTextColor="@color/skyblue"
         android:minHeight="?attr/actionBarSize"
         />
-    <android.support.v7.widget.RecyclerView
+    <com.app.playtrip.ui.views.CustomRecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+    </com.app.playtrip.ui.views.CustomRecyclerView>
 
 </LinearLayout>

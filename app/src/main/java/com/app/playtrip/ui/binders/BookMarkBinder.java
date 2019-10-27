@@ -21,7 +21,7 @@ public class BookMarkBinder extends RecyclerViewBinder<BannerEntity> {
     private RecyclerClickListner clickListner;
 
     public BookMarkBinder(DockActivity dockActivity, BasePreferenceHelper prefHelper, RecyclerClickListner clickListner) {
-        super(R.layout.item_hotel);
+        super(R.layout.item_book_mark);
         this.dockActivity = dockActivity;
         this.prefHelper = prefHelper;
         this.clickListner = clickListner;
