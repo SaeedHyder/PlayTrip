@@ -296,7 +296,7 @@
                 android:layout_margin="@dimen/x4"
                 android:layout_weight="1"
                 android:text="@string/mv_delete"
-                android:background="@drawable/rounded_orange_button"
+                android:background="@drawable/rounded_yellow_bg"
                 android:layout_height="wrap_content"
                 >
 
@@ -307,7 +307,7 @@
                 android:layout_weight="1"
                 android:text="@string/mv_publish"
 
-                android:background="@drawable/rounded_orange_button"
+                android:background="@drawable/rounded_yellow_bg"
                 android:layout_height="wrap_content"
                 >
 

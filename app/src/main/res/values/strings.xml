@@ -105,4 +105,16 @@
     <string name="terms_and_conditions">Terms and conditions</string>
     <string name="change_password">Change password</string>
 
+    <string-array name="spinner_home">
+        <item>Most view</item>
+        <item>Most Recent</item>
+        <item>Most Shows</item>
+        <item>Most Likes</item>
+    </string-array>
+
+
+
+
+>>>>>>> e36b2b73404535ef784a784ba6cf0d5350bedf57
+
 </resources>

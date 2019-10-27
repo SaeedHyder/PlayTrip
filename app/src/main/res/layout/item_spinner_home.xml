@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:weightSum="1"
+    android:layout_height="@dimen/x40">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"></TextView>
+    <ImageView
+        android:layout_width="@dimen/x40"
+        android:layout_height="@dimen/x40"
+        android:tint="@color/black"
+        android:padding="@dimen/x12"
+        android:src="@drawable/s8_1"></ImageView>
+
+
+
+</LinearLayout>

@@ -1,17 +1,13 @@
 package com.app.playtrip.fragments;
 
-
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.app.playtrip.R;
@@ -20,6 +16,7 @@ import com.app.playtrip.fragments.Profile.ProfileFragment;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
 import com.app.playtrip.helpers.UIHelper;
 import com.app.playtrip.interfaces.RecyclerClickListner;
+import com.app.playtrip.ui.adapters.CustomSpinnerAdapter;
 import com.app.playtrip.ui.binders.HomeBottomBinder;
 import com.app.playtrip.ui.binders.HomeMiddleBinder;
 import com.app.playtrip.ui.binders.HomeTopBinder;
@@ -65,8 +62,10 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
     ImageView btnProfile;
     @BindView(R.id.btnViewMoreUser)
     TextView btnViewMoreUser;
+    @BindView(R.id.spinner)
+    Spinner spinner;
 
-
+    String[] spinnerArray = {"Most view","Most recent","Most shows","Most likes"};
 
     public static HomeFragment newInstance() {
         return new HomeFragment();
@@ -77,7 +76,7 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
         super.onCreate(savedInstanceState);
     }
 
-    @Nullable
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
@@ -213,7 +212,7 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
 
         recyclerViewBottom.BindRecyclerView(new HomeBottomBinder(getDockActivity(), prefHelper, this), bannerEntityList, lmBottomList, new DefaultItemAnimator());
 
-
+        spinner.setAdapter(new CustomSpinnerAdapter(getActivity(),R.layout.support_simple_spinner_dropdown_item,spinnerArray,"Most View"));
     }
 
     @Override
@@ -233,10 +232,6 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
 
         }
     }
-
-
-
-
 
 }
 
