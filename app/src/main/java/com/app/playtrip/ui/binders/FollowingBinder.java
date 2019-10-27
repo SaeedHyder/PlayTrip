@@ -47,6 +47,10 @@ public class FollowingBinder extends RecyclerViewBinder<String> {
         }else{
             viewHolder.btnFollow.setVisibility(View.VISIBLE);
         }
+        if (position / 2==0){
+            viewHolder.btnFollow.setVisibility(View.GONE);
+
+        }
 
     }
 

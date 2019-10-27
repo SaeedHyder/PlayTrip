@@ -44,9 +44,10 @@
                 android:gravity="center_vertical"
                 android:textStyle="bold"/>
             <TextView
+                android:id="@+id/tv_itemTop"
                 android:textColor="@color/black"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/x24"
+                android:layout_height="@dimen/x20"
                 android:layout_gravity="center"
                 android:layout_weight=".3"
                 android:background="@drawable/rounded_light_orange"
@@ -55,7 +56,6 @@
                 android:ellipsize="end"
                 android:text="item"
                 android:gravity="center"
-                android:padding="@dimen/x4"
                 android:textStyle="bold">
 
             </TextView>
@@ -67,12 +67,12 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textSize="@dimen/_x13"
+            android:textSize="@dimen/_x12"
             android:maxLines="1"
             android:ellipsize="end"
             android:text="Item Sub Heading"
             android:gravity="center_vertical"
-            android:textStyle="bold">
+            >
 
         </TextView>
         <TextView
@@ -84,9 +84,8 @@
             android:textSize="@dimen/_x13"
             android:maxLines="1"
             android:ellipsize="end"
-            android:text="city name"
+            android:text=" city name"
             android:gravity="center_vertical"
-            android:padding="@dimen/x4"
            />
         <LinearLayout
             android:layout_width="match_parent"
@@ -109,9 +108,10 @@
             </TextView>
 
             <TextView
+                android:id="@+id/tv_itemBottom"
                 android:textColor="@color/white"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/x24"
+                android:layout_height="@dimen/x20"
                 android:layout_gravity="center"
                 android:layout_weight=".3"
                 android:background="@drawable/rounded_orange_button"

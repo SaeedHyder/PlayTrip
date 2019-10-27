@@ -15,6 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class VideosBinder extends RecyclerViewBinder<String> {
+
     private DockActivity dockActivity;
     private BasePreferenceHelper prefHelper;
     private ImageLoader imageLoader;
@@ -35,7 +36,18 @@ public class VideosBinder extends RecyclerViewBinder<String> {
 
 
     @Override
-    public void bindView(String entity, int position, Object viewHolder, Context context) {
+    public void bindView(String entity, int position, Object holder, Context context) {
+        ViewHolder viewHolder=(ViewHolder)holder;
+
+
+        if (position == 0){
+            viewHolder.tvItemBottom.setVisibility(View.GONE);
+            viewHolder.tvItemTop.setVisibility(View.VISIBLE);
+
+        }else {
+            viewHolder.tvItemBottom.setVisibility(View.VISIBLE);
+            viewHolder.tvItemTop.setVisibility(View.GONE);
+        }
 
     }
 
@@ -45,6 +57,11 @@ public class VideosBinder extends RecyclerViewBinder<String> {
         TextView txtHeading;
         @BindView(R.id.tv_galleryItemShare)
         TextView tvGalleryItemShare;
+        @BindView(R.id.tv_itemTop)
+        TextView tvItemTop;
+        @BindView(R.id.tv_itemBottom)
+        TextView tvItemBottom;
+
 
         ViewHolder(View view) {
             super(view);

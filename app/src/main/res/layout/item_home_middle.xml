@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/x180"
+    android:layout_width="@dimen/x172"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <android.support.v7.widget.CardView
-        android:layout_width="@dimen/x180"
+        android:layout_width="@dimen/x172"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/x2"
         android:layout_marginStart="@dimen/x5"
@@ -18,7 +18,7 @@
         app:cardElevation="@dimen/x5">
 
     <LinearLayout
-        android:layout_width="@dimen/x180"
+        android:layout_width="@dimen/x172"
         android:layout_height="wrap_content"
 
         android:orientation="vertical">
@@ -26,7 +26,7 @@
         <ImageView
             android:id="@+id/iv_itemBg"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/x148"
+            android:layout_height="@dimen/x124"
             android:scaleType="fitXY"
             android:src="@drawable/bg">
 
@@ -41,7 +41,7 @@
             android:maxLines="1"
             android:layout_marginTop="@dimen/x3"
             android:text="item Name"
-            android:textSize="@dimen/x13"
+            android:textSize="@dimen/x12"
             android:textColor="@color/black"
 
             />
@@ -52,8 +52,8 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/civ_itemHL"
-                android:layout_width="@dimen/x40"
-                android:layout_height="@dimen/x40"
+                android:layout_width="@dimen/x38"
+                android:layout_height="@dimen/x38"
                 android:layout_alignParentLeft="true"
                 android:layout_centerInParent="true"
                 android:layout_marginLeft="@dimen/x8"
@@ -105,7 +105,7 @@
                 android:maxLength="10"
                 android:maxLines="1"
                 android:text="Beckery"
-                android:textSize="@dimen/x11"
+                android:textSize="@dimen/x10"
                 android:textColor="@color/black"
                 />
 
@@ -127,7 +127,7 @@
                 android:text="Becky"
                 android:textColor="@color/white"
 
-                android:textSize="@dimen/x11"
+                android:textSize="@dimen/x10"
 
 
                 />

@@ -13,12 +13,14 @@ import android.widget.FrameLayout;
 import com.app.playtrip.R;
 import com.app.playtrip.fragments.Profile.ProfileFragment;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
+import com.app.playtrip.helpers.UIHelper;
 import com.app.playtrip.ui.views.TitleBar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.app.playtrip.activities.DockActivity.KEY_FRAG_FIRST;
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class MainFragment extends BaseFragment {
 
@@ -102,13 +104,21 @@ public class MainFragment extends BaseFragment {
         if (tab.getPosition() == 0) {
             replaceFragment(HomeFragment.newInstance());
         } else if(tab.getPosition() == 1){
-            replaceFragment(ProfileFragment.newInstance());
+            UIHelper.showLongToastInCenter(getContext(),
+                    R.string.message_coming_soon);
+            //replaceFragment(ProfileFragment.newInstance());
         } else if(tab.getPosition() == 2){
-            replaceFragment(MakeVideosFragment.newInstance());
+            UIHelper.showLongToastInCenter(getContext(),
+                    R.string.message_coming_soon);
+          //  replaceFragment(MakeVideosFragment.newInstance());
         } else if(tab.getPosition() == 3){
-            replaceFragment(BuyTicketsFragment.newInstance());
+            UIHelper.showLongToastInCenter(getContext(),
+                    R.string.message_coming_soon);
+           // replaceFragment(BuyTicketsFragment.newInstance());
         } else if(tab.getPosition() == 4){
-            replaceFragment(BookMarkFragment.newInstance());
+            UIHelper.showLongToastInCenter(getContext(),
+                    R.string.message_coming_soon);
+           // replaceFragment(BookMarkFragment.newInstance());
         }
     }
     public void replaceFragment(Fragment frag) {

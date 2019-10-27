@@ -24,6 +24,7 @@
     <string name="lorem_small">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.</string>
     <string name="message_quit">Are you sure you want to exit?</string>
     <string name="message_wait">Please wait while data is loading.</string>
+    <string name="message_coming_soon">coming soon this feature.</string>
     <string name="gps_question">Location is turned of Do you want to enable it ?</string>
     <string name="gps_yes">Yes</string>
     <string name="gps_no">No</string>
