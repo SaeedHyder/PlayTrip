@@ -41,7 +41,7 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewBin
 
     @Override
     public int getItemCount() {
-        return 5;
+        return 6;
     }
     public T getItemFromList(int index ) {
         return collections.get( index );
