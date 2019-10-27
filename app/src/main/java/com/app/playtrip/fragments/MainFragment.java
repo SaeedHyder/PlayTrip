@@ -102,7 +102,8 @@ public class MainFragment extends BaseFragment {
         if (tab.getPosition() == 0) {
             replaceFragment(HomeFragment.newInstance());
         } else if(tab.getPosition() == 1){
-            replaceFragment(ProfileFragment.newInstance());
+            //replaceFragment(ProfileFragment.newInstance());
+            getDockActivity().replaceDockableFragment(ProfileFragment.newInstance(),"ProfileFragment");
         } else if(tab.getPosition() == 2){
             //   replaceFragment(ListViewFragment.newInstance());
         } else if(tab.getPosition() == 3){
@@ -116,7 +117,7 @@ public class MainFragment extends BaseFragment {
         manager = getFragmentManager();
 
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.fragmentContainer, frag);
+        transaction.replace(R.id.fragmentContainer, frag);
         transaction.addToBackStack(manager.getBackStackEntryCount() == 0 ? KEY_FRAG_FIRST : null).commit();
 
 

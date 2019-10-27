@@ -2,11 +2,10 @@ package com.app.playtrip.ui.binders;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.app.playtrip.R;
 import com.app.playtrip.activities.DockActivity;
-import com.app.playtrip.entities.BannerEntity;
 import com.app.playtrip.helpers.BasePreferenceHelper;
 import com.app.playtrip.interfaces.RecyclerClickListner;
 import com.app.playtrip.ui.viewbinders.abstracts.RecyclerViewBinder;
@@ -22,7 +21,7 @@ public class VideosBinder extends RecyclerViewBinder<String> {
     private RecyclerClickListner clickListner;
 
     public VideosBinder(DockActivity dockActivity, BasePreferenceHelper prefHelper, RecyclerClickListner clickListner) {
-        super(R.layout.item_video);
+        super(R.layout.item_gallery_item);
         this.dockActivity = dockActivity;
         this.prefHelper = prefHelper;
         this.imageLoader = ImageLoader.getInstance();
@@ -40,9 +39,12 @@ public class VideosBinder extends RecyclerViewBinder<String> {
 
     }
 
+
     static class ViewHolder extends BaseViewHolder {
-        @BindView(R.id.llMainFrame)
-        LinearLayout llMainFrame;
+        @BindView(R.id.txtHeading)
+        TextView txtHeading;
+        @BindView(R.id.tv_galleryItemShare)
+        TextView tvGalleryItemShare;
 
         ViewHolder(View view) {
             super(view);

@@ -3,7 +3,8 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:weightSum="1"
     android:background="@color/yellow"
-    android:layout_height="@dimen/x140">
+    android:layout_marginTop="@dimen/x10"
+    android:layout_height="wrap_content">
     <ImageView
         android:layout_marginLeft="@dimen/_x6"
         android:layout_width="0dp"
@@ -27,6 +28,7 @@
             android:weightSum="1"
             android:layout_weight="1">
             <TextView
+                android:id="@+id/txtHeading"
                 android:textColor="@color/skyblue"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
