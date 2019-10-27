@@ -7,15 +7,14 @@
         android:orientation="horizontal" android:layout_width="match_parent"
         android:weightSum="1"
         android:layout_margin="@dimen/x2"
-        android:layout_height="@dimen/x148">
+        android:layout_height="@dimen/x140">
     <ImageView
         android:layout_width="@dimen/x128"
         android:scaleType="fitXY"
         android:layout_height="match_parent"
         android:src="@drawable/s33_img"></ImageView>
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight=".7"
+        android:layout_width="match_parent"
         android:layout_marginRight="@dimen/x8"
         android:layout_marginLeft="@dimen/x8"
         android:layout_height="match_parent"
