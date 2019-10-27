@@ -11,14 +11,15 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.app.playtrip.R;
 import com.app.playtrip.entities.BannerEntity;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
-import com.app.playtrip.global.AppConstants;
 import com.app.playtrip.helpers.UIHelper;
 import com.app.playtrip.interfaces.RecyclerClickListner;
+import com.app.playtrip.ui.adapters.CustomSpinnerAdapter;
 import com.app.playtrip.ui.binders.HomeBottomBinder;
 import com.app.playtrip.ui.binders.HomeMiddleBinder;
 import com.app.playtrip.ui.binders.HomeTopBinder;
@@ -32,7 +33,6 @@ import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
 import com.daimajia.slider.library.Transformers.BaseTransformer;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.google.android.gms.location.places.Place;
-import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +43,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.app.playtrip.activities.DockActivity.KEY_FRAG_FIRST;
-import static com.app.playtrip.global.WebServiceConstants.LOGIN;
 
 
 public class HomeFragment extends BaseFragment implements RecyclerClickListner, AutoCompleteLocation.AutoCompleteLocationListener, ViewPagerEx.OnPageChangeListener {
@@ -62,8 +61,10 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
     ArrayList<BannerEntity> bannerEntityList = new ArrayList<>();
     @BindView(R.id.tv_viewMore)
     TextView tvViewMore;
+    @BindView(R.id.spinner)
+    Spinner spinner;
     private FragmentManager manager;
-
+    String[] spinnerArray = {"Most view","Most recent","Most shows","Most likes"};
 
 
     public static HomeFragment newInstance() {
@@ -211,7 +212,7 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
 
         recyclerViewBottom.BindRecyclerView(new HomeBottomBinder(getDockActivity(), prefHelper, this), bannerEntityList, lmBottomList, new DefaultItemAnimator());
 
-
+        spinner.setAdapter(new CustomSpinnerAdapter(getActivity(),R.layout.support_simple_spinner_dropdown_item,spinnerArray,"Most View"));
     }
 
     @Override
@@ -228,6 +229,7 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
 
         }
     }
+
     public void replaceFragment(Fragment frag) {
 
         manager = getFragmentManager();
@@ -236,6 +238,12 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
         transaction.replace(R.id.fragmentContainer, frag);
         transaction.addToBackStack(manager.getBackStackEntryCount() == 1 ? KEY_FRAG_FIRST : null).commit();
 
+
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
 
     }
 }

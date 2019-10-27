@@ -95,6 +95,13 @@
     <string name="tb_most_show" >Most Shows</string>
     <string name="tb_most_likes" >Most Likes</string>
 
+    <string-array name="spinner_home">
+        <item>Most view</item>
+        <item>Most Recent</item>
+        <item>Most Shows</item>
+        <item>Most Likes</item>
+    </string-array>
+
 
 
 
