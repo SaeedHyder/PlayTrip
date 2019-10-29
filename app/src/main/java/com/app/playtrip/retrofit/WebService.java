@@ -2,12 +2,15 @@ package com.app.playtrip.retrofit;
 
 
 import com.app.playtrip.entities.User.DataUser;
-import com.app.playtrip.entities.User.User;
 import com.app.playtrip.entities.Wrapper.ResponseWrapper;
+import com.app.playtrip.entities.Data;
+import com.app.playtrip.entities.banners.BannersInnerData;
+import com.app.playtrip.entities.video.VideoInnerData;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface WebService {
@@ -39,4 +42,10 @@ public interface WebService {
     Call<ResponseWrapper<DataUser>> loginUser(
             @Field("email") String email
     );
+
+    @GET("videos")
+    Call<ResponseWrapper<Data<VideoInnerData>>> getVideos();
+
+    @GET("banners")
+    Call<ResponseWrapper<Data<BannersInnerData>>> getBanners();
 }

@@ -8,15 +8,17 @@ import android.widget.TextView;
 import com.app.playtrip.R;
 import com.app.playtrip.activities.DockActivity;
 import com.app.playtrip.entities.BannerEntity;
+import com.app.playtrip.entities.video.VideoInnerData;
 import com.app.playtrip.helpers.BasePreferenceHelper;
 import com.app.playtrip.interfaces.RecyclerClickListner;
 import com.app.playtrip.ui.viewbinders.abstracts.RecyclerViewBinder;
+import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class HomeMiddleBinder extends RecyclerViewBinder<BannerEntity> {
+public class HomeMiddleBinder extends RecyclerViewBinder<VideoInnerData> {
 
     private DockActivity dockActivity;
     private BasePreferenceHelper prefHelper;
@@ -35,9 +37,14 @@ public class HomeMiddleBinder extends RecyclerViewBinder<BannerEntity> {
     }
 
     @Override
-    public void bindView(BannerEntity entity, int position, Object viewHolder, Context context) {
+    public void bindView(VideoInnerData entity, int position, Object viewHolder, Context context) {
 
         final ViewHolder holder = (ViewHolder) viewHolder;
+        holder.tvItemHHeading.setText(entity.getTitle());
+        Picasso.with(context).load(entity.getThumbnail_image_url()).error(R.drawable.bg).into(holder.ivItemBg);
+
+
+
     }
 
 

@@ -3,6 +3,7 @@ package com.app.playtrip.fragments;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +13,13 @@ import android.widget.TextView;
 
 import com.app.playtrip.R;
 import com.app.playtrip.entities.BannerEntity;
+import com.app.playtrip.entities.Data;
+import com.app.playtrip.entities.banners.BannersInnerData;
+import com.app.playtrip.entities.video.VideoInnerData;
+import com.app.playtrip.entities.video.VideoTranslations;
 import com.app.playtrip.fragments.Profile.ProfileFragment;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
+import com.app.playtrip.global.WebServiceConstants;
 import com.app.playtrip.helpers.UIHelper;
 import com.app.playtrip.interfaces.RecyclerClickListner;
 import com.app.playtrip.ui.adapters.CustomSpinnerAdapter;
@@ -67,6 +73,8 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
 
     String[] spinnerArray = {"Most view","Most recent","Most shows","Most likes"};
 
+    ArrayList<VideoInnerData> videoInnerData = new ArrayList<>();
+    ArrayList<VideoTranslations> videoInnerlist =new ArrayList<>();
     public static HomeFragment newInstance() {
         return new HomeFragment();
     }
@@ -81,14 +89,23 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, view);
-        getImages();
-        setAdapter();
+        getDataFromServer();
+        VideoTranslations videoTranslations = new VideoTranslations();
+        VideoInnerData videoInnerData1 = new VideoInnerData();
+        videoTranslations.setCaption("fdsfsdfd");
+        videoInnerlist.add(videoTranslations);
+        videoInnerData1.setTranslations(videoInnerlist);
+        videoInnerData1.setTitle("ali");
+        videoInnerData.add(videoInnerData1);
+
+        //setAdapter(videoInnerData);
         return view;
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         // ac_location.setAutoCompleteTextListener(this);
 
     }
@@ -130,26 +147,26 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
 
     }
 
-    public void getImages() {
-        BannerEntity bannerEntity = new BannerEntity();
-        bannerEntity.setTabPosterPath(R.drawable.s23_img);
-        bannerEntityList.add(bannerEntity);
+    public void getDataFromServer() {
+        serviceHelper.enqueueCall(headerWebService.getVideos(), WebServiceConstants.VIDEOS);
+        serviceHelper.enqueueCall(headerWebService.getBanners(), WebServiceConstants.BANNERS);
 
-        loadBannerSliderImage(bannerEntityList, "Play Trp");
+
 
     }
 
-    public void loadBannerSliderImage(List<BannerEntity> bannerEntityList, String bannerImage) {
+    public  void loadBannerSliderImage(ArrayList<BannersInnerData> bannerEntityList, String bannerImage) {
         mSlider.removeAllSliders();
         boolean isMultiple;
         DefaultSliderView textSliderView;
         if (bannerEntityList != null && bannerEntityList.size() > 0) {
 
             for (int i = 0; i < bannerEntityList.size(); i++) {
-                BannerEntity bannerEntity = bannerEntityList.get(i);
-                textSliderView = new DefaultSliderView(getContext());
+                BannersInnerData bannerEntity = bannerEntityList.get(i);
+                textSliderView = new DefaultSliderView(getActivity());
                 textSliderView
-                        .image(bannerEntity.getTabPosterPath());
+                        .image(bannerEntity.getImage_url());
+              //  Log.e("dataV",bannerEntity.getImage_url().toString());
 
                /* textSliderView.bundle(new Bundle());
                 textSliderView.getBundle()
@@ -200,17 +217,18 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
         }
     }
 
-    public void setAdapter() {
+    public void setAdapter(ArrayList<VideoInnerData> videoInnerData) {
+
         LinearLayoutManager lmTopList, lmMiddleList, lmBottomList;
 
         lmTopList = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewTop.BindRecyclerView(new HomeTopBinder(getDockActivity(), prefHelper, this), bannerEntityList, lmTopList, new DefaultItemAnimator());
+      //  recyclerViewTop.BindRecyclerView(new HomeTopBinder(getDockActivity(), prefHelper, this), , lmTopList, new DefaultItemAnimator());
         lmMiddleList = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
 
-        recyclerViewMiddle.BindRecyclerView(new HomeMiddleBinder(getDockActivity(), prefHelper, this), bannerEntityList, lmMiddleList, new DefaultItemAnimator());
+        recyclerViewMiddle.BindRecyclerView(new HomeMiddleBinder(getDockActivity(), prefHelper, this), videoInnerData, lmMiddleList, new DefaultItemAnimator());
         lmBottomList = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
 
-        recyclerViewBottom.BindRecyclerView(new HomeBottomBinder(getDockActivity(), prefHelper, this), bannerEntityList, lmBottomList, new DefaultItemAnimator());
+      //  recyclerViewBottom.BindRecyclerView(new HomeBottomBinder(getDockActivity(), prefHelper, this), videoInnerData, lmBottomList, new DefaultItemAnimator());
 
         spinner.setAdapter(new CustomSpinnerAdapter(getActivity(),R.layout.support_simple_spinner_dropdown_item,spinnerArray,"Most View"));
     }
@@ -230,6 +248,26 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
                 replaceMainFragment(ProfileFragment.newInstance());
                 break;
 
+        }
+    }
+    @Override
+    public void ResponseSuccess(Object result, String Tag) {
+        super.ResponseSuccess(result, Tag);
+        switch (Tag){
+            case WebServiceConstants.BANNERS:
+                Data<BannersInnerData> data=(Data)result;
+                ArrayList<BannersInnerData> bannerEntities = data.getData();
+                loadBannerSliderImage(bannerEntities, "Play Trp");
+
+
+                break;
+            case WebServiceConstants.VIDEOS:
+                Data<VideoInnerData> dataVideo =(Data)result;
+                ArrayList<VideoInnerData> videoInnerData = dataVideo.getData();
+                setAdapter(videoInnerData);
+
+
+                break;
         }
     }
 

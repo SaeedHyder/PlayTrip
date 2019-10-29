@@ -35,13 +35,13 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewBin
 
     @Override
     public void onBindViewHolder(RecyclerViewBinder.BaseViewHolder holder, int position) {
-      //  BannerEntity entity = (BannerEntity)this.collections.get(position);
-      //  this.viewBinder.bindView(entity,position,holder,this.mContext);
+        T entity = (T)this.collections.get(position);
+        this.viewBinder.bindView(entity,position,holder,this.mContext);
     }
 
     @Override
     public int getItemCount() {
-        return 6;
+        return collections.size();
     }
     public T getItemFromList(int index ) {
         return collections.get( index );

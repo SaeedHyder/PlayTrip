@@ -7,4 +7,6 @@ public class WebServiceConstants {
 
     public static final String LOGIN = "login";
     public static final String SIGNUP = "singup";
+    public static final String BANNERS = "banners";
+    public static final String VIDEOS = "videos";
 }

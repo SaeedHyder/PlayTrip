@@ -5,16 +5,27 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.app.playtrip.R;
+import com.app.playtrip.entities.BannerEntity;
+import com.app.playtrip.entities.Data;
+import com.app.playtrip.entities.User.DataUser;
+import com.app.playtrip.entities.banners.BannersInnerData;
+import com.app.playtrip.entities.video.VideoInnerData;
 import com.app.playtrip.fragments.Profile.ProfileFragment;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
+import com.app.playtrip.global.AppConstants;
+import com.app.playtrip.global.WebServiceConstants;
 import com.app.playtrip.helpers.UIHelper;
 import com.app.playtrip.ui.views.TitleBar;
+import com.google.firebase.iid.FirebaseInstanceId;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,6 +59,7 @@ public class MainFragment extends BaseFragment {
         // TODO Auto-generated method stub
         View view = inflater.inflate(R.layout.fragment_home_main, container, false);
          ButterKnife.bind(this, view);
+
         return view;
 
     }
@@ -104,10 +116,12 @@ public class MainFragment extends BaseFragment {
         if (tab.getPosition() == 0) {
             replaceFragment(HomeFragment.newInstance());
         } else if(tab.getPosition() == 1){
+
             UIHelper.showLongToastInCenter(getContext(),
                     R.string.message_coming_soon);
             //replaceFragment(ProfileFragment.newInstance());
         } else if(tab.getPosition() == 2){
+           // serviceHelper.enqueueCall(headerWebService.getVideos(), WebServiceConstants.VIDEOS);
             UIHelper.showLongToastInCenter(getContext(),
                     R.string.message_coming_soon);
           //  replaceFragment(MakeVideosFragment.newInstance());
@@ -129,5 +143,6 @@ public class MainFragment extends BaseFragment {
         transaction.replace(R.id.fragmentContainer, frag);
         transaction.addToBackStack(manager.getBackStackEntryCount() == 0 ? KEY_FRAG_FIRST : null).commit();
     }
+
 
 }
