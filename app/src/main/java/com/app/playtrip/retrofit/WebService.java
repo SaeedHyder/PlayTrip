@@ -37,6 +37,8 @@ public interface WebService {
             @Field("device_type") String device_type
     );
 
+
+
     @FormUrlEncoded
     @POST("login")
     Call<ResponseWrapper<DataUser>> loginUser(
@@ -48,4 +50,20 @@ public interface WebService {
 
     @GET("banners")
     Call<ResponseWrapper<Data<BannersInnerData>>> getBanners();
+
+    @FormUrlEncoded
+    @POST("videos")
+    Call<ResponseWrapper<DataUser>> uploadVideo(
+            @Field("title") String title,
+            @Field("caption") String caption,
+            @Field("user_id") String user_id,
+            @Field("location_id") String location_id,
+            @Field("video_url") String video_url,
+            @Field("thumbnail_image") String thumbnail_image,
+            @Field("video_length") String video_length,
+            @Field("status") String status
+    );
+
+
+
 }

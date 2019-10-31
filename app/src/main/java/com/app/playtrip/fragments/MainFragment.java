@@ -124,7 +124,7 @@ public class MainFragment extends BaseFragment {
            // serviceHelper.enqueueCall(headerWebService.getVideos(), WebServiceConstants.VIDEOS);
             UIHelper.showLongToastInCenter(getContext(),
                     R.string.message_coming_soon);
-          //  replaceFragment(MakeVideosFragment.newInstance());
+            replaceFragment(MakeVideosFragment.newInstance());
         } else if(tab.getPosition() == 3){
             UIHelper.showLongToastInCenter(getContext(),
                     R.string.message_coming_soon);

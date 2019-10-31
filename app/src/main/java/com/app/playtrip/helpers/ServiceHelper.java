@@ -4,6 +4,7 @@ import android.util.Log;
 
 
 import com.app.playtrip.activities.DockActivity;
+import com.app.playtrip.entities.User.DataUser;
 import com.app.playtrip.entities.Wrapper.ResponseWrapper;
 import com.app.playtrip.global.WebServiceConstants;
 import com.app.playtrip.interfaces.webServiceResponseLisener;
@@ -70,5 +71,6 @@ public class ServiceHelper<T> {
             });
         }
     }
+
 
 }
