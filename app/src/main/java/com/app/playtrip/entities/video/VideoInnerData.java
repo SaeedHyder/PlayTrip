@@ -13,6 +13,10 @@ public class VideoInnerData {
     private String locale;
     private String title;
     private String caption;
+    private String  video_like_count;
+    private String  video_view_count;
+    private String  video_share_count ;
+    private String   video_comment_count;
     private String video_url_path;
     private String thumbnail_image_url;
     private ArrayList<VideoTranslations> translations ;
@@ -97,6 +101,38 @@ public class VideoInnerData {
         this.caption = caption;
     }
 
+    public String getVideo_like_count() {
+        return video_like_count;
+    }
+
+    public void setVideo_like_count(String video_like_count) {
+        this.video_like_count = video_like_count;
+    }
+
+    public String getVideo_view_count() {
+        return video_view_count;
+    }
+
+    public void setVideo_view_count(String video_view_count) {
+        this.video_view_count = video_view_count;
+    }
+
+    public String getVideo_share_count() {
+        return video_share_count;
+    }
+
+    public void setVideo_share_count(String video_share_count) {
+        this.video_share_count = video_share_count;
+    }
+
+    public String getVideo_comment_count() {
+        return video_comment_count;
+    }
+
+    public void setVideo_comment_count(String video_comment_count) {
+        this.video_comment_count = video_comment_count;
+    }
+
     public String getVideo_url_path() {
         return video_url_path;
     }
@@ -134,6 +170,10 @@ public class VideoInnerData {
                 ", locale='" + locale + '\'' +
                 ", title='" + title + '\'' +
                 ", caption='" + caption + '\'' +
+                ", video_like_count='" + video_like_count + '\'' +
+                ", video_view_count='" + video_view_count + '\'' +
+                ", video_share_count='" + video_share_count + '\'' +
+                ", video_comment_count='" + video_comment_count + '\'' +
                 ", video_url_path='" + video_url_path + '\'' +
                 ", thumbnail_image_url='" + thumbnail_image_url + '\'' +
                 ", translations=" + translations +

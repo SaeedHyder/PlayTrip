@@ -7,7 +7,6 @@ import android.widget.TextView;
 
 import com.app.playtrip.R;
 import com.app.playtrip.activities.DockActivity;
-import com.app.playtrip.entities.BannerEntity;
 import com.app.playtrip.entities.video.VideoInnerData;
 import com.app.playtrip.helpers.BasePreferenceHelper;
 import com.app.playtrip.interfaces.RecyclerClickListner;
@@ -19,6 +18,7 @@ import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HomeMiddleBinder extends RecyclerViewBinder<VideoInnerData> {
+
 
     private DockActivity dockActivity;
     private BasePreferenceHelper prefHelper;
@@ -41,14 +41,25 @@ public class HomeMiddleBinder extends RecyclerViewBinder<VideoInnerData> {
 
         final ViewHolder holder = (ViewHolder) viewHolder;
         holder.tvItemHHeading.setText(entity.getTitle());
+        holder.tvView.setText(entity.getVideo_view_count());
+        holder.tvShare.setText(entity.getVideo_share_count());
+        holder.tvComment.setText(entity.getVideo_comment_count());
+        holder.tvLikes.setText(entity.getVideo_like_count());
         Picasso.with(context).load(entity.getThumbnail_image_url()).error(R.drawable.bg).into(holder.ivItemBg);
-
 
 
     }
 
 
     static class ViewHolder extends BaseViewHolder {
+        @BindView(R.id.tv_view)
+        TextView tvView;
+        @BindView(R.id.tv_share)
+        TextView tvShare;
+        @BindView(R.id.tv_comment)
+        TextView tvComment;
+        @BindView(R.id.tv_likes)
+        TextView tvLikes;
         @BindView(R.id.iv_itemBg)
         ImageView ivItemBg;
         @BindView(R.id.tv_itemHHeading)
