@@ -21,6 +21,8 @@ import com.app.playtrip.helpers.ServiceHelper;
 import com.app.playtrip.ui.views.TitleBar;
 import com.google.firebase.iid.FirebaseInstanceId;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -68,6 +70,7 @@ public class LoginFragment extends BaseFragment {
         super.setTitleBar(titleBar);
         titleBar.hideTitleBar();
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

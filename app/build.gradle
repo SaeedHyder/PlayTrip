@@ -65,6 +65,7 @@ dependencies {
 
     implementation 'com.droidninja:filepicker:2.1.5'
     implementation 'id.zelory:compressor:2.1.0'
+    implementation 'pub.devrel:easypermissions:0.2.0'
 
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')

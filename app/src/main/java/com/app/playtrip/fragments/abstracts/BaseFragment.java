@@ -230,7 +230,7 @@ public abstract class BaseFragment extends Fragment implements webServiceRespons
 				"Unable to connect to the server, "
 						+ "are you connected to the internet?" );
 	}
-	
+
 	/**
 	 * This generic null string validator to be used FormEditText
 	 * 
