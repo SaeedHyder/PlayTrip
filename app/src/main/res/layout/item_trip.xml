@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:weightSum="1"
     android:layout_height="@dimen/x148">
@@ -9,6 +9,7 @@
         android:layout_margin="@dimen/x2"
         android:layout_height="@dimen/x140">
     <ImageView
+        android:id="@+id/img_itemTrim"
         android:layout_width="@dimen/x128"
         android:scaleType="fitXY"
         android:layout_height="match_parent"
@@ -21,6 +22,7 @@
         android:weightSum="4"
         android:orientation="vertical">
         <TextView
+            android:id="@+id/tv_heading"
             android:textColor="@color/skyblue"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -44,41 +46,62 @@
             android:maxLines="1"
             android:ellipsize="end"
             android:text="Item Sub Heading"
-            android:gravity="center_vertical"
+            android:gravity="center_vertical|top"
             android:padding="@dimen/x4"
             android:textStyle="bold">
 
         </TextView>
-        <TextView
-            android:drawablePadding="@dimen/x4"
-            android:drawableLeft="@drawable/s5_pin"
+        <LinearLayout
             android:layout_width="match_parent"
+            android:orientation="horizontal"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:textSize="@dimen/_x13"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:text="city name"
-            android:gravity="center_vertical"
-            android:padding="@dimen/x4"
-           />
-        <TextView
-            android:drawablePadding="@dimen/x4"
-            android:drawableLeft="@drawable/s5_c"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:textSize="@dimen/_x13"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:text="15.30 - 12.23"
-            android:gravity="center_vertical"
-            android:padding="@dimen/x4"
-            >
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="@dimen/x32"
+                android:src="@drawable/s5_pin"
+                android:padding="@dimen/x4"
+                android:layout_height="@dimen/x32"/>
+            <TextView
+                android:id="@+id/tv_location"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:textSize="@dimen/_x13"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="city name"
+                android:gravity="center_vertical"
+                android:padding="@dimen/x4"
+                />
 
-        </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="@dimen/x32"
+                android:src="@drawable/s5_c"
+                android:padding="@dimen/x6"
+                android:layout_height="@dimen/x32"/>
+            <TextView
+                android:id="@+id/tv_v_time"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/_x13"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="15.30 - 12.23"
+                android:gravity="center_vertical"
+                android:padding="@dimen/x4"
+                />
+
+        </LinearLayout>
+
+
+
 
     </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

@@ -13,9 +13,13 @@ import android.view.ViewGroup;
 
 import com.app.playtrip.R;
 import com.app.playtrip.entities.BannerEntity;
+import com.app.playtrip.entities.Data;
+import com.app.playtrip.entities.video.VideoInnerData;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
+import com.app.playtrip.global.WebServiceConstants;
 import com.app.playtrip.interfaces.RecyclerClickListner;
 import com.app.playtrip.ui.binders.BookMarkBinder;
+import com.app.playtrip.ui.binders.DetailVideoBinder;
 import com.app.playtrip.ui.binders.HomeMiddleBinder;
 import com.app.playtrip.ui.views.AutoCompleteLocation;
 import com.app.playtrip.ui.views.CustomRecyclerView;
@@ -50,6 +54,7 @@ public class DetailVideoFragment extends BaseFragment implements RecyclerClickLi
         // TODO Auto-generated method stub
         super.setTitleBar(titleBar);
         titleBar.hideTitleBar();
+
     }
 
     @Override
@@ -66,15 +71,14 @@ public class DetailVideoFragment extends BaseFragment implements RecyclerClickLi
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onViewCreated(view, savedInstanceState);
-
         setDecInit();
+        getDataFromServer();
     }
     public void setDecInit(){
         setTabLayout();
         tabLayoutFilteristner();
         setTabLayoutShortLong();
         tabLayoutShortLong();
-        setAdapter();
 
     }
     private void setTabLayoutShortLong() {
@@ -166,13 +170,13 @@ public class DetailVideoFragment extends BaseFragment implements RecyclerClickLi
         } else if (tab.getPosition() == 1) {
         }
     }
-    public void setAdapter() {
+    public void setAdapter(ArrayList<VideoInnerData> listData) {
         LinearLayoutManager lm;
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
 
 
       //  lm = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL,2, false);
-        recyclerView.BindRecyclerView(new HomeMiddleBinder(getDockActivity(), prefHelper, this), bannerEntityList, gridLayoutManager, new DefaultItemAnimator());
+        recyclerView.BindRecyclerView(new DetailVideoBinder(getDockActivity(), prefHelper, this), listData, gridLayoutManager, new DefaultItemAnimator());
 
 
     }
@@ -213,5 +217,23 @@ public class DetailVideoFragment extends BaseFragment implements RecyclerClickLi
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+    public void getDataFromServer() {
+        serviceHelper.enqueueCall(headerWebService.getVideos(), WebServiceConstants.VIDEOS);
+
+
+
+
+    }
+    @Override
+    public void ResponseSuccess(Object result, String Tag) {
+        super.ResponseSuccess(result, Tag);
+        switch (Tag){
+            case WebServiceConstants.VIDEOS:
+                Data<VideoInnerData> dataVideo =(Data)result;
+                ArrayList<VideoInnerData> videoInnerData = dataVideo.getData();
+                setAdapter(videoInnerData);
+                break;
+        }
     }
 }

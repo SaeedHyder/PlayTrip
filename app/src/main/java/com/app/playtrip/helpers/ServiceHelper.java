@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.app.playtrip.activities.DockActivity;
 import com.app.playtrip.entities.User.DataUser;
+import com.app.playtrip.entities.Wrapper.ResponseSimple;
 import com.app.playtrip.entities.Wrapper.ResponseWrapper;
 import com.app.playtrip.global.WebServiceConstants;
 import com.app.playtrip.interfaces.webServiceResponseLisener;
@@ -71,6 +72,45 @@ public class ServiceHelper<T> {
             });
         }
     }
+    public void enqueueCallDel(Call<ResponseSimple> call, final String tag) {
+        if (InternetHelper.CheckInternetConectivityandShowToast(context)) {
+            context.onLoadingStarted();
+            call.enqueue(new Callback<ResponseSimple>() {
+                @Override
+                public void onResponse(Call<ResponseSimple> call, Response<ResponseSimple> response) {
+                    context.onLoadingFinished();
+                    if (response != null && response.body() != null && response.code() == 200) {
+                        if (response.body().isSuccess()) {
+                            serviceResponseLisener.ResponseSuccess(response.body().getMessage(), tag);
+                        } else {
+                            serviceResponseLisener.ResponseFailure(tag);
+                            UIHelper.showShortToastInCenter(context, response.body().getMessage());
+                        }
+                    } else {
+                        serviceResponseLisener.ResponseFailure(tag);
+                        try {
+                            JSONObject jObjError = new JSONObject(response.errorBody().string());
+                            UIHelper.showShortToastInCenter(context, jObjError.get("message").toString());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Call<ResponseSimple> call, Throwable t) {
+                    context.onLoadingFinished();
+                    serviceResponseLisener.ResponseFailure(tag);
+                    t.printStackTrace();
+                    Log.e(ServiceHelper.class.getSimpleName() + " by tag: " + tag, t.toString());
+                }
+            });
+        }
+    }
+
+
 
 
 }

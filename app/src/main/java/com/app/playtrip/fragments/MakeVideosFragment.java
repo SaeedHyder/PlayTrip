@@ -22,7 +22,10 @@ import android.widget.Toast;
 
 import com.app.playtrip.R;
 import com.app.playtrip.entities.BannerEntity;
+import com.app.playtrip.entities.Data;
+import com.app.playtrip.entities.video.VideoInnerData;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
+import com.app.playtrip.global.WebServiceConstants;
 import com.app.playtrip.helpers.PermissionHelper;
 import com.app.playtrip.helpers.UIHelper;
 import com.app.playtrip.interfaces.RecyclerClickListner;
@@ -34,7 +37,6 @@ import com.bumptech.glide.Glide;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.google.android.gms.location.places.Place;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -52,9 +54,6 @@ import id.zelory.compressor.Compressor;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
-
-import static com.app.playtrip.global.WebServiceConstants.LOGIN;
-import static com.app.playtrip.global.WebServiceConstants.UPLOAD_VIDEOS;
 
 
 public class MakeVideosFragment extends BaseFragment implements RecyclerClickListner, AutoCompleteLocation.AutoCompleteLocationListener, ViewPagerEx.OnPageChangeListener {
@@ -77,6 +76,8 @@ public class MakeVideosFragment extends BaseFragment implements RecyclerClickLis
     CollapsingToolbarLayout collapsingToolbar;
     @BindView(R.id.btn_publish)
     Button btnPublish;
+    @BindView(R.id.btn_delete)
+    Button btnDelete;
 
 
     private int MAX_ATTACHMENT_COUNT = 1;
@@ -85,6 +86,9 @@ public class MakeVideosFragment extends BaseFragment implements RecyclerClickLis
     private final int VIDEO_UPLOAD = 662;
     Bitmap image = null;
     private byte[] imageByte;
+    long videoId,position = 0;
+    ArrayList<VideoInnerData> videoInnerData;
+    MakeVideoBinder makeVideoBinder;
 
     private ArrayList<String> photoPaths = new ArrayList<>();
 
@@ -103,7 +107,7 @@ public class MakeVideosFragment extends BaseFragment implements RecyclerClickLis
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_make_video, container, false);
         ButterKnife.bind(this, view);
-        setAdapter();
+        getDataFromServer();
         return view;
     }
 
@@ -113,41 +117,19 @@ public class MakeVideosFragment extends BaseFragment implements RecyclerClickLis
         // ac_location.setAutoCompleteTextListener(this);
 
     }
-    @OnClick({R.id.tv_uploadPic,R.id.btn_publish})
+
+    @OnClick({R.id.tv_uploadPic, R.id.btn_publish, R.id.btn_delete})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_uploadPic:
                 cameraPermission(PROFILE_IMAGE_KEY);
                 break;
             case R.id.btn_publish:
-                MultipartBody.Part bodyPic = null,bodyVideo = null;
-                RequestBody reqFile,reqFileVideo = null;
-                  File videoFile = new File("videos/s1uMCPwz4Hocnby2is2zSSZ62aeRo1lCXtHeVXup.jpeg");
-                    if (image != null) {
-                        reqFile = RequestBody.create(MediaType.parse("image/jpeg"), imageByte);
-                        reqFileVideo = RequestBody.create(MediaType.parse("video/*"), videoFile);
-                        bodyPic = MultipartBody.Part.createFormData("thumbnail_image", "ProfilePicture.jpg", reqFile);
-                        bodyVideo = MultipartBody.Part.createFormData("video_url", "video.mp4", reqFileVideo);
-                    }
+                uploadVideo();
 
-
-                RequestBody title;
-
-                LinkedHashMap<String, RequestBody> mp= new LinkedHashMap<>();
-                title=RequestBody.create(MultipartBody.FORM, "Simplest");
-                mp.put("item_bar_code["+"en"+"]", title);
-                RequestBody caption ;
-                LinkedHashMap<String, RequestBody> mp1= new LinkedHashMap<>();
-                caption=RequestBody.create(MultipartBody.FORM, "Sky Div");
-                mp1.put("item_bar_code["+"en"+"]", caption);
-
-                RequestBody video = RequestBody.create(MultipartBody.FORM, "viseo.mp4");
-
-                RequestBody user_id = RequestBody.create(MultipartBody.FORM, "5");
-                RequestBody location_id = RequestBody.create(MultipartBody.FORM, "5");
-                RequestBody video_length = RequestBody.create(MultipartBody.FORM, "5");
-                RequestBody status = RequestBody.create(MultipartBody.FORM, "1");
-                serviceHelper.enqueueCall(headerWebService.uploadVideo(bodyPic,video,title,caption,user_id,location_id,video_length,status),UPLOAD_VIDEOS);
+                break;
+            case R.id.btn_delete:
+                deleteDataFromServer();
                 break;
 
         }
@@ -198,13 +180,14 @@ public class MakeVideosFragment extends BaseFragment implements RecyclerClickLis
         }
 
     }
+
     @NonNull
-    private Map<String,RequestBody> createPartFromArray(String[] skills) {
+    private Map<String, RequestBody> createPartFromArray(String[] skills) {
         Map<String, RequestBody> skill = new HashMap<String, RequestBody>();
-        RequestBody requestFile ;
-        for(int i=0 ;i<skills.length;i++) {
-            requestFile = RequestBody.create(MultipartBody.FORM,skills[i]);
-            skill.put("skill["+"en"+"]", requestFile);
+        RequestBody requestFile;
+        for (int i = 0; i < skills.length; i++) {
+            requestFile = RequestBody.create(MultipartBody.FORM, skills[i]);
+            skill.put("skill[" + "en" + "]", requestFile);
         }
         return skill;
 
@@ -219,13 +202,14 @@ public class MakeVideosFragment extends BaseFragment implements RecyclerClickLis
                 if (resultCode == Activity.RESULT_OK && data != null) {
                     photoPaths = new ArrayList<>();
                     photoPaths.addAll(data.getStringArrayListExtra(FilePickerConst.KEY_SELECTED_MEDIA));
-                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                    if (image != null)
-                        Glide.with(getDockActivity()).load(image).into(ivPhoto);
-                    image.compress(Bitmap.CompressFormat.JPEG, 50, stream);
+                    try {
+                        image = new Compressor(getDockActivity()).setQuality(60).compressToBitmap(new File(photoPaths.get(0)));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Glide.with(getDockActivity()).load(image).into(ivPhoto);
                     //  image = new Compressor(getDockActivity()).setQuality(60).compressToBitmap(new File(photoPaths.get(0)));
 
-                    imageByte = stream.toByteArray();
 
                 }
                 break;
@@ -292,19 +276,84 @@ public class MakeVideosFragment extends BaseFragment implements RecyclerClickLis
 
     public void setAdapter() {
         LinearLayoutManager lm;
-
         lm = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        recyclerView.BindRecyclerView(new MakeVideoBinder(getDockActivity(), prefHelper, this), bannerEntityList, lm, new DefaultItemAnimator());
+        makeVideoBinder = new MakeVideoBinder(getDockActivity(), prefHelper, this);
+        recyclerView.BindRecyclerView(makeVideoBinder, videoInnerData, lm, new DefaultItemAnimator());
 
 
     }
 
     @Override
     public void onClick(Object entity, int position) {
+        VideoInnerData videoInnerData = (VideoInnerData) entity;
+        videoId = videoInnerData.getId();
+       // UIHelper.showShortToastInCenter(getDockActivity(), videoInnerData.getTitle());
+
 
     }
 
+    public void getDataFromServer() {
+        serviceHelper.enqueueCall(headerWebService.getVideos(), WebServiceConstants.VIDEOS);
 
 
+    }
+
+    public void deleteDataFromServer() {
+        if (videoId != 0) {
+            serviceHelper.enqueueCallDel(headerWebService.deleteVideo(videoId), WebServiceConstants.DELETE_VIDEOS);
+        }
+    }
+
+    @Override
+    public void ResponseSuccess(Object result, String Tag) {
+        super.ResponseSuccess(result, Tag);
+        switch (Tag) {
+            case WebServiceConstants.VIDEOS:
+                Data<VideoInnerData> dataVideo = (Data) result;
+                 videoInnerData = dataVideo.getData();
+                setAdapter();
+                break;
+            case WebServiceConstants.DELETE_VIDEOS:
+                String msg = String.valueOf(result);
+                UIHelper.showShortToastInCenter(getDockActivity(), msg);
+                videoInnerData.remove(position);
+                setAdapter();
+
+                break;
+        }
+    }
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        // null.unbind();
+    }
+
+    public void uploadVideo() {
+        MultipartBody.Part bodyPic = null, bodyVideo = null;
+        RequestBody reqFile, reqFileVideo = null;
+        File videoFile = new File("videos/s1uMCPwz4Hocnby2is2zSSZ62aeRo1lCXtHeVXup.jpeg");
+        if (image != null) {
+            reqFile = RequestBody.create(MediaType.parse("image/jpeg"), imageByte);
+            reqFileVideo = RequestBody.create(MediaType.parse("video/*"), videoFile);
+            bodyPic = MultipartBody.Part.createFormData("thumbnail_image", "ProfilePicture.jpg", reqFile);
+            bodyVideo = MultipartBody.Part.createFormData("video_url", "video.mp4", reqFileVideo);
+        }
+        String title = null;
+        LinkedHashMap<String, String> mp = new LinkedHashMap<>();
+        mp.put("en", title);
+        String caption = null;
+        LinkedHashMap<String, String> mp1 = new LinkedHashMap<>();
+        mp1.put("en", caption);
+
+        RequestBody video = RequestBody.create(MultipartBody.FORM, "viseo.mp4");
+
+        RequestBody user_id = RequestBody.create(MultipartBody.FORM, "5");
+        RequestBody location_id = RequestBody.create(MultipartBody.FORM, "5");
+        RequestBody video_length = RequestBody.create(MultipartBody.FORM, "5");
+        RequestBody status = RequestBody.create(MultipartBody.FORM, "1");
+        //   serviceHelper.enqueueCall(headerWebService.uploadVideo(bodyPic,video,mp,mp1,user_id,location_id,video_length,status),UPLOAD_VIDEOS);
+    }
 }
 

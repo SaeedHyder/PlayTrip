@@ -2,20 +2,27 @@ package com.app.playtrip.retrofit;
 
 
 import com.app.playtrip.entities.User.DataUser;
+import com.app.playtrip.entities.Wrapper.ResponseSimple;
 import com.app.playtrip.entities.Wrapper.ResponseWrapper;
 import com.app.playtrip.entities.Data;
 import com.app.playtrip.entities.banners.BannersInnerData;
 import com.app.playtrip.entities.video.VideoInnerData;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.Path;
 
 public interface WebService {
 
@@ -73,8 +80,8 @@ public interface WebService {
     Call<ResponseWrapper<DataUser>> uploadVideo(
             @Part MultipartBody.Part filePic,
             @Part ("video_url") RequestBody fileVideo,
-            @Part("title") RequestBody title,
-            @Part("caption") RequestBody caption,
+            @Field("title") RequestBody title,
+            @Field("caption") RequestBody caption,
             @Part("user_id") RequestBody user_id,
             @Part("location_id") RequestBody location_id,
             @Part("video_length") RequestBody video_url,
@@ -82,6 +89,8 @@ public interface WebService {
 
             );
 
+    @DELETE("videos/{id}")
+    Call<ResponseSimple> deleteVideo(@Path("id") long itemId);
 
 
 

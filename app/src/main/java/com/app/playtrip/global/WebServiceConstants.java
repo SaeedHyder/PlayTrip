@@ -9,5 +9,7 @@ public class WebServiceConstants {
     public static final String SIGNUP = "singup";
     public static final String BANNERS = "banners";
     public static final String VIDEOS = "videos";
+    public static final String DELETE_VIDEOS = "video";
+
     public static final String UPLOAD_VIDEOS = "videos";
 }

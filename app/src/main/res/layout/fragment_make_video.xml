@@ -296,6 +296,7 @@
             android:weightSum="2"
             android:layout_height="@dimen/x48">
             <Button
+                android:id="@+id/btn_delete"
                 android:layout_width="0dp"
                 android:layout_margin="@dimen/x4"
                 android:layout_weight="1"
