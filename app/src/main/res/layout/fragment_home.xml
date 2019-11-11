@@ -43,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/x12" />
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -54,9 +55,8 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".3"
                     android:maxLines="1"
                     android:ellipsize="end"
                     android:text="Newest Videos"
@@ -66,26 +66,23 @@
                 <Spinner
                     android:id="@+id/spinner"
                     android:entries="@array/spinner_home"
-                    android:layout_width="0dp"
-                    android:layout_weight=".4"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                 </Spinner>
 
                 <TextView
                     android:id="@+id/tv_viewMore"
-                    android:layout_width="0dp"
-                    android:layout_weight=".3"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/x12"
                     android:gravity="right"
                     android:text="@string/view_more"
                     android:textColor="@color/black"
                     android:textSize="@dimen/x16"
-                   />
+                    />
 
             </LinearLayout>
-
             <com.app.playtrip.ui.views.CustomRecyclerView
 
                 android:id="@+id/rv_middleList"

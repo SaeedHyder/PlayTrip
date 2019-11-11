@@ -1,196 +1,217 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-<LinearLayout
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:weightSum="1"
-    android:background="@color/yellow"
-    android:layout_marginTop="@dimen/x10"
-    android:layout_height="wrap_content">
-    <ImageView
-        android:layout_marginLeft="@dimen/_x6"
-        android:layout_width="0dp"
-        android:layout_weight=".3"
-        android:scaleType="fitXY"
-        android:layout_height="match_parent"
-        android:src="@drawable/s33_img"></ImageView>
-    <LinearLayout
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/x5"
+        android:layout_marginTop="@dimen/x10"
+        android:layout_marginEnd="@dimen/x5"
+        android:layout_marginBottom="@dimen/x3"
         android:background="@color/white"
-        android:layout_width="0dp"
-        android:layout_weight=".7"
-        android:paddingLeft="@dimen/_x6"
-        android:paddingRight="@dimen/_x6"
-        android:layout_height="match_parent"
-        android:weightSum="5"
-        android:orientation="vertical">
+        app:cardCornerRadius="@dimen/x8"
+        app:cardElevation="@dimen/x5">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/yellow"
             android:orientation="horizontal"
-            android:weightSum="1"
-            android:layout_weight="1">
-            <TextView
-                android:id="@+id/txtHeading"
-                android:textColor="@color/skyblue"
+            android:weightSum="1">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_x6"
+                android:layout_weight=".3"
+                android:scaleType="fitXY"
+                android:src="@drawable/s33_img"></ImageView>
+
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight=".7"
-                android:textSize="@dimen/_x15"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:text="Item main Heading"
-                android:gravity="center_vertical"
-                android:textStyle="bold"/>
-            <TextView
-                android:id="@+id/tv_itemTop"
-                android:textColor="@color/black"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/x20"
-                android:layout_gravity="center"
-                android:layout_weight=".3"
-                android:background="@drawable/rounded_light_orange"
-                android:textSize="@dimen/_x13"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:text="item"
-                android:gravity="center"
-                android:textStyle="bold">
+                android:padding="@dimen/x8"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/_x6"
+                android:paddingRight="@dimen/_x6"
+                android:weightSum="5">
 
-            </TextView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/txtHeading"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".7"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:text="Item main Heading"
+                        android:textColor="@color/skyblue"
+                        android:textSize="@dimen/_x15"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_itemTop"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/x20"
+                        android:layout_gravity="center"
+                        android:layout_weight=".3"
+                        android:background="@drawable/rounded_light_orange"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="item"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_x13"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text="Item Sub Heading"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_x12">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/s2_pin"
+                    android:drawablePadding="@dimen/x4"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text=" city name"
+                    android:textSize="@dimen/_x13" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".7"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:text="15.30 - 12.23"
+                        android:textSize="@dimen/_x13">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/tv_itemBottom"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/x20"
+                        android:layout_gravity="center"
+                        android:layout_weight=".3"
+                        android:background="@drawable/rounded_orange_button"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="item"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_x13"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/x4"
+
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="5">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_weight="1.3"
+                        android:drawableLeft="@drawable/s2_eye"
+                        android:drawablePadding="@dimen/x4"
+                        android:maxLength="8"
+                        android:maxLines="1"
+                        android:text="10"
+                        android:textSize="@dimen/_x13"
+
+
+                        />
+
+
+                    <TextView
+                        android:id="@+id/tv_galleryItemShare"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1.3"
+                        android:drawableLeft="@drawable/s2_arrow"
+                        android:drawablePadding="@dimen/x4"
+                        android:maxLength="8"
+
+                        android:maxLines="1"
+                        android:text="20"
+                        android:textSize="@dimen/_x13"
+
+
+                        />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1.3"
+                        android:drawableLeft="@drawable/s2_h"
+                        android:drawablePadding="@dimen/x4"
+
+                        android:maxLength="8"
+                        android:maxLines="1"
+                        android:text="30"
+                        android:textSize="@dimen/_x13"
+
+
+                        />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <TextView
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:textSize="@dimen/_x12"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:text="Item Sub Heading"
-            android:gravity="center_vertical"
-            >
-
-        </TextView>
-        <TextView
-            android:drawablePadding="@dimen/x4"
-            android:drawableLeft="@drawable/s2_pin"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:textSize="@dimen/_x13"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:text=" city name"
-            android:gravity="center_vertical"
-           />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="horizontal"
-            android:weightSum="1"
-            android:layout_weight="1">
-            <TextView
-
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".7"
-                android:textSize="@dimen/_x13"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:text="15.30 - 12.23"
-                android:gravity="center_vertical"
-                >
-
-            </TextView>
-
-            <TextView
-                android:id="@+id/tv_itemBottom"
-                android:textColor="@color/white"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/x20"
-                android:layout_gravity="center"
-                android:layout_weight=".3"
-                android:background="@drawable/rounded_orange_button"
-                android:textSize="@dimen/_x13"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:text="item"
-                android:gravity="center"
-                android:textStyle="bold">
-
-            </TextView>
-
-        </LinearLayout>
-        <RelativeLayout
-            android:layout_marginTop="@dimen/x4"
-            android:layout_width="match_parent"
-            android:weightSum="5"
-            android:gravity="center"
-
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:layout_height="0dp">
-            <TextView
-                android:drawableLeft="@drawable/s2_eye"
-                android:layout_width="wrap_content"
-                android:layout_weight="1.3"
-                android:layout_height="wrap_content"
-                android:text="10"
-                android:layout_centerVertical="true"
-                android:maxLength="8"
-                android:drawablePadding="@dimen/x4"
-                android:maxLines="1"
-                android:textSize="@dimen/_x13"
-
-
-                />
-
-
-
-            <TextView
-                android:id="@+id/tv_galleryItemShare"
-                android:layout_centerInParent="true"
-                android:drawableLeft="@drawable/s2_arrow"
-                android:layout_width="wrap_content"
-                android:layout_weight="1.3"
-                android:layout_height="wrap_content"
-                android:text="20"
-                android:maxLength="8"
-
-                android:drawablePadding="@dimen/x4"
-                android:maxLines="1"
-                android:textSize="@dimen/_x13"
-
-
-                />
-
-
-            <TextView
-                android:layout_alignParentRight="true"
-                android:drawableLeft="@drawable/s2_h"
-                android:layout_width="wrap_content"
-                android:layout_weight="1.3"
-                android:layout_height="wrap_content"
-                android:text="30"
-                android:maxLength="8"
-
-                android:layout_centerInParent="true"
-                android:drawablePadding="@dimen/x4"
-                android:maxLines="1"
-                android:textSize="@dimen/_x13"
-
-
-                />
-
-        </RelativeLayout>
-
-
-    </LinearLayout>
-
-</LinearLayout>
+    </android.support.v7.widget.CardView>
 </RelativeLayout>
