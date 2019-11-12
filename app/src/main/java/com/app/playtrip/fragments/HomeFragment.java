@@ -15,10 +15,12 @@ import com.app.playtrip.R;
 import com.app.playtrip.entities.BannerEntity;
 import com.app.playtrip.entities.Data;
 import com.app.playtrip.entities.banners.BannersInnerData;
+import com.app.playtrip.entities.trending.TrendingEntity;
 import com.app.playtrip.entities.video.VideoInnerData;
 import com.app.playtrip.entities.video.VideoTranslations;
 import com.app.playtrip.fragments.Profile.ProfileFragment;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
+import com.app.playtrip.global.AppConstants;
 import com.app.playtrip.global.WebServiceConstants;
 import com.app.playtrip.helpers.UIHelper;
 import com.app.playtrip.interfaces.RecyclerClickListner;
@@ -150,6 +152,7 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
     public void getDataFromServer() {
         serviceHelper.enqueueCall(headerWebService.getVideos(), WebServiceConstants.VIDEOS);
         serviceHelper.enqueueCall(headerWebService.getBanners(), WebServiceConstants.BANNERS);
+        serviceHelper.enqueueCall(headerWebService.getTrendingVideos(AppConstants.Recent), WebServiceConstants.TRENDING);
 
 
 
@@ -226,12 +229,11 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
         lmMiddleList = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
 
         recyclerViewMiddle.BindRecyclerView(new HomeMiddleBinder(getDockActivity(), prefHelper, this), videoInnerData, lmMiddleList, new DefaultItemAnimator());
-        lmBottomList = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-
-      //  recyclerViewBottom.BindRecyclerView(new HomeBottomBinder(getDockActivity(), prefHelper, this), videoInnerData, lmBottomList, new DefaultItemAnimator());
 
         spinner.setAdapter(new CustomSpinnerAdapter(getActivity(),R.layout.support_simple_spinner_dropdown_item,spinnerArray,"Most View"));
     }
+
+
 
     @Override
     public void onClick(Object entity, int position) {
@@ -265,10 +267,22 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
                 Data<VideoInnerData> dataVideo =(Data)result;
                 ArrayList<VideoInnerData> videoInnerData = dataVideo.getData();
                 setAdapter(videoInnerData);
-
-
                 break;
+
+            case WebServiceConstants.TRENDING:
+                Data<TrendingEntity> dataTrendVideo =(Data)result;
+                ArrayList<TrendingEntity> trendingData = dataTrendVideo.getData();
+                setUserBottomData(trendingData);
+                break;
+
+
         }
+    }
+
+    private void setUserBottomData(ArrayList<TrendingEntity> trendingData){
+        LinearLayoutManager lmBottomList = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewBottom.BindRecyclerView(new HomeBottomBinder(getDockActivity(), prefHelper, this), trendingData, lmBottomList, new DefaultItemAnimator());
+
     }
 
 }

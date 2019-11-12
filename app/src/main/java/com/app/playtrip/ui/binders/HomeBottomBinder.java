@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.app.playtrip.R;
 import com.app.playtrip.activities.DockActivity;
 import com.app.playtrip.entities.BannerEntity;
+import com.app.playtrip.entities.trending.TrendingEntity;
 import com.app.playtrip.helpers.BasePreferenceHelper;
 import com.app.playtrip.interfaces.RecyclerClickListner;
 import com.app.playtrip.ui.viewbinders.abstracts.RecyclerViewBinder;
@@ -15,7 +16,7 @@ import com.app.playtrip.ui.viewbinders.abstracts.RecyclerViewBinder;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HomeBottomBinder extends RecyclerViewBinder<BannerEntity> {
+public class HomeBottomBinder extends RecyclerViewBinder<TrendingEntity> {
 
     private DockActivity dockActivity;
     private BasePreferenceHelper prefHelper;
@@ -35,7 +36,7 @@ public class HomeBottomBinder extends RecyclerViewBinder<BannerEntity> {
     }
 
     @Override
-    public void bindView(BannerEntity entity, int position, Object viewHolder, Context context) {
+    public void bindView(TrendingEntity entity, int position, Object viewHolder, Context context) {
 
         final ViewHolder holder = (ViewHolder) viewHolder;
     }

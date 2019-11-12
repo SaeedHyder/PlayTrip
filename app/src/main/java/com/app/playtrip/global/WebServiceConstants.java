@@ -8,6 +8,7 @@ public class WebServiceConstants {
     public static final String LOGIN = "login";
     public static final String SIGNUP = "singup";
     public static final String BANNERS = "banners";
+    public static final String TRENDING = "trending";
     public static final String VIDEOS = "videos";
     public static final String DELETE_VIDEOS = "video";
 

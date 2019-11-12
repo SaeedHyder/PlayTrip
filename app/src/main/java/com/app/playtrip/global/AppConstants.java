@@ -20,4 +20,7 @@ public class AppConstants {
     public static  String HeaderToken= "HeaderToken";
     public static String Bearer = "Bearer ";
 
+    public static String Treandy = "trendy";
+    public static String Recent = "recent";
+
 }

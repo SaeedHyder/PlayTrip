@@ -6,6 +6,7 @@ import com.app.playtrip.entities.Wrapper.ResponseSimple;
 import com.app.playtrip.entities.Wrapper.ResponseWrapper;
 import com.app.playtrip.entities.Data;
 import com.app.playtrip.entities.banners.BannersInnerData;
+import com.app.playtrip.entities.trending.TrendingEntity;
 import com.app.playtrip.entities.video.VideoInnerData;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface WebService {
 
@@ -93,6 +95,7 @@ public interface WebService {
     Call<ResponseSimple> deleteVideo(@Path("id") long itemId);
 
 
-
+    @GET("users/get-users-by-type")
+Call<ResponseWrapper<Data<TrendingEntity>>> getTrendingVideos(@Query("user_type") String user_type);//t[trendy,recent]
 
 }
