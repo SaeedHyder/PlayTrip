@@ -47,7 +47,9 @@
                 android:id="@+id/rv_topList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/x12" />
+                android:paddingStart="@dimen/x5"
+                android:paddingEnd="@dimen/x5"
+                android:clipToPadding="false" />
 
             </LinearLayout>
             <LinearLayout
@@ -94,7 +96,9 @@
                 android:id="@+id/rv_middleList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/x12" />
+                android:paddingStart="@dimen/x5"
+                android:paddingEnd="@dimen/x5"
+                android:clipToPadding="false"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -132,7 +136,9 @@
                 android:id="@+id/rv_bottomList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/x12" />
+                android:paddingStart="@dimen/x5"
+                android:paddingEnd="@dimen/x5"
+                android:clipToPadding="false"/>
 
         </LinearLayout>
     </ScrollView>

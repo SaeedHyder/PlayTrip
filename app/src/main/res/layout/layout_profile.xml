@@ -69,7 +69,7 @@
             <TextView
                 android:id="@+id/btnTermsCond"
                 android:layout_width="match_parent"
-                android:background="@drawable/stroke_grey_bg"
+                android:background="@drawable/rect_3_line"
                 android:layout_height="@dimen/x48"
                 android:text="@string/terms_and_conditions"
                 android:paddingLeft="@dimen/x8"
@@ -84,7 +84,7 @@
             <TextView
                 android:id="@+id/btnPrivacyPolicy"
                 android:layout_width="match_parent"
-                android:background="@drawable/stroke_grey_bg"
+                android:background="@drawable/rect_3_line"
                 android:layout_height="@dimen/x48"
                 android:text="@string/privacy_policy"
                 android:gravity="center_vertical"

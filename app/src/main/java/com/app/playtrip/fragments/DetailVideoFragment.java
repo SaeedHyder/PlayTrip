@@ -157,11 +157,13 @@ public class DetailVideoFragment extends BaseFragment implements RecyclerClickLi
     private void setData(TabLayout.Tab tab) {
 
         if (tab.getPosition() == 0) {
+            serviceHelper.enqueueCall(headerWebService.getVideos("most_shared_videos"), WebServiceConstants.VIDEOS);
         } else if (tab.getPosition() == 1) {
+            serviceHelper.enqueueCall(headerWebService.getVideos("most_recent_videos"), WebServiceConstants.VIDEOS);
         } else if (tab.getPosition() == 2) {
-
+            serviceHelper.enqueueCall(headerWebService.getVideos("most_liked_videos"), WebServiceConstants.VIDEOS);
         } else if (tab.getPosition() == 3) {
-        } else if (tab.getPosition() == 4) {
+            serviceHelper.enqueueCall(headerWebService.getVideos("most_viewed_videos"), WebServiceConstants.VIDEOS);
         }
     }
     private void setDataShortLong(TabLayout.Tab tab) {
