@@ -46,6 +46,7 @@ public class HomeMiddleBinder extends RecyclerViewBinder<VideoInnerData> {
         holder.tvComment.setText(entity.getVideo_comment_count());
         holder.tvLikes.setText(entity.getVideo_like_count());
         Picasso.with(context).load(entity.getThumbnail_image_url()).error(R.drawable.bg).into(holder.ivItemBg);
+       // Picasso.with(context).load(entity.get()).error(R.drawable.bg).into(holder.civItemHL);
 
 
     }

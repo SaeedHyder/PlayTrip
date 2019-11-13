@@ -61,6 +61,11 @@ public interface WebService {
     @GET("videos")
     Call<ResponseWrapper<Data<VideoInnerData>>> getVideos();
 
+    @GET("videos")
+    Call<ResponseWrapper<Data<VideoInnerData>>> getVideos(
+        @Query("video_type") String videoType
+    );
+
     @GET("banners")
     Call<ResponseWrapper<Data<BannersInnerData>>> getBanners();
 

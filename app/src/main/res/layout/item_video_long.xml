@@ -1,302 +1,305 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/x2"
-        android:layout_marginStart="@dimen/x5"
-        android:layout_marginTop="@dimen/x7"
-        android:layout_marginEnd="@dimen/x5"
-        android:layout_marginBottom="@dimen/x3"
         android:background="@color/white"
         app:cardCornerRadius="@dimen/x8"
         app:cardElevation="@dimen/x5">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-
-    <ImageView
-        android:id="@+id/iv_itemBg"
-        android:scaleType="fitXY"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/x200"
-        android:src="@drawable/s33_video"
-        >
-
-
-    </ImageView>
-
-    <TextView
-        android:id="@+id/tv_itemVHeading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="item Name"
-        android:maxLines="1"
-        android:textSize="@dimen/_x18"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:layout_marginLeft="@dimen/x8"
-
-        />
-    <TextView
-        android:id="@+id/tv_itemVSubHeading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="caption by blah blah"
-        android:maxLines="1"
-        android:textSize="@dimen/_x16"
-        android:layout_marginLeft="@dimen/x8"
-
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-        <ImageView
-            android:layout_width="@dimen/x32"
-            android:src="@drawable/s5_pin"
-            android:padding="@dimen/x4"
-            android:layout_height="@dimen/x32"/>
-        <TextView
-            android:id="@+id/tv_location"
-            android:layout_height="match_parent"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:textSize="@dimen/_x13"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:text="city name"
-            android:gravity="center_vertical"
-            android:padding="@dimen/x4"
-            />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-        <ImageView
-            android:layout_width="@dimen/x32"
-            android:src="@drawable/s5_c"
-            android:padding="@dimen/x6"
-            android:layout_height="@dimen/x32"/>
-        <TextView
-            android:id="@+id/tv_v_time"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="@dimen/_x13"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:text="15.30 - 12.23"
-            android:gravity="center_vertical"
-            android:padding="@dimen/x4"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/x24"
-        android:layout_gravity="center"
-        android:layout_marginLeft="@dimen/x8"
-        android:layout_marginTop="@dimen/x4"
-        android:layout_marginRight="@dimen/x8"
-        android:orientation="horizontal"
-        android:weightSum="4">
-
-        <LinearLayout
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:weightSum="1">
+            android:orientation="vertical">
 
             <ImageView
-                android:layout_width="0dp"
+                android:id="@+id/iv_itemBg"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x200"
+                android:scaleType="fitXY"
+                android:src="@drawable/s33_video">
+
+
+            </ImageView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight=".5"
-                android:contentDescription="@null"
-                android:padding="@dimen/x2"
-                android:src="@drawable/s2_eye" />
+                android:padding="@dimen/x10"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_itemVHeading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x8"
+                    android:maxLines="1"
+                    android:text="item Name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_x18"
+                    android:textStyle="bold"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tv_itemVSubHeading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x8"
+                    android:maxLines="1"
+                    android:text="caption by blah blah"
+                    android:textSize="@dimen/_x16"
+
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/x32"
+                        android:layout_height="@dimen/x32"
+                        android:padding="@dimen/x4"
+                        android:src="@drawable/s5_pin" />
+
+                    <TextView
+                        android:id="@+id/tv_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:padding="@dimen/x4"
+                        android:text="city name"
+                        android:textSize="@dimen/_x13" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/x32"
+                        android:layout_height="@dimen/x32"
+                        android:padding="@dimen/x6"
+                        android:src="@drawable/s5_c" />
+
+                    <TextView
+                        android:id="@+id/tv_v_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:padding="@dimen/x4"
+                        android:text="15.30 - 12.23"
+                        android:textSize="@dimen/_x13" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x24"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/x8"
+                    android:layout_marginTop="@dimen/x4"
+                    android:layout_marginRight="@dimen/x8"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight=".5"
+                            android:contentDescription="@null"
+                            android:padding="@dimen/x2"
+                            android:src="@drawable/s2_eye" />
 
 
-            <TextView
-                android:id="@+id/tv_view"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:layout_gravity="center"
-                android:layout_weight=".5"
-                android:drawablePadding="@dimen/x4"
-                android:maxLines="1"
-                android:text="10"
-                android:textSize="@dimen/_x12"
-                />
+                        <TextView
+                            android:id="@+id/tv_view"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_weight=".5"
+                            android:drawablePadding="@dimen/x4"
+                            android:gravity="center_vertical"
+                            android:maxLines="1"
+                            android:text="10"
+                            android:textSize="@dimen/_x12" />
 
 
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight=".5"
+                            android:contentDescription="@null"
+                            android:padding="@dimen/x2"
+                            android:src="@drawable/s2_arrow" />
+
+
+                        <TextView
+                            android:id="@+id/tv_share"
+
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_weight=".5"
+                            android:drawablePadding="@dimen/x4"
+                            android:gravity="center_vertical"
+                            android:maxLines="1"
+                            android:text="10"
+                            android:textSize="@dimen/_x12"
+
+
+                            />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight=".5"
+                            android:contentDescription="@null"
+                            android:padding="@dimen/x3"
+                            android:src="@drawable/s2_7" />
+
+
+                        <TextView
+                            android:id="@+id/tv_comment"
+
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_weight=".5"
+                            android:drawablePadding="@dimen/x4"
+                            android:gravity="center_vertical"
+                            android:maxLines="1"
+                            android:text="10"
+                            android:textSize="@dimen/_x12"
+
+
+                            />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight=".5"
+                            android:contentDescription="@null"
+                            android:padding="@dimen/x3"
+                            android:src="@drawable/s2_h" />
+
+
+                        <TextView
+                            android:id="@+id/tv_likes"
+
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_weight=".5"
+                            android:drawablePadding="@dimen/x4"
+                            android:gravity="center_vertical"
+                            android:maxLines="1"
+                            android:text="10"
+                            android:textSize="@dimen/_x12"
+
+
+                            />
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/s2_arrow"
+                        android:drawablePadding="@dimen/x4"
+                        android:maxLines="1"
+                        android:text="10"
+                        android:textSize="@dimen/_x12"
+
+
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/s2_7"
+                        android:drawablePadding="@dimen/x4"
+                        android:maxLines="1"
+                        android:text="10"
+                        android:textSize="@dimen/_x12"
+
+
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/s2_h"
+                        android:drawablePadding="@dimen/x4"
+                        android:maxLines="1"
+                        android:text="10"
+                        android:textSize="@dimen/_x12"
+
+
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight=".5"
-                android:contentDescription="@null"
-                android:padding="@dimen/x2"
-                android:src="@drawable/s2_arrow" />
-
-
-            <TextView
-                android:id="@+id/tv_share"
-
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:layout_gravity="center"
-                android:layout_weight=".5"
-                android:drawablePadding="@dimen/x4"
-                android:maxLines="1"
-                android:text="10"
-                android:textSize="@dimen/_x12"
-
-
-                />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight=".5"
-                android:contentDescription="@null"
-                android:padding="@dimen/x3"
-                android:src="@drawable/s2_7" />
-
-
-            <TextView
-                android:id="@+id/tv_comment"
-
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:layout_gravity="center"
-                android:layout_weight=".5"
-                android:drawablePadding="@dimen/x4"
-                android:maxLines="1"
-                android:text="10"
-                android:textSize="@dimen/_x12"
-
-
-                />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight=".5"
-                android:contentDescription="@null"
-                android:padding="@dimen/x3"
-                android:src="@drawable/s2_h" />
-
-
-            <TextView
-                android:id="@+id/tv_likes"
-
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:layout_gravity="center"
-                android:layout_weight=".5"
-                android:drawablePadding="@dimen/x4"
-                android:maxLines="1"
-                android:text="10"
-                android:textSize="@dimen/_x12"
-
-
-                />
-
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableLeft="@drawable/s2_arrow"
-            android:drawablePadding="@dimen/x4"
-            android:maxLines="1"
-            android:text="10"
-            android:textSize="@dimen/_x12"
-
-
-            />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableLeft="@drawable/s2_7"
-            android:drawablePadding="@dimen/x4"
-            android:maxLines="1"
-            android:text="10"
-            android:textSize="@dimen/_x12"
-
-
-            />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableLeft="@drawable/s2_h"
-            android:drawablePadding="@dimen/x4"
-            android:maxLines="1"
-            android:text="10"
-            android:textSize="@dimen/_x12"
-
-
-            />
-
-    </LinearLayout>
-
-
-
-
-</LinearLayout>
     </android.support.v7.widget.CardView>
 </RelativeLayout>

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -108,8 +109,32 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // ac_location.setAutoCompleteTextListener(this);
+        setSpinner();
 
+    }
+
+    private void setSpinner() {
+
+        spinner.setAdapter(new CustomSpinnerAdapter(getActivity(),R.layout.support_simple_spinner_dropdown_item,spinnerArray,"Most View"));
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
+                if(pos==0){
+                    serviceHelper.enqueueCall(headerWebService.getVideos("most_viewed_videos"), WebServiceConstants.VIDEOS);
+                }else if(pos==1){
+                    serviceHelper.enqueueCall(headerWebService.getVideos("most_recent_videos"), WebServiceConstants.VIDEOS);
+                }else if(pos==2){
+                    serviceHelper.enqueueCall(headerWebService.getVideos("most_shared_videos"), WebServiceConstants.VIDEOS);
+                }else if(pos==3){
+                    serviceHelper.enqueueCall(headerWebService.getVideos("most_liked_videos"), WebServiceConstants.VIDEOS);
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
 
@@ -120,7 +145,6 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
         titleBar.showMenuButton();
         titleBar.setSubHeading("Home");
         titleBar.showNotificationButton(0);
-
     }
 
 
@@ -222,6 +246,8 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
 
     public void setAdapter(ArrayList<VideoInnerData> videoInnerData) {
 
+
+
         LinearLayoutManager lmTopList, lmMiddleList, lmBottomList;
 
         lmTopList = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -230,7 +256,8 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
 
         recyclerViewMiddle.BindRecyclerView(new HomeMiddleBinder(getDockActivity(), prefHelper, this), videoInnerData, lmMiddleList, new DefaultItemAnimator());
 
-        spinner.setAdapter(new CustomSpinnerAdapter(getActivity(),R.layout.support_simple_spinner_dropdown_item,spinnerArray,"Most View"));
+
+
     }
 
 
