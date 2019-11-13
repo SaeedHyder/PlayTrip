@@ -13,6 +13,7 @@
         android:orientation="vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivProfileImage"
             android:layout_width="@dimen/x74"
             android:layout_height="@dimen/x68"
             android:src="@drawable/s3_img">
@@ -20,6 +21,7 @@
         </de.hdodenhof.circleimageview.CircleImageView>
 
         <TextView
+            android:id="@+id/txtName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/x13"
