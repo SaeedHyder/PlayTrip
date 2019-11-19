@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.app.playtrip.R;
 import com.app.playtrip.activities.DockActivity;
+import com.app.playtrip.entities.video.VideoInnerData;
 import com.app.playtrip.helpers.BasePreferenceHelper;
 import com.app.playtrip.interfaces.RecyclerClickListner;
 import com.app.playtrip.ui.viewbinders.abstracts.RecyclerViewBinder;
@@ -14,7 +15,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class VideosBinder extends RecyclerViewBinder<String> {
+public class VideosBinder extends RecyclerViewBinder<VideoInnerData> {
 
     private DockActivity dockActivity;
     private BasePreferenceHelper prefHelper;
@@ -36,7 +37,7 @@ public class VideosBinder extends RecyclerViewBinder<String> {
 
 
     @Override
-    public void bindView(String entity, int position, Object holder, Context context) {
+    public void bindView(VideoInnerData entity, int position, Object holder, Context context) {
         ViewHolder viewHolder=(ViewHolder)holder;
 
 
@@ -49,6 +50,7 @@ public class VideosBinder extends RecyclerViewBinder<String> {
             viewHolder.tvItemTop.setVisibility(View.GONE);
         }
 
+        viewHolder.txtHeading.setText(entity.getTitle());
     }
 
 

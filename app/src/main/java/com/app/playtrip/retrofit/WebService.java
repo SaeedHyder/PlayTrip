@@ -1,7 +1,9 @@
 package com.app.playtrip.retrofit;
 
 
+import com.app.playtrip.entities.FollowingEnt;
 import com.app.playtrip.entities.User.DataUser;
+import com.app.playtrip.entities.User.User;
 import com.app.playtrip.entities.Wrapper.ResponseSimple;
 import com.app.playtrip.entities.Wrapper.ResponseWrapper;
 import com.app.playtrip.entities.Data;
@@ -65,6 +67,10 @@ public interface WebService {
     Call<ResponseWrapper<Data<VideoInnerData>>> getVideos(
         @Query("video_type") String videoType
     );
+    @GET("videos")
+    Call<ResponseWrapper<Data<VideoInnerData>>> getUserVideos(
+            @Query("user_id") String user_id
+    );
 
     @GET("banners")
     Call<ResponseWrapper<Data<BannersInnerData>>> getBanners();
@@ -102,5 +108,17 @@ public interface WebService {
 
     @GET("users/get-users-by-type")
 Call<ResponseWrapper<Data<TrendingEntity>>> getTrendingVideos(@Query("user_type") String user_type);//t[trendy,recent]
+
+    @GET("users/get-user-by-id/{id}")
+    Call<ResponseWrapper<User>> getUserDetail(@Path("id") String id);
+
+
+    @GET("users/get-user-follower-profiles")
+    Call<ResponseWrapper<Data<FollowingEnt>>> getFollower(@Query("user_id") String user_id);
+
+
+    @GET("users/get-user-followed-profiles")
+    Call<ResponseWrapper<Data<FollowingEnt>>> getFollowed(@Query("user_id") String user_id);
+
 
 }

@@ -24,6 +24,7 @@ import com.app.playtrip.fragments.abstracts.BaseFragment;
 import com.app.playtrip.global.AppConstants;
 import com.app.playtrip.global.WebServiceConstants;
 import com.app.playtrip.helpers.UIHelper;
+import com.app.playtrip.interfaces.RecycleHomeClickListner;
 import com.app.playtrip.interfaces.RecyclerClickListner;
 import com.app.playtrip.ui.adapters.CustomSpinnerAdapter;
 import com.app.playtrip.ui.binders.HomeBottomBinder;
@@ -51,7 +52,7 @@ import butterknife.OnClick;
 import static com.app.playtrip.activities.DockActivity.KEY_FRAG_FIRST;
 
 
-public class HomeFragment extends BaseFragment implements RecyclerClickListner, AutoCompleteLocation.AutoCompleteLocationListener, ViewPagerEx.OnPageChangeListener {
+public class HomeFragment extends BaseFragment implements RecycleHomeClickListner, AutoCompleteLocation.AutoCompleteLocationListener, ViewPagerEx.OnPageChangeListener {
 
 
     @BindView(R.id.sliderLayout)
@@ -261,12 +262,6 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
     }
 
 
-
-    @Override
-    public void onClick(Object entity, int position) {
-
-    }
-
     @OnClick({R.id.tv_viewMore,R.id.btnProfile})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -274,7 +269,7 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
                 replaceMainFragment(DetailVideoFragment.newInstance());
                 break;
             case R.id.btnProfile:
-                replaceMainFragment(ProfileFragment.newInstance());
+                replaceMainFragment(ProfileFragment.newInstance(prefHelper.getUser().getId()+""));
                 break;
 
         }
@@ -309,8 +304,17 @@ public class HomeFragment extends BaseFragment implements RecyclerClickListner, 
     private void setUserBottomData(ArrayList<TrendingEntity> trendingData){
         LinearLayoutManager lmBottomList = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerViewBottom.BindRecyclerView(new HomeBottomBinder(getDockActivity(), prefHelper, this), trendingData, lmBottomList, new DefaultItemAnimator());
-
     }
 
+    @Override
+    public void onClick(Object entity, int position, String key) {
+
+        switch (key){
+            case "User":
+                TrendingEntity ent=(TrendingEntity)entity;
+                replaceMainFragment(ProfileFragment.newInstance(ent.getId()+""));
+                break;
+        }
+    }
 }
 

@@ -23,15 +23,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.playtrip.R;
+import com.app.playtrip.entities.User.DataUser;
+import com.app.playtrip.entities.User.User;
 import com.app.playtrip.fragments.HomeFragment;
 import com.app.playtrip.fragments.SettingsFragment;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
+import com.app.playtrip.global.WebServiceConstants;
 import com.app.playtrip.helpers.PermissionHelper;
 import com.app.playtrip.ui.views.TitleBar;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocomplete;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
@@ -82,6 +86,7 @@ public class ProfileFragment extends BaseFragment {
     private int MAX_ATTACHMENT_COUNT = 1;
     private final int PROFILE_IMAGE_KEY = 223;
     private final int PROFILE_IMAGE_BANNER_KEY = 552;
+    private static String userId="";
 
     private ArrayList<String> photoPaths = new ArrayList<>();
 
@@ -89,6 +94,12 @@ public class ProfileFragment extends BaseFragment {
     public static ProfileFragment newInstance() {
         return new ProfileFragment();
     }
+
+    public static ProfileFragment newInstance(String id) {
+        userId=id;
+        return new ProfileFragment();
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -103,6 +114,13 @@ public class ProfileFragment extends BaseFragment {
 
         setTabLayout();
         tabLayoutistner();
+
+        getDataFromServer();
+    }
+
+    private void getDataFromServer() {
+
+        serviceHelper.enqueueCall(headerWebService.getUserDetail(userId), WebServiceConstants.USER_DETAIL);
     }
 
     @Override
@@ -251,11 +269,11 @@ public class ProfileFragment extends BaseFragment {
     private void setData(TabLayout.Tab tab) {
 
         if (tab.getPosition() == 0) {
-            replaceFragmentProfile(VideosFragment.newInstance());
+            replaceFragmentProfile(VideosFragment.newInstance(userId));
         } else if (tab.getPosition() == 1) {
-            replaceFragmentProfile(FollowedFragment.newInstance());
+            replaceFragmentProfile(FollowedFragment.newInstance(userId));
         } else if (tab.getPosition() == 2) {
-            replaceFragmentProfile(FollowingFragment.newInstance());
+            replaceFragmentProfile(FollowingFragment.newInstance(userId));
         }
     }
 
@@ -266,7 +284,22 @@ public class ProfileFragment extends BaseFragment {
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.fragmentContainerProfile, frag);
         transaction.addToBackStack(manager.getBackStackEntryCount() == 0 ? KEY_FRAG_FIRST : null).commit();
+    }
 
+    @Override
+    public void ResponseSuccess(Object result, String Tag) {
+        super.ResponseSuccess(result, Tag);
+        switch (Tag){
+            case WebServiceConstants.USER_DETAIL:
+                User ent=(User) result;
+                if(ent!=null ){
+                txtUsername.setText(ent.getName());
+                //Glide.with(getDockActivity()).load(ent.getDetails().getImageUrl()).into(ivProfileImage);
+                Picasso.with(getDockActivity()).load(ent.getDetails().getImageUrl()).error(R.drawable.s2_img2).into(ivProfileImage);
 
+                }
+                break;
+
+        }
     }
 }

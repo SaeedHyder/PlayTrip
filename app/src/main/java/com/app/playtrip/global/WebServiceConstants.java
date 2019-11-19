@@ -11,6 +11,9 @@ public class WebServiceConstants {
     public static final String TRENDING = "trending";
     public static final String VIDEOS = "videos";
     public static final String DELETE_VIDEOS = "video";
+    public static final String USER_DETAIL = "user_detail";
+    public static final String FOLLOWED = "followed";
+    public static final String FOLLOWING = "following";
 
     public static final String UPLOAD_VIDEOS = "videos";
 }

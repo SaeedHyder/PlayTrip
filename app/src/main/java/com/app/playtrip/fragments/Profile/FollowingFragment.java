@@ -7,9 +7,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.app.playtrip.R;
+import com.app.playtrip.entities.Data;
+import com.app.playtrip.entities.FollowingEnt;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
+import com.app.playtrip.global.WebServiceConstants;
 import com.app.playtrip.interfaces.RecyclerClickListner;
 import com.app.playtrip.ui.binders.FollowingBinder;
 import com.app.playtrip.ui.binders.VideosBinder;
@@ -27,9 +31,12 @@ public class FollowingFragment extends BaseFragment implements RecyclerClickList
 
     @BindView(R.id.rvFollowing)
     CustomRecyclerView rvFollowing;
+    @BindView(R.id.noDataFound)
+    TextView noDataFound;
+    private static String userId="";
 
-
-    public static FollowingFragment newInstance() {
+    public static FollowingFragment newInstance(String id) {
+        userId=id;
         return new FollowingFragment();
     }
 
@@ -45,25 +52,34 @@ public class FollowingFragment extends BaseFragment implements RecyclerClickList
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setData();
+        serviceHelper.enqueueCall(headerWebService.getFollower(userId), WebServiceConstants.FOLLOWED);
     }
 
-    private void setData() {
 
-        ArrayList<String> data=new ArrayList<>();
-        data.add("");
-        data.add("");
-        data.add("");
-        data.add("");
-        data.add("");
-        data.add("");
-        data.add("");
-        data.add("");
-        data.add("");
+    @Override
+    public void ResponseSuccess(Object result, String Tag) {
+        super.ResponseSuccess(result, Tag);
+        switch (Tag) {
+            case WebServiceConstants.FOLLOWED:
+                Data<FollowingEnt> data = (Data<FollowingEnt>) result;
+                ArrayList<FollowingEnt> arrayList = data.getData();
+                setData(arrayList);
+                break;
+        }
+    }
 
-        rvFollowing.BindRecyclerView(new FollowingBinder(getDockActivity(), prefHelper, this,false), data,
-                new LinearLayoutManager(getDockActivity(),LinearLayoutManager.VERTICAL,false)
-                , new DefaultItemAnimator());
+    private void setData(ArrayList<FollowingEnt> data) {
+
+        if (data != null && data.size() > 0) {
+            noDataFound.setVisibility(View.GONE);
+            rvFollowing.setVisibility(View.VISIBLE);
+            rvFollowing.BindRecyclerView(new FollowingBinder(getDockActivity(), prefHelper, this, false), data,
+                    new LinearLayoutManager(getDockActivity(), LinearLayoutManager.VERTICAL, false)
+                    , new DefaultItemAnimator());
+        }else {
+            noDataFound.setVisibility(View.VISIBLE);
+            rvFollowing.setVisibility(View.GONE);
+        }
     }
 
 

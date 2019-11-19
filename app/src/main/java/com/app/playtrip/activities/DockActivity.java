@@ -157,11 +157,9 @@ public abstract class DockActivity extends AppCompatActivity implements
         else
             DialogFactory.createQuitDialog(this,
                     new DialogInterface.OnClickListener() {
-
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             DockActivity.this.finish();
-
                         }
                     }, R.string.message_quit).show();
     }

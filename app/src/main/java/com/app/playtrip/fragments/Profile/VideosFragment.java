@@ -7,9 +7,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.app.playtrip.R;
+import com.app.playtrip.entities.Data;
+import com.app.playtrip.entities.video.VideoInnerData;
 import com.app.playtrip.fragments.abstracts.BaseFragment;
+import com.app.playtrip.global.WebServiceConstants;
 import com.app.playtrip.interfaces.RecyclerClickListner;
 import com.app.playtrip.ui.binders.VideosBinder;
 import com.app.playtrip.ui.views.CustomRecyclerView;
@@ -21,19 +25,27 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+import static com.app.playtrip.global.WebServiceConstants.VIDEOS;
+
 public class VideosFragment extends BaseFragment implements RecyclerClickListner {
 
     @BindView(R.id.rvVideos)
     CustomRecyclerView rvVideos;
+    @BindView(R.id.noDataFound)
+    TextView noDataFound;
 
-    public static VideosFragment newInstance() {
+
+    private static String userId = "";
+
+    public static VideosFragment newInstance(String id) {
+        userId = id;
         return new VideosFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_videos, container, false);
-         ButterKnife.bind(this, view);
+        ButterKnife.bind(this, view);
         return view;
     }
 
@@ -41,26 +53,37 @@ public class VideosFragment extends BaseFragment implements RecyclerClickListner
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        setData();
+        serviceHelper.enqueueCall(headerWebService.getUserVideos(userId), VIDEOS);
+
     }
 
-    private void setData() {
+    @Override
+    public void ResponseSuccess(Object result, String Tag) {
+        super.ResponseSuccess(result, Tag);
+        switch (Tag) {
+            case VIDEOS:
+                Data<VideoInnerData> dataVideo = (Data<VideoInnerData>) result;
+                ArrayList<VideoInnerData> videoInnerData = dataVideo.getData();
 
-        ArrayList<String> data=new ArrayList<>();
-        data.add("");
-        data.add("");
-        data.add("");
-        data.add("");
-        data.add("");
-        data.add("");
-        data.add("");
-        data.add("");
-        data.add("");
+                setData(videoInnerData);
+                break;
 
-        rvVideos.BindRecyclerView(new VideosBinder(getDockActivity(), prefHelper, this), data,
-                new LinearLayoutManager(getDockActivity(),LinearLayoutManager.VERTICAL,false)
-                , new DefaultItemAnimator());
+        }
     }
+
+    private void setData(ArrayList<VideoInnerData> data) {
+        if (data != null && data.size() > 0) {
+            noDataFound.setVisibility(View.GONE);
+            rvVideos.setVisibility(View.VISIBLE);
+            rvVideos.BindRecyclerView(new VideosBinder(getDockActivity(), prefHelper, this), data,
+                    new LinearLayoutManager(getDockActivity(), LinearLayoutManager.VERTICAL, false)
+                    , new DefaultItemAnimator());
+        } else {
+            noDataFound.setVisibility(View.VISIBLE);
+            rvVideos.setVisibility(View.GONE);
+        }
+    }
+
 
     @Override
     public void setTitleBar(TitleBar titleBar) {

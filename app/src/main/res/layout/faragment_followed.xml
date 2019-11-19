@@ -3,6 +3,16 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/noDataFound"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x200"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:text="No User Found"
+        android:visibility="gone"/>
+
     <com.app.playtrip.ui.views.CustomRecyclerView
         android:id="@+id/rvFollowed"
         android:layout_width="match_parent"

@@ -5,6 +5,17 @@
 
    >
 
+    <TextView
+        android:id="@+id/noDataFound"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x100"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/x20"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:text="No Video Found"
+        android:visibility="visible"/>
+
     <com.app.playtrip.ui.views.CustomRecyclerView
         android:id="@+id/rvVideos"
         android:layout_width="match_parent"

@@ -12,7 +12,7 @@ public class Details{
     private String userId;
     @SerializedName("image")
     @Expose
-    private Object image;
+    private String image;
     @SerializedName("first_name")
     @Expose
     private String firstName;
@@ -69,11 +69,11 @@ public class Details{
         this.userId = userId;
     }
 
-    public Object getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Object image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

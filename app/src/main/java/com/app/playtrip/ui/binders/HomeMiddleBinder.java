@@ -9,6 +9,7 @@ import com.app.playtrip.R;
 import com.app.playtrip.activities.DockActivity;
 import com.app.playtrip.entities.video.VideoInnerData;
 import com.app.playtrip.helpers.BasePreferenceHelper;
+import com.app.playtrip.interfaces.RecycleHomeClickListner;
 import com.app.playtrip.interfaces.RecyclerClickListner;
 import com.app.playtrip.ui.viewbinders.abstracts.RecyclerViewBinder;
 import com.squareup.picasso.Picasso;
@@ -22,9 +23,9 @@ public class HomeMiddleBinder extends RecyclerViewBinder<VideoInnerData> {
 
     private DockActivity dockActivity;
     private BasePreferenceHelper prefHelper;
-    private RecyclerClickListner clickListner;
+    private RecycleHomeClickListner clickListner;
 
-    public HomeMiddleBinder(DockActivity dockActivity, BasePreferenceHelper prefHelper, RecyclerClickListner clickListner) {
+    public HomeMiddleBinder(DockActivity dockActivity, BasePreferenceHelper prefHelper, RecycleHomeClickListner clickListner) {
         super(R.layout.item_home_middle);
         this.dockActivity = dockActivity;
         this.prefHelper = prefHelper;

@@ -2,12 +2,14 @@ package com.app.playtrip.ui.binders;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.app.playtrip.R;
 import com.app.playtrip.activities.DockActivity;
 import com.app.playtrip.entities.trending.TrendingEntity;
 import com.app.playtrip.helpers.BasePreferenceHelper;
+import com.app.playtrip.interfaces.RecycleHomeClickListner;
 import com.app.playtrip.interfaces.RecyclerClickListner;
 import com.app.playtrip.ui.viewbinders.abstracts.RecyclerViewBinder;
 import com.squareup.picasso.Picasso;
@@ -20,9 +22,9 @@ public class HomeBottomBinder extends RecyclerViewBinder<TrendingEntity> {
 
     private DockActivity dockActivity;
     private BasePreferenceHelper prefHelper;
-    private RecyclerClickListner clickListner;
+    private RecycleHomeClickListner clickListner;
 
-    public HomeBottomBinder(DockActivity dockActivity, BasePreferenceHelper prefHelper, RecyclerClickListner clickListner) {
+    public HomeBottomBinder(DockActivity dockActivity, BasePreferenceHelper prefHelper, RecycleHomeClickListner clickListner) {
         super(R.layout.item_home_bottom);
         this.dockActivity = dockActivity;
         this.prefHelper = prefHelper;
@@ -42,6 +44,15 @@ public class HomeBottomBinder extends RecyclerViewBinder<TrendingEntity> {
 
         Picasso.with(context).load(entity.getDetails().getImageUrl()).error(R.drawable.bg).into(holder.ivProfileImage);
         holder.txtName.setText(entity.getName());
+
+        holder.llMainFrame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickListner.onClick(entity,position,"User");
+
+            }
+        });
+
     }
 
 
@@ -51,7 +62,8 @@ public class HomeBottomBinder extends RecyclerViewBinder<TrendingEntity> {
         CircleImageView ivProfileImage;
         @BindView(R.id.txtName)
         TextView txtName;
-
+        @BindView(R.id.llMainFrame)
+        LinearLayout llMainFrame;
         ViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
