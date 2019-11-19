@@ -51,6 +51,7 @@ public class FollowingBinder extends RecyclerViewBinder<FollowingEnt> {
             viewHolder.btnFollow.setVisibility(View.VISIBLE);
         }
 
+
         viewHolder.txtName.setText(entity.getName()+"");
         Picasso.with(context).load(entity.getDetails().getImageUrl()).error(R.drawable.s2_img2).into(viewHolder.ivImage);
 

@@ -17,6 +17,8 @@ import butterknife.ButterKnife;
 
 public class VideosBinder extends RecyclerViewBinder<VideoInnerData> {
 
+
+
     private DockActivity dockActivity;
     private BasePreferenceHelper prefHelper;
     private ImageLoader imageLoader;
@@ -38,31 +40,45 @@ public class VideosBinder extends RecyclerViewBinder<VideoInnerData> {
 
     @Override
     public void bindView(VideoInnerData entity, int position, Object holder, Context context) {
-        ViewHolder viewHolder=(ViewHolder)holder;
+        ViewHolder viewHolder = (ViewHolder) holder;
 
 
-        if (position == 0){
+        if (position == 0) {
             viewHolder.tvItemBottom.setVisibility(View.GONE);
             viewHolder.tvItemTop.setVisibility(View.VISIBLE);
 
-        }else {
+        } else {
             viewHolder.tvItemBottom.setVisibility(View.VISIBLE);
             viewHolder.tvItemTop.setVisibility(View.GONE);
         }
 
         viewHolder.txtHeading.setText(entity.getTitle());
+        viewHolder.tvSubHeading.setText(entity.getCaption());
+        viewHolder.tvViews.setText(entity.getVideo_view_count());
+        viewHolder.tvShare.setText(entity.getVideo_share_count());
+        viewHolder.tvLikes.setText(entity.getVideo_like_count());
+        viewHolder.tvTimeDuration.setText(entity.getVideo_length());
+
     }
 
 
     static class ViewHolder extends BaseViewHolder {
         @BindView(R.id.txtHeading)
         TextView txtHeading;
-        @BindView(R.id.tv_galleryItemShare)
-        TextView tvGalleryItemShare;
         @BindView(R.id.tv_itemTop)
         TextView tvItemTop;
         @BindView(R.id.tv_itemBottom)
         TextView tvItemBottom;
+        @BindView(R.id.tv_subHeading)
+        TextView tvSubHeading;
+        @BindView(R.id.tv_views)
+        TextView tvViews;
+        @BindView(R.id.tv_share)
+        TextView tvShare;
+        @BindView(R.id.tv_likes)
+        TextView tvLikes;
+        @BindView(R.id.tv_timeDuration)
+        TextView tvTimeDuration;
 
 
         ViewHolder(View view) {

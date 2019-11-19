@@ -83,11 +83,10 @@
                     android:id="@+id/tv_viewMore"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/x12"
                     android:gravity="right"
                     android:text="@string/view_more"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/x16"
+                    android:textSize="@dimen/x14"
                     />
 
             </LinearLayout>
@@ -126,7 +125,7 @@
                     android:gravity="right"
                     android:text="@string/view_more"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/x16"
+                    android:textSize="@dimen/x14"
                     />
 
             </LinearLayout>
