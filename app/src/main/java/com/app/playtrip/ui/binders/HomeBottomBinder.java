@@ -42,7 +42,7 @@ public class HomeBottomBinder extends RecyclerViewBinder<TrendingEntity> {
 
         final ViewHolder holder = (ViewHolder) viewHolder;
 
-        Picasso.with(context).load(entity.getDetails().getImageUrl()).error(R.drawable.bg).into(holder.ivProfileImage);
+        Picasso.with(context).load(entity.getDetails().getImageUrl()).error(R.drawable.s21_img).into(holder.ivProfileImage);
         holder.txtName.setText(entity.getName());
 
         holder.llMainFrame.setOnClickListener(new View.OnClickListener() {

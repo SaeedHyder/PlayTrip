@@ -41,17 +41,14 @@ public class DetailVideoBinder extends RecyclerViewBinder<VideoInnerData> {
         final ViewHolder holder = (ViewHolder) viewHolder;
         holder.tvItemVHeading.setText(""+entity.getTitle());
         holder.tvItemVSubHeading.setText(""+entity.getCaption());
-        //holder.tvLocation.setText(""+entity.getLocation_id());
-      //  holder.tvVTime.setText(""+entity.getVideo_length());
+        holder.tvLocation.setText(""+entity.getLocation().getCity());
+        holder.tvVTime.setText(""+entity.getVideo_length());
         holder.tvView.setText(""+entity.getVideo_view_count());
         holder.tvShare.setText(""+entity.getVideo_share_count());
         holder.tvComment.setText(""+entity.getVideo_comment_count());
         holder.tvLikes.setText(""+entity.getVideo_like_count());
 
-
-
         Picasso.with(context).load(entity.getThumbnail_image_url()).error(R.drawable.bg).into(holder.ivItemBg);
-
 
     }
 

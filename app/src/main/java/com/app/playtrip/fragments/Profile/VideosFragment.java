@@ -31,8 +31,6 @@ public class VideosFragment extends BaseFragment implements RecyclerClickListner
 
     @BindView(R.id.rvVideos)
     CustomRecyclerView rvVideos;
-    @BindView(R.id.noDataFound)
-    TextView noDataFound;
 
 
     private static String userId = "";
@@ -73,13 +71,11 @@ public class VideosFragment extends BaseFragment implements RecyclerClickListner
 
     private void setData(ArrayList<VideoInnerData> data) {
         if (data != null && data.size() > 0) {
-            noDataFound.setVisibility(View.GONE);
             rvVideos.setVisibility(View.VISIBLE);
             rvVideos.BindRecyclerView(new VideosBinder(getDockActivity(), prefHelper, this), data,
                     new LinearLayoutManager(getDockActivity(), LinearLayoutManager.VERTICAL, false)
                     , new DefaultItemAnimator());
         } else {
-            noDataFound.setVisibility(View.VISIBLE);
             rvVideos.setVisibility(View.GONE);
         }
     }

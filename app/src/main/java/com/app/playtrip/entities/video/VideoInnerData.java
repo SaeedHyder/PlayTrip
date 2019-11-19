@@ -1,5 +1,7 @@
 package com.app.playtrip.entities.video;
 
+import com.app.playtrip.entities.User.User;
+
 import java.util.ArrayList;
 
 public class VideoInnerData {
@@ -13,13 +15,31 @@ public class VideoInnerData {
     private String locale;
     private String title;
     private String caption;
-    private String  video_like_count;
-    private String  video_view_count;
-    private String  video_share_count ;
-    private String   video_comment_count;
+    private String video_like_count;
+    private String video_view_count;
+    private String video_share_count;
+    private String video_comment_count;
     private String video_url_path;
     private String thumbnail_image_url;
-    private ArrayList<VideoTranslations> translations ;
+    private ArrayList<VideoTranslations> translations;
+    private User user;
+    private Location location;
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public long getId() {
         return id;
@@ -177,6 +197,8 @@ public class VideoInnerData {
                 ", video_url_path='" + video_url_path + '\'' +
                 ", thumbnail_image_url='" + thumbnail_image_url + '\'' +
                 ", translations=" + translations +
+                ", user=" + user +
+                ", location=" + location +
                 '}';
     }
 }

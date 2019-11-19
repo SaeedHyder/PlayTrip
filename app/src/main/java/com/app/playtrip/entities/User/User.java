@@ -36,6 +36,7 @@ public class User {
     @Expose
     private Integer expiresIn;
 
+
     public Integer getId() {
         return id;
     }

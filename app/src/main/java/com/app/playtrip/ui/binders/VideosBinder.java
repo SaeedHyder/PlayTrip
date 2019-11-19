@@ -18,7 +18,6 @@ import butterknife.ButterKnife;
 public class VideosBinder extends RecyclerViewBinder<VideoInnerData> {
 
 
-
     private DockActivity dockActivity;
     private BasePreferenceHelper prefHelper;
     private ImageLoader imageLoader;
@@ -58,6 +57,8 @@ public class VideosBinder extends RecyclerViewBinder<VideoInnerData> {
         viewHolder.tvShare.setText(entity.getVideo_share_count());
         viewHolder.tvLikes.setText(entity.getVideo_like_count());
         viewHolder.tvTimeDuration.setText(entity.getVideo_length());
+        viewHolder.tvTimeDuration.setText(entity.getLocation().getCity());
+
 
     }
 
@@ -79,6 +80,9 @@ public class VideosBinder extends RecyclerViewBinder<VideoInnerData> {
         TextView tvLikes;
         @BindView(R.id.tv_timeDuration)
         TextView tvTimeDuration;
+
+        @BindView(R.id.tv_location)
+        TextView tvLocation;
 
 
         ViewHolder(View view) {

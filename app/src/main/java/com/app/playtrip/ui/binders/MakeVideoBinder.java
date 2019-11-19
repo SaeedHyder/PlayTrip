@@ -41,7 +41,7 @@ public class MakeVideoBinder extends RecyclerViewBinder<VideoInnerData> {
         final ViewHolder holder = (ViewHolder) viewHolder;
         holder.tvHeading.setText(""+entity.getTitle());
         holder.tvItemVSubHeading.setText(""+entity.getCaption());
-        holder.tvLocation.setText(""+entity.getLocale());
+        holder.tvLocation.setText(""+entity.getUser().getDetails().getCity());
         holder.tvVTime.setText(""+entity.getVideo_length());
         Picasso.with(context).load(entity.getThumbnail_image_url()).error(R.drawable.bg).into(holder.imgItemTrim);
         holder.itemView.setOnClickListener(new View.OnClickListener() {

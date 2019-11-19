@@ -68,7 +68,7 @@
                     android:layout_alignTop="@+id/civ_itemHL"
                     android:layout_marginLeft="@dimen/x4"
                     android:layout_toRightOf="@+id/civ_itemHL"
-                    android:maxLength="11"
+                    android:maxLength="9"
                     android:maxLines="1"
                     android:paddingRight="@dimen/x4"
                     android:text="BeckeryBeck12"
